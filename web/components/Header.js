@@ -1,57 +1,57 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
-import {withRouter} from 'next/router'
+import { withRouter } from 'next/router'
 import SVG from 'react-inlinesvg'
 import styles from './Header.module.css'
 import HamburgerIcon from './icons/Hamburger'
 
 class Header extends Component {
-  state = {showNav: false}
+  state = { showNav: false }
 
   static propTypes = {
     router: PropTypes.shape({
       pathname: PropTypes.string,
       query: PropTypes.shape({
-        slug: PropTypes.string
+        slug: PropTypes.string,
       }),
-      events: PropTypes.any
+      events: PropTypes.any,
     }),
     title: PropTypes.string,
     navItems: PropTypes.arrayOf(
       PropTypes.shape({
         title: PropTypes.string.isRequired,
         slug: PropTypes.shape({
-          current: PropTypes.string
-        }).isRequired
+          current: PropTypes.string,
+        }).isRequired,
       })
     ),
     logo: PropTypes.shape({
       asset: PropTypes.shape({
-        url: PropTypes.string
+        url: PropTypes.string,
       }),
-      logo: PropTypes.string
-    })
+      logo: PropTypes.string,
+    }),
   }
 
-  componentDidMount () {
-    const {router} = this.props
+  componentDidMount() {
+    const { router } = this.props
     router.events.on('routeChangeComplete', this.hideMenu)
   }
 
-  componentWillUnmount () {
-    const {router} = this.props
+  componentWillUnmount() {
+    const { router } = this.props
     router.events.off('routeChangeComplete', this.hideMenu)
   }
 
   hideMenu = () => {
-    this.setState({showNav: false})
+    this.setState({ showNav: false })
   }
 
   handleMenuToggle = () => {
-    const {showNav} = this.state
+    const { showNav } = this.state
     this.setState({
-      showNav: !showNav
+      showNav: !showNav,
     })
   }
 
@@ -67,9 +67,9 @@ class Header extends Component {
     return <img src={logo.asset.url} alt={logo.title} className={styles.logo} />
   }
 
-  render () {
-    const {title = 'Missing title', navItems, router, logo} = this.props
-    const {showNav} = this.state
+  render() {
+    const { title = 'Missing title', navItems, router, logo } = this.props
+    const { showNav } = this.state
 
     return (
       <div className={styles.root} data-show-nav={showNav}>
@@ -78,11 +78,10 @@ class Header extends Component {
             href={{
               pathname: '/LandingPage',
               query: {
-                slug: '/'
-              }
+                slug: '/',
+              },
             }}
-            as='/'
-            prefetch
+            as="/"
           >
             <a title={title}>{this.renderLogo(logo)}</a>
           </Link>
@@ -91,7 +90,7 @@ class Header extends Component {
           <ul className={styles.navItems}>
             {navItems &&
               navItems.map(item => {
-                const {slug, title, _id} = item
+                const { slug, title, _id } = item
                 const isActive =
                   router.pathname === '/LandingPage' && router.query.slug === slug.current
                 return (
@@ -99,10 +98,9 @@ class Header extends Component {
                     <Link
                       href={{
                         pathname: '/LandingPage',
-                        query: {slug: slug.current}
+                        query: { slug: slug.current },
                       }}
                       as={`/${slug.current}`}
-                      prefetch
                     >
                       <a data-is-active={isActive ? 'true' : 'false'}>{title}</a>
                     </Link>
