@@ -2,15 +2,25 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
 import { withRouter } from 'next/router'
+import styled from 'styled-components'
 import styles from './Footer.module.css'
 import SimpleBlockContent from './SimpleBlockContent'
+
+const Items = styled.div`
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0 0 3rem;
+  padding: 0;
+  border: dashed red;
+`
 
 function Footer(props) {
   const { navItems, text, router } = props
   return (
     <div className={styles.root}>
       <nav>
-        <ul className={styles.items}>
+        <Items className={styles.items}>
           {navItems &&
             navItems.map(item => {
               const isActive =
@@ -29,7 +39,7 @@ function Footer(props) {
                 </li>
               )
             })}
-        </ul>
+        </Items>
       </nav>
       <div className={styles.text}>
         <SimpleBlockContent blocks={text} />

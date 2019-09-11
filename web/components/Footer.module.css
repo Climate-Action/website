@@ -8,11 +8,11 @@
 }
 
 .items {
-  list-style: none;
+  /* list-style: none;
   display: flex;
   justify-content: center;
   margin: 0 0 3rem;
-  padding: 0;
+  padding: 0; */
 }
 
 .item {
