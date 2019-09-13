@@ -41,11 +41,11 @@ Layout.propTypes = {
     footerText: PropTypes.arrayOf(PropTypes.object),
     logo: PropTypes.shape({
       asset: PropTypes.shape({
-        url: PropTypes.string
-      })
+        url: PropTypes.string,
+      }),
     }),
-    url: PropTypes.string
-  })
+    url: PropTypes.string,
+  }),
 }
 
 export default Layout

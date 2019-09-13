@@ -1,4 +1,4 @@
-const path = require('path')
+// const path = require('path')
 
 module.exports = {
   extends: ['standard', 'standard-react'],
@@ -7,7 +7,8 @@ module.exports = {
     'react/prop-types': 0,
     // 'object-curly-spacing': ['error', 'never']
     'jsx-quotes': ['error', 'prefer-double'],
-    'space-before-function-paren': ["error", "never"]
+    'space-before-function-paren': ["error", "never"],
+    "comma-dangle": ["warn", "always-multiline"],
   },
   settings: {
     react: {

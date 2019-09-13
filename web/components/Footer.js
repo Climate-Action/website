@@ -30,7 +30,7 @@ function Footer(props) {
                   <Link
                     href={{
                       pathname: '/LandingPage',
-                      query: { slug: item.slug.current }
+                      query: { slug: item.slug.current },
                     }}
                     as={`/${item.slug.current}`}
                   >
@@ -53,17 +53,17 @@ Footer.propTypes = {
     PropTypes.shape({
       title: PropTypes.string.isRequired,
       slug: PropTypes.shape({
-        current: PropTypes.string
-      }).isRequired
+        current: PropTypes.string,
+      }).isRequired,
     })
   ),
   text: PropTypes.arrayOf(PropTypes.object),
   router: PropTypes.shape({
     pathname: PropTypes.string,
     query: PropTypes.shape({
-      slug: PropTypes.string
-    })
-  })
+      slug: PropTypes.string,
+    }),
+  }),
 }
 
 export default withRouter(Footer)

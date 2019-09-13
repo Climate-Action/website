@@ -8,8 +8,8 @@ import Cta from '../Cta'
 
 const builder = imageUrlBuilder(client)
 
-function ImageSection (props) {
-  const {heading, label, text, image, cta} = props
+function ImageSection(props) {
+  const { heading, label, text, image, cta } = props
 
   if (!image) {
     return null
@@ -48,12 +48,12 @@ ImageSection.propTypes = {
   text: PropTypes.array,
   image: PropTypes.shape({
     asset: PropTypes.shape({
-      _ref: PropTypes.string
-    })
+      _ref: PropTypes.string,
+    }),
   }),
   backgroundImage: PropTypes.string,
   tagline: PropTypes.string,
-  cta: PropTypes.object
+  cta: PropTypes.object,
 }
 
 export default ImageSection

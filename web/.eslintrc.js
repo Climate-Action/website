@@ -3,7 +3,8 @@ module.exports = {
   rules: {
     // 'object-curly-spacing': ['error', 'never'],
     'jsx-quotes': ['warn', 'prefer-double'],
-    'space-before-function-paren': ['warn', 'never']
+    'space-before-function-paren': ['warn', 'never'],
+    "comma-dangle": ["warn", "always-multiline"],
   },
   settings: {
     react: {

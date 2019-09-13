@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 import BlockContent from '@sanity/block-content-to-react'
 import client from '../client'
 
-const {projectId, dataset} = client.config()
+const { projectId, dataset } = client.config()
 
-function SimpleBlockContent (props) {
-  const {blocks} = props
+function SimpleBlockContent(props) {
+  const { blocks } = props
 
   if (!blocks) {
     console.error('Missing blocks')
@@ -17,7 +17,7 @@ function SimpleBlockContent (props) {
 }
 
 SimpleBlockContent.propTypes = {
-  blocks: PropTypes.arrayOf(PropTypes.object)
+  blocks: PropTypes.arrayOf(PropTypes.object),
 }
 
 export default SimpleBlockContent

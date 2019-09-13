@@ -1,9 +1,9 @@
-import React, {Fragment} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
-import {upperFirst} from 'lodash'
+import { upperFirst } from 'lodash'
 import * as SectionComponents from './sections'
 
-function resolveSections (section) {
+function resolveSections(section) {
   // eslint-disable-next-line import/namespace
   const Section = SectionComponents[upperFirst(section._type)]
 
@@ -15,8 +15,8 @@ function resolveSections (section) {
   return null
 }
 
-function RenderSections (props) {
-  const {sections} = props
+function RenderSections(props) {
+  const { sections } = props
 
   if (!sections) {
     console.error('Missing section')
@@ -24,7 +24,7 @@ function RenderSections (props) {
   }
 
   return (
-    <Fragment>
+    <>
       {sections.map(section => {
         const SectionComponent = resolveSections(section)
         if (!SectionComponent) {
@@ -32,7 +32,7 @@ function RenderSections (props) {
         }
         return <SectionComponent {...section} key={section._key} />
       })}
-    </Fragment>
+    </>
   )
 }
 
@@ -41,9 +41,9 @@ RenderSections.propTypes = {
     PropTypes.shape({
       _type: PropTypes.string,
       _key: PropTypes.string,
-      section: PropTypes.instanceOf(PropTypes.object)
+      section: PropTypes.instanceOf(PropTypes.object),
     })
-  )
+  ),
 }
 
 export default RenderSections
