@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
 import { withRouter } from 'next/router'
-import SVG from 'react-inlinesvg'
+import Svg from 'react-inlinesvg'
 import styles from './Header.module.css'
 import HamburgerIcon from './icons/Hamburger'
 
@@ -61,7 +61,7 @@ class Header extends Component {
     }
 
     if (logo.asset.extension === 'svg') {
-      return <SVG src={logo.asset.url} className={styles.logo} />
+      return <Svg src={logo.asset.url} className={styles.logo} />
     }
 
     return <img src={logo.asset.url} alt={logo.title} className={styles.logo} />
