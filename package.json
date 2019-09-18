@@ -19,6 +19,7 @@
   "devDependencies": {
     "@sanity/cli": "^0.142.2",
     "lerna": "^3.16.4",
-    "prettier-eslint": "^9.0.0"
+    "prettier-eslint": "^9.0.0",
+    "webpack": "^4.40.2"
   }
 }

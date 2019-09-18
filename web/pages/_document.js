@@ -1,6 +1,6 @@
 import React from 'react'
 import Document, { Html, Head, Main, NextScript } from 'next/document'
-import { ServerStyleSheet, injectGlobal } from 'styled-components'
+// import { ServerStyleSheet, injectGlobal } from 'styled-components'
 
 import client from '../client'
 
