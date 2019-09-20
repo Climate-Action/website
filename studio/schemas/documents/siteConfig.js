@@ -1,4 +1,4 @@
-import bcp47 from 'bcp47';
+import bcp47 from 'bcp47'
 
 export default {
   name: 'site-config',
@@ -27,19 +27,15 @@ export default {
     },
     {
       title: 'Site language',
-      description:
-        'Should be a valid bcp47 language code like en, en-US, no or nb-NO',
+      description: 'Should be a valid bcp47 language code like en, en-US, no or nb-NO',
       name: 'lang',
       type: 'string',
       validation: Rule =>
-        Rule.custom(lang =>
-          bcp47.parse(lang) ? true : 'Please use a valid bcp47 code'
-        ),
+        Rule.custom(lang => (bcp47.parse(lang) ? true : 'Please use a valid bcp47 code')),
     },
     {
       title: 'Brand logo',
-      description:
-        'Best choice is to use an SVG where the color are set with currentColor',
+      description: 'Best choice is to use an SVG where the color are set with currentColor',
       name: 'logo',
       type: 'image',
       fields: [
@@ -92,4 +88,4 @@ export default {
       fieldset: 'footer',
     },
   ],
-};
+}
