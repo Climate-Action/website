@@ -1,7 +1,7 @@
 export default {
-  type: 'object',
-  name: 'imageSection',
-  title: 'Image with text',
+  type: 'document',
+  name: 'result',
+  title: 'Result',
   fields: [
     {
       name: 'heading',
@@ -9,14 +9,9 @@ export default {
       title: 'Heading',
     },
     {
-      name: 'label',
-      type: 'string',
-      title: 'Label',
-    },
-    {
-      name: 'text',
+      name: 'intro',
       type: 'simplePortableText',
-      title: 'Text',
+      title: 'Intro',
     },
     {
       name: 'image',
@@ -24,9 +19,16 @@ export default {
       title: 'Image',
     },
     {
-      name: 'cta',
-      type: 'cta',
-      title: 'Call to action',
+      name: 'url',
+      type: 'link',
+      title: 'URL to tool',
+      description: 'If the tool is not a downloadable file, link to it instead',
+    },
+    {
+      name: 'authors',
+      type: 'array',
+      of: [{ type: 'reference', to: { type: 'person' } }],
+      title: 'Authors',
     },
   ],
   preview: {
@@ -37,7 +39,7 @@ export default {
     },
     prepare({ heading, media }) {
       return {
-        title: `Image: ${heading}`,
+        title: `${heading}`,
         subtitle: 'Image section',
         media,
       }
