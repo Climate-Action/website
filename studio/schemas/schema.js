@@ -26,6 +26,7 @@ import personType from './helpers/personType'
 import toolType from './helpers/toolType'
 import dataType from './helpers/dataType'
 import data from './objects/data'
+import result from './objects/result'
 
 // Landing page sections
 import hero from './objects/hero'
@@ -45,6 +46,7 @@ export default createSchema({
     dataType,
     tool,
     data,
+    result,
     countryPicker,
     cta,
     embedHTML,
