@@ -9,11 +9,6 @@ export default {
       title: 'Heading',
     },
     {
-      name: 'label',
-      type: 'string',
-      title: 'Label',
-    },
-    {
       name: 'text',
       type: 'simplePortableText',
       title: 'Text',
