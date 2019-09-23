@@ -1,22 +1,38 @@
 export default {
   type: 'object',
   name: 'textSection',
-  title: 'Text',
+  title: 'Text-block list with image',
   fields: [
-    {
-      name: 'label',
-      type: 'string',
-      title: 'Label',
-    },
     {
       name: 'heading',
       type: 'string',
       title: 'Heading',
     },
     {
-      name: 'text',
-      type: 'portableText',
-      title: 'Text',
+      name: 'items',
+      title: 'Items',
+      type: 'array',
+      of: [{
+        type: 'object',
+        title: 'List item',
+        fields: [
+          {
+            title: 'Title',
+            name: 'title',
+            type: 'string',
+          },
+          {
+            title: 'Text',
+            name: 'text',
+            type: 'portableText',
+          },
+          {
+            title: 'Image',
+            name: 'image',
+            type: 'figure',
+          },
+        ],
+      }],
     },
   ],
   preview: {

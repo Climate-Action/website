@@ -17,6 +17,10 @@ import internalLink from './helpers/internalLink'
 import link from './helpers/link'
 import portableText from './helpers/portableText'
 import simplePortableText from './objects/simplePortableText'
+import header from './objects/header'
+import step from './objects/step'
+import signUpSteps from './objects/signUpSteps'
+import sortBy from './helpers/sortBy'
 
 // Hive specific
 import tool from './objects/tool'
@@ -28,11 +32,15 @@ import dataType from './helpers/dataType'
 import data from './objects/data'
 import result from './objects/result'
 
-// Landing page sections
+// Page sections
 import hero from './objects/hero'
 import imageSection from './objects/imageSection'
 import mailchimp from './objects/mailchimp'
 import textSection from './objects/textSection'
+import toolList from './objects/toolList'
+import participantList from './objects/participantList'
+import dataList from './objects/dataList'
+import signUp from './objects/signUp'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -53,6 +61,7 @@ export default createSchema({
     figure,
     hero,
     imageSection,
+    header,
     internalLink,
     link,
     mailchimp,
@@ -62,5 +71,12 @@ export default createSchema({
     simplePortableText,
     siteConfig,
     textSection,
+    toolList,
+    participantList,
+    dataList,
+    signUp,
+    step,
+    signUpSteps,
+    sortBy,
   ]),
 })

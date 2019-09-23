@@ -19,10 +19,15 @@ export default {
       type: 'array',
       title: 'Page sections',
       of: [
-        { type: 'hero' },
+        { type: 'header' },
         { type: 'imageSection' },
         { type: 'mailchimp' },
         { type: 'textSection' },
+        { type: 'toolList' },
+        { type: 'dataList' },
+        { type: 'participantList' },
+        { type: 'hero' },
+        { type: 'signUp' },
       ],
     },
     {
