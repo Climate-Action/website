@@ -48,24 +48,27 @@ export default createSchema({
   // Then proceed to concatenate our our document type
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
-    person,
-    personType,
-    toolType,
-    dataType,
+    // items
     tool,
     data,
     result,
+    page,
+    // config
+    person,
+    personType,
+    dataType,
+    toolType,
+    // object
     countryPicker,
     cta,
+    hero,
     embedHTML,
     figure,
-    hero,
     imageSection,
     header,
     internalLink,
     link,
     mailchimp,
-    page,
     portableText,
     route,
     simplePortableText,
