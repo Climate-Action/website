@@ -150,4 +150,5 @@ const generateOGImages = (openGraphImage, title, description) =>
     ]
     : []
 
+
 export default LandingPage
