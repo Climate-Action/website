@@ -32,7 +32,7 @@ export default {
     },
     prepare({ heading, media }) {
       return {
-        title: `Image: ${heading}`,
+        title: `${heading}`,
         subtitle: 'Image section',
         media,
       }

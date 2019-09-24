@@ -9,20 +9,17 @@ import Cta from '../Cta'
 const builder = imageUrlBuilder(client)
 
 function ImageSection(props) {
-  const { heading, label, text, image, cta } = props
-
-  if (!image) {
-    return null
-  }
+  const { heading, text, image, cta } = props
 
   return (
     <div className={styles.root}>
+      <h2 className={styles.title}>{heading}</h2>
       <figure className={styles.content}>
         <img
           src={builder
             .image(image)
             .auto('format')
-            .width(2000)
+            .width(800)
             .url()}
           className={styles.image}
           alt={heading}
@@ -30,21 +27,18 @@ function ImageSection(props) {
         <figcaption>
           <div className={styles.caption}>
             <div className={styles.captionBox}>
-              <div className={styles.label}>{label}</div>
-              <h2 className={styles.title}>{heading}</h2>
               {text && <SimpleBlockContent blocks={text} />}
-              {cta && cta.route && <Cta {...cta} />}
             </div>
           </div>
         </figcaption>
       </figure>
+      {cta && cta.route && <Cta {...cta} />}
     </div>
   )
 }
 
 ImageSection.propTypes = {
   heading: PropTypes.string,
-  label: PropTypes.string,
   text: PropTypes.array,
   image: PropTypes.shape({
     asset: PropTypes.shape({
