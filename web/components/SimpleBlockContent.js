@@ -13,11 +13,20 @@ function SimpleBlockContent(props) {
     return null
   }
 
-  return <BlockContent blocks={blocks} projectId={projectId} dataset={dataset} />
+  return <BlockContent blocks={blocks} projectId={projectId} dataset={dataset} serializers={serializers} />
 }
 
 SimpleBlockContent.propTypes = {
   blocks: PropTypes.arrayOf(PropTypes.object),
+}
+
+const serializers = {
+  marks: {
+    internalLink: (props) => {
+      console.warn('make link', props)
+      return <a href={props.mark._ref} id={props.mark._key}>{props.mark.children}</a>
+    },
+  },
 }
 
 export default SimpleBlockContent

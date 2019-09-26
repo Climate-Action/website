@@ -11,7 +11,7 @@ export default {
     {
       name: 'intro',
       title: 'Intro',
-      type: 'string',
+      type: 'simplePortableText',
     },
     {
       name: 'links',

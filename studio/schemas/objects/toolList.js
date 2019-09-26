@@ -10,6 +10,12 @@ export default {
       type: 'string',
     },
     {
+      name: 'tools',
+      title: 'Tools',
+      type: 'array',
+      of: [{type: 'reference', to: [{type:'tool'}]}],
+    },
+    /* {
       name: 'type',
       title: 'Filter on single type',
       description: 'Empty for all types',
@@ -21,6 +27,6 @@ export default {
       title: 'Sort by',
       description: 'NOTE: not implemented yet',
       type: 'sortBy',
-    },
+    }, */
   ],
 }

@@ -21,6 +21,10 @@ const pageQuery = groq`
       ctas[] {
         ...,
         route->
+      },
+      toolList {
+        ...,
+        tools[] ->
       }
     }
   }
@@ -46,7 +50,10 @@ class LandingPage extends Component {
       return
     }
     if (slug && slug !== '/') {
-      return client.fetch(pageQuery, { slug }).then(res => ({ ...res.page, slug }))
+      return client.fetch(pageQuery, { slug }).then(res => {
+        console.log("RESPONSE", res)
+        return { ...res.page, slug }
+      })
     }
 
     // Frontpage
@@ -72,7 +79,10 @@ class LandingPage extends Component {
         }
       `
         )
-        .then(res => ({ ...res.frontpage, slug }))
+        .then(res => {
+          console.log("Frontres", res)
+          return({ ...res.frontpage, slug })
+        })
     }
 
     return null

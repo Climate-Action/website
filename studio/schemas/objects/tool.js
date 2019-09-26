@@ -70,8 +70,8 @@ export default {
     },
     prepare({ heading, media }) {
       return {
-        title: `Tool: ${heading}`,
-        subtitle: 'Image section',
+        title: `${heading}`,
+        subtitle: 'Tool',
         media,
       }
     },

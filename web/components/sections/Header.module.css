@@ -1,0 +1,25 @@
+@import '../../styles/custom-media.css';
+@import '../../styles/custom-properties.css';
+
+.root {
+  padding: 2rem 0;
+
+  @media (--media-min-medium) {
+    padding: 4rem 0;
+  }
+}
+
+.title {
+  text-align: center;
+  font-size: var(--font-title3-size);
+  line-height: var(--font-title3-line-height);
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+}
+
+.link {
+  flex: 1;
+}

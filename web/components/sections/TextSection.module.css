@@ -11,7 +11,6 @@
 
 .article {
   width: 100%;
-  max-width: var(--width-small);
   margin: 0 auto;
   padding: 0 1.5rem;
   box-sizing: border-box;
@@ -26,8 +25,26 @@
 }
 
 .heading {
+  text-align: center;
   font-size: var(--font-title3-size);
   line-height: var(--font-title3-line-height);
+}
+
+.items {
+  display: flex;
+  justify-content: center;
+}
+
+.item {
+  flex: 1;
+}
+
+.image {
+
+}
+
+.itemTitle {
+
 }
 
 .label+.heading {
