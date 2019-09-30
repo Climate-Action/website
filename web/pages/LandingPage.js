@@ -23,7 +23,9 @@ const pageQuery = groq`
         route->
       },
       tools[] -> {...},
-      
+      data[] -> {...},
+      person[] -> {...},
+      result[] -> {...},
     }
   }
 }
