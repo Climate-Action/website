@@ -22,10 +22,8 @@ const pageQuery = groq`
         ...,
         route->
       },
-      toolList {
-        ...,
-        tools[] ->
-      }
+      tools[] -> {...},
+      
     }
   }
 }
@@ -51,7 +49,7 @@ class LandingPage extends Component {
     }
     if (slug && slug !== '/') {
       return client.fetch(pageQuery, { slug }).then(res => {
-        console.log("RESPONSE", res)
+        // console.log('x', res.page.content)
         return { ...res.page, slug }
       })
     }
@@ -80,7 +78,7 @@ class LandingPage extends Component {
       `
         )
         .then(res => {
-          console.log("Frontres", res)
+          // console.log("Frontres", res)
           return({ ...res.frontpage, slug })
         })
     }
