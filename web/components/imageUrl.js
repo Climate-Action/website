@@ -4,12 +4,12 @@ import client from '../client'
 const builder = imageUrlBuilder(client)
 
 export default (image, height, width) => {
-  const img = builder
+  let img = builder
     .image(image)
     .auto('format')
     .fit('min')
-  if (height) builder.height(height)
-  if (width) builder.width(width)
+  if (height) img = img.height(height)
+  if (width) img = img.width(width)
 
   return img.url()
 }
