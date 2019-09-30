@@ -22,7 +22,10 @@ const pageQuery = groq`
         ...,
         route->
       },
-      tools[] -> {...},
+      tools[] -> {
+        ...,
+        "fileUrl": file.asset->url
+      },
       data[] -> {...},
       person[] -> {...},
       result[] -> {...},
@@ -81,7 +84,7 @@ class LandingPage extends Component {
         )
         .then(res => {
           // console.log("Frontres", res)
-          return({ ...res.frontpage, slug })
+          return { ...res.frontpage, slug }
         })
     }
 
@@ -159,6 +162,5 @@ const generateOGImages = (openGraphImage, title, description) =>
       },
     ]
     : []
-
 
 export default LandingPage
