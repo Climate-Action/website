@@ -6,6 +6,8 @@ import imageUrl from '../imageUrl'
 
 const ToolList = props => {
   const tools = props.tools
+  console.log('party', props)
+
   return (
     <section className={styles.root}>
       {tools && tools.map((tool, index) => <Tool {...tool} key={index} />)}
