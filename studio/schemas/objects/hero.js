@@ -14,12 +14,22 @@ export default {
       title: 'Tagline',
     },
     {
-      name: 'backgroundImage',
+      name: 'backgroundImageSmall',
       type: 'image',
-      title: 'Background image',
-      options: {
-        hotspot: true,
-      },
+      title: 'Small image',
+      options: { hotspot: true },
+    },
+    {
+      name: 'backgroundImageMedium',
+      type: 'image',
+      title: 'Medium image',
+      options: { hotspot: true },
+    },
+    {
+      name: 'backgroundImageLarge',
+      type: 'image',
+      title: 'Large image',
+      options: { hotspot: true },
     },
     {
       name: 'ctas',
