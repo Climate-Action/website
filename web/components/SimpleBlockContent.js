@@ -30,7 +30,7 @@ SimpleBlockContent.propTypes = {
 const serializers = {
   marks: {
     internalLink: props => {
-      console.warn('make link', props)
+      // console.warn('make link', props)
       return (
         <a href={props.mark._ref} id={props.mark._key}>
           {props.mark.children}

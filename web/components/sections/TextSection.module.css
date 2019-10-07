@@ -25,9 +25,10 @@
 }
 
 .heading {
+  composes: label from '../../styles/shared.module.css';
   text-align: center;
-  font-size: var(--font-title3-size);
-  line-height: var(--font-title3-line-height);
+  font-size: 2.5rem;
+  display: inline;
 }
 
 .items {

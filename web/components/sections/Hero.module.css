@@ -78,10 +78,5 @@
 }
 
 .animatedTitles {
-  font-family: var(--font-family-sans);
-  font-weight: 100;
-  text-transform: uppercase;
-  background-color: white;
-  padding: 0.35em 0.25em 0.1em;
-  color: var(--color-theme-text)
+  composes: label from '../../styles/shared.module.css';
 }

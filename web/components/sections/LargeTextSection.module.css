@@ -1,0 +1,28 @@
+@import '../../styles/custom-media.css';
+@import '../../styles/custom-properties.css';
+
+.root {
+  padding: 2rem 0;
+  background-color: var(--color-green);
+
+  @media (--media-min-medium) {
+    padding: 4rem 0;
+  }
+}
+
+.content {
+
+}
+
+.heading {
+  font-family: var(--font-family-sans);
+  font-weight: 100;
+  color: white;
+  text-align: center;
+  font-size: 2rem;
+
+  /*strong {
+    color: var(--color-theme-text);
+    font-family: var(--font-family-header);
+  }*/
+}

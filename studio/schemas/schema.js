@@ -40,6 +40,7 @@ import textSection from './objects/textSection'
 import toolList from './objects/toolList'
 import participantList from './objects/participantList'
 import dataList from './objects/dataList'
+import largeTextSection from './objects/largeTextSection'
 import signUp from './objects/signUp'
 
 // Then we give our schema to the builder and provide the result to Sanity
@@ -76,6 +77,7 @@ export default createSchema({
     textSection,
     toolList,
     participantList,
+    largeTextSection,
     dataList,
     signUp,
     step,

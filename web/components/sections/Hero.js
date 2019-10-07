@@ -52,7 +52,7 @@ Hero.propTypes = {
 const backgroundImage = img =>
   img
     ? {
-        backgroundImage: `url("${imageUrl(img, null, 2000)}")`,
+        backgroundImage: `url("${imageUrl(img, 2000)}")`,
       }
     : {}
 

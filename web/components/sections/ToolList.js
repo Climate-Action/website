@@ -23,7 +23,7 @@ const Tool = ({ heading, type, intro, description, image, fileUrl, url, authors,
   console.log(fileUrl, url)
   return (
     <article className={styles.tool}>
-      <img src={imageUrl(image, 300)} className={styles.image} />
+      <img src={imageUrl(image, null, 300)} className={styles.image} />
 
       <header className={styles.header}>
         {type && <label className={styles.label}>{type.name}</label>}

@@ -7,14 +7,12 @@ import SimpleBlockContent from '../SimpleBlockContent'
 import Cta from '../Cta'
 import imageUrl from '../imageUrl'
 
-const builder = imageUrlBuilder(client)
-
 function ImageSection(props) {
   const { heading, text, image, cta } = props
 
   return (
     <div className={styles.root}>
-      <img src={imageUrl(image, null, 800)} className={styles.image} alt={heading} />
+      <img src={imageUrl(image, 800)} className={styles.image} alt={heading} />
       <div className={styles.content}>
         <h2 className={styles.title}>{heading}</h2>
         <div className={styles.text}>{text && <SimpleBlockContent blocks={text} />}</div>
