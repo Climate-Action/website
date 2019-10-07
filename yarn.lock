@@ -7888,9 +7888,10 @@ neo-async@^2.5.0, neo-async@^2.6.0, neo-async@^2.6.1:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.1.tgz#ac27ada66167fa8849a6addd837f6b189ad2081c"
 
-next-seo@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/next-seo/-/next-seo-2.1.0.tgz#e35f287654f3ff824d46353bed71dd1aee5939f6"
+next-seo@^2.1.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/next-seo/-/next-seo-2.1.2.tgz#71f0ade5c6e237786ecb1fd5bdec4cca351945d6"
+  integrity sha512-jsAFX5xqWnumBbJR82QNw+qC3+ykkQ3HtMguY/4LM269ZiWo4XR+zXiF/vLGX8xsUnqsT8M3D2hksQT5PB1iaA==
 
 next-server@9.0.5:
   version "9.0.5"

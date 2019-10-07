@@ -2,7 +2,8 @@
   --wide-container: 60rem;
   --narrow-container: 40rem;
 
-  --font-family-sans: -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-family-sans: "SpaceGrotesk", sans-serif;
+  --font-family-header: "YoungSerif", serif;
 
   --color-black: #202123;
   --color-dark-gray: #32373e;
@@ -10,7 +11,12 @@
   --color-light-gray: #b4bcc7;
   --color-very-light-gray: #e7ebed;
   --color-white: #fff;
+
   --color-accent: #156dff;
+  --color-theme-bg: #fff3dc;
+  --color-theme-text: #ff7e42;
+  --color-text-special: #1d3d37;
+  --color-text: #073200;
 
   /* Typography */
   --unit: 16;
