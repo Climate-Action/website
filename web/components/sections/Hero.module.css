@@ -4,27 +4,11 @@
 .root {
   composes: center from '../../styles/shared.module.css';
   position: relative;
-  background-color: var(--color-black, #000);
-  color: var(--color-white, #fff);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
   padding-bottom: 2rem;
 
   @media (--media-min-medium) {
     padding-bottom: 4rem;
   }
-}
-
-.root::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 0;
-  background-image: linear-gradient(#2220, #222e);
-  width: 100%;
-  height: 50%;
-  z-index: 0;
 }
 
 .content {
@@ -40,10 +24,9 @@
   font-weight: 600;
   font-size: var(--font-title2-size);
   line-height: var(--font-title2-line-height);
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
   margin: 0;
-  padding: 0;
-  padding-top: 12.5rem;
+  padding: 12.5rem 0 0;
+  color: var(--color-text-special);
 
   @media (--media-min-medium) {
     font-size: var(--font-title1-size);
@@ -54,11 +37,10 @@
 
 .tagline {
   position: relative;
-  margin: 0;
   padding: 0;
-  margin-top: 0.5em;
-  margin-bottom: 1rem;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+  margin: 0.5em 0 1rem;
+  font-family: var(--font-family-header);
+  color: var(--color-text-special);
 
   @media (--media-min-medium) {
     font-size: var(--font-large-size);
@@ -81,4 +63,25 @@
 
 .root p a {
   color: inherit;
+}
+
+.images {
+  display: grid;
+}
+
+.hex {
+  height: 10vh;
+  width: 10vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.animatedTitles {
+  font-family: var(--font-family-sans);
+  font-weight: 100;
+  text-transform: uppercase;
+  background-color: white;
+  padding: 0.35em 0.25em 0.1em;
+  color: var(--color-theme-text)
 }

@@ -19,6 +19,7 @@
     "@sanity/default-layout": "^0.142.4",
     "@sanity/default-login": "^0.142.3",
     "@sanity/desk-tool": "^0.142.4",
+    "@sanity/vision": "^0.142.7",
     "bcp47": "^1.1.2",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",

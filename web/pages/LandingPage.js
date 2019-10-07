@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import NextSeo from 'next-seo'
+import { NextSeo } from 'next-seo'
 import groq from 'groq'
 import imageUrlBuilder from '@sanity/image-url'
 import Layout from '../components/Layout'
@@ -8,28 +8,26 @@ import client from '../client'
 import RenderSections from '../components/RenderSections'
 
 const builder = imageUrlBuilder(client)
-const pageQuery = groq`
-*[_type == "route" && slug.current == $slug][0]{
-  page-> {
-    ...,
-    content[] {
+
+const contentQuery = `
+  content[] {
       ...,
-      cta {
-        ...,
-        route->
-      },
-      ctas[] {
-        ...,
-        route->
-      },
-      tools[] -> {...},
-      data[] -> {...},
-      person[] -> {...},
-      result[] -> {...},
+      cta { ..., route-> },
+      ctas[] { ..., route-> },
+      tools[] -> { ..., "fileUrl": file.asset->url },
+      _type == "toolList" => {"tools":  *[_type == "tool"]},
+      _type == "participantList" => {"participants":  *[_type == "person"]},
+      _type == "dataList" => {"data":  *[_type == "data"]},
     }
-  }
-}
 `
+
+const pageQuery = groq`*[_type == "route" && slug.current == $slug][0]{
+  page -> { ..., ${contentQuery} }
+}`
+
+const frontPageQuery = groq`*[_id == "global-config"][0]{
+  frontpage -> { ..., ${contentQuery} }
+}`
 
 class LandingPage extends Component {
   static propTypes = {
@@ -49,40 +47,16 @@ class LandingPage extends Component {
       console.error('no query')
       return
     }
-    if (slug && slug !== '/') {
-      return client.fetch(pageQuery, { slug }).then(res => {
-        // console.log('x', res.page.content)
-        return { ...res.page, slug }
-      })
-    }
 
-    // Frontpage
-    if (slug && slug === '/') {
-      return client
-        .fetch(
-          groq`
-        *[_id == "global-config"][0]{
-          frontpage -> {
-            ...,
-            content[] {
-              ...,
-              cta {
-                ...,
-                route->
-              },
-              ctas[] {
-                ...,
-                route->
-              }
-            }
-          }
-        }
-      `,
-        )
-        .then(res => {
-          // console.log("Frontres", res)
-          return { ...res.frontpage, slug }
-        })
+    if (slug) {
+      if (slug !== '/') {
+        return client.fetch(pageQuery, { slug }).then(res => ({ ...res.page, slug }))
+      }
+
+      // FrontPage
+      if (slug === '/') {
+        return client.fetch(frontPageQuery).then(res => ({ ...res.frontpage, slug }))
+      }
     }
 
     return null
@@ -103,19 +77,14 @@ class LandingPage extends Component {
 
     return (
       <Layout config={config}>
-        {/* <NextSeo
-          config={{
-            title,
-            titleTemplate: `${config.title} | %s`,
-            description,
-            canonical: config.url && `${config.url}/${slug}`,
-            openGraph: {
-              images: openGraphImages,
-            },
-            noindex: disallowRobots,
-          }}
-        /> */}
-        <span> </span>
+        <NextSeo
+          title={title}
+          titleTemplate={`${config.title} | %s`}
+          description={description}
+          canonical={config.url && `${config.url}/${slug}`}
+          openGraph={{ images: openGraphImages }}
+          noindex={disallowRobots}
+        />
         {content && <RenderSections sections={content} />}
       </Layout>
     )
