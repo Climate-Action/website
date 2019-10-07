@@ -15,7 +15,6 @@ function Hero(props) {
     backgroundImageLarge,
   } = props
 
-  console.log(props)
   return (
     <div className={styles.root}>
       <div className={styles.content}>

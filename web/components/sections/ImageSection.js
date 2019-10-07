@@ -5,6 +5,7 @@ import styles from './ImageSection.module.css'
 import client from '../../client'
 import SimpleBlockContent from '../SimpleBlockContent'
 import Cta from '../Cta'
+import imageUrl from '../imageUrl'
 
 const builder = imageUrlBuilder(client)
 
@@ -13,26 +14,16 @@ function ImageSection(props) {
 
   return (
     <div className={styles.root}>
-      <h2 className={styles.title}>{heading}</h2>
-      <figure className={styles.content}>
-        <img
-          src={builder
-            .image(image)
-            .auto('format')
-            .width(800)
-            .url()}
-          className={styles.image}
-          alt={heading}
-        />
-        <figcaption>
-          <div className={styles.caption}>
-            <div className={styles.captionBox}>
-              {text && <SimpleBlockContent blocks={text} />}
-            </div>
-          </div>
-        </figcaption>
-      </figure>
-      {cta && cta.route && <Cta {...cta} />}
+      <img src={imageUrl(image, null, 800)} className={styles.image} alt={heading} />
+      <div className={styles.content}>
+        <h2 className={styles.title}>{heading}</h2>
+        <div className={styles.text}>{text && <SimpleBlockContent blocks={text} />}</div>
+      </div>
+      {cta && cta.route && (
+        <div className={styles.cta}>
+          <Cta {...cta} />
+        </div>
+      )}
     </div>
   )
 }
