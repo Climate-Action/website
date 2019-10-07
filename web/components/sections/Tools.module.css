@@ -1,0 +1,37 @@
+@import '../../styles/custom-media.css';
+@import '../../styles/custom-properties.css';
+
+.root {
+  display: flex;
+}
+
+.tool {
+  background: gray;
+}
+
+.header {
+}
+
+.label {
+  color: green;
+}
+
+.heading {
+  font-weight: bold;
+}
+
+.authors {
+
+}
+
+.author {
+
+}
+
+.image {
+
+}
+
+.button {
+
+}

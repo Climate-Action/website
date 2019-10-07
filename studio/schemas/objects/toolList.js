@@ -9,12 +9,6 @@ export default {
       description: 'Just used to identify it in the studio',
       type: 'string',
     },
-    {
-      name: 'tools',
-      title: 'Tools',
-      type: 'array',
-      of: [{type: 'reference', to: [{type:'tool'}]}],
-    },
     /* {
       name: 'type',
       title: 'Filter on single type',

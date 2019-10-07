@@ -8,24 +8,17 @@ import client from '../client'
 import RenderSections from '../components/RenderSections'
 
 const builder = imageUrlBuilder(client)
-const pageQuery = groq`
-*[_type == "route" && slug.current == $slug][0]{
-  page-> {
+const pageQuery = groq`*[_type == "route" && slug.current == $slug][0]{
+  page -> {
     ...,
     content[] {
       ...,
-      cta {
-        ...,
-        route->
-      },
-      ctas[] {
-        ...,
-        route->
-      },
-      tools[] -> {...},
-      data[] -> {...},
-      person[] -> {...},
-      result[] -> {...},
+      cta { ..., route-> },
+      ctas[] { ..., route-> },
+      tools[] -> { ..., "fileUrl": file.asset->url },
+      _type == "toolList" => {"tools":  *[_type == "tool"]},
+      _type == "participantList" => {"participants":  *[_type == "tool"]},
+      _type == "dataList" => {"data":  *[_type == "tool"]},
     }
   }
 }
@@ -51,7 +44,7 @@ class LandingPage extends Component {
     }
     if (slug && slug !== '/') {
       return client.fetch(pageQuery, { slug }).then(res => {
-        // console.log('x', res.page.content)
+        console.log('tet', res.page.content)
         return { ...res.page, slug }
       })
     }
@@ -77,11 +70,11 @@ class LandingPage extends Component {
             }
           }
         }
-      `
+      `,
         )
         .then(res => {
           // console.log("Frontres", res)
-          return({ ...res.frontpage, slug })
+          return { ...res.frontpage, slug }
         })
     }
 
@@ -125,40 +118,39 @@ class LandingPage extends Component {
 const generateOGImages = (openGraphImage, title, description) =>
   openGraphImage
     ? [
-      {
-        url: builder
-          .image(openGraphImage)
-          .width(800)
-          .height(600)
-          .url(),
-        width: 800,
-        height: 600,
-        alt: title,
-      },
-      {
-        // Facebook recommended size
-        url: builder
-          .image(openGraphImage)
-          .width(1200)
-          .height(630)
-          .url(),
-        width: 1200,
-        height: 630,
-        alt: title,
-      },
-      {
-        // Square 1:1
-        url: builder
-          .image(openGraphImage)
-          .width(600)
-          .height(600)
-          .url(),
-        width: 600,
-        height: 600,
-        alt: title,
-      },
-    ]
+        {
+          url: builder
+            .image(openGraphImage)
+            .width(800)
+            .height(600)
+            .url(),
+          width: 800,
+          height: 600,
+          alt: title,
+        },
+        {
+          // Facebook recommended size
+          url: builder
+            .image(openGraphImage)
+            .width(1200)
+            .height(630)
+            .url(),
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+        {
+          // Square 1:1
+          url: builder
+            .image(openGraphImage)
+            .width(600)
+            .height(600)
+            .url(),
+          width: 600,
+          height: 600,
+          alt: title,
+        },
+      ]
     : []
-
 
 export default LandingPage
