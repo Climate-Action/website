@@ -40,3 +40,13 @@
   padding: 0.35em 0.25em 0.1em;
   color: var(--color-theme-text)
 }
+
+.thin-header {
+  text-align: center;
+  font-size: var(--font-title1-size);
+  line-height: var(--font-title1-line-height);
+  font-family: var(--font-family-sans);
+  font-weight: 200;
+  text-transform: uppercase;
+  margin: 0 0 0.25em;
+}

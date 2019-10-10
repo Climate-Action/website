@@ -2,14 +2,26 @@
 @import '../../styles/custom-properties.css';
 
 .root {
-  display: flex;
+  background: white;
+  padding: var(--spacing-nice)
 }
 
 .tool {
-  background: gray;
+  background: var(--color-very-light-gray);
+  padding: var(--spacing-nice);
+  display: flex;
+
+  & + .tool {
+    margin-top: var(--spacing-nice);
+  }
+}
+
+.content {
+
 }
 
 .header {
+
 }
 
 .label {
@@ -17,6 +29,9 @@
 }
 
 .heading {
+  font: var(--font-family-sans);
+  color: var(--color-green);
+  font-size: var(--font-title2-size);
   font-weight: bold;
 }
 
@@ -29,7 +44,7 @@
 }
 
 .image {
-
+  padding: var(--spacing-relaxed)
 }
 
 .button {

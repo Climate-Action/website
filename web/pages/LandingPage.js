@@ -14,6 +14,7 @@ const contentQuery = `
       ...,
       cta { ..., route-> },
       ctas[] { ..., route-> },
+      links[] {..., page->, route->},
       tools[] -> { ..., "fileUrl": file.asset->url },
       _type == "toolList" => {"tools":  *[_type == "tool"]},
       _type == "participantList" => {"participants":  *[_type == "person"]},
@@ -91,7 +92,7 @@ class LandingPage extends Component {
   }
 }
 
-const generateOGImages = (openGraphImage, title, description) =>
+const generateOGImages = (openGraphImage, title) =>
   openGraphImage
     ? [
         {

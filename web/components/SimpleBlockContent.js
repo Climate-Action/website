@@ -15,6 +15,7 @@ function SimpleBlockContent(props) {
 
   return (
     <BlockContent
+      className={props.className}
       blocks={blocks}
       projectId={projectId}
       dataset={dataset}
@@ -25,6 +26,7 @@ function SimpleBlockContent(props) {
 
 SimpleBlockContent.propTypes = {
   blocks: PropTypes.arrayOf(PropTypes.object),
+  className: PropTypes.any,
 }
 
 const serializers = {

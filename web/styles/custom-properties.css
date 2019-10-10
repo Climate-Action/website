@@ -20,6 +20,13 @@
   --color-text-special: #1d3d37;
   --color-text: #073200;
 
+  /* Spacing */
+  --spacing-base: 1rem;
+  --spacing-tight: 0.5rem;
+  --spacing-nice: 2rem;
+  --spacing-relaxed: 4rem;
+  --spacing-zen: 6rem;
+
   /* Typography */
   --unit: 16;
   --font-micro-size: calc(10 / var(--unit) * 1rem); /* 10px */
@@ -30,6 +37,7 @@
   --font-base-line-height: calc(24 / var(--unit)); /* 24px */
   --font-large-size: calc(18 / var(--unit) * 1rem); /* 18px */
   --font-large-line-height: calc(27 / 18); /* 27px */
+  --font-large-intro-size: calc(21 / var(--unit) * 1rem); /* 21px */
 
   --font-title3-size: calc(21 / var(--unit) * 1rem); /* 21px */
   --font-title3-line-height: calc(30 / 21); /* 30px */

@@ -3,6 +3,12 @@
 
 .root {
   padding: 2rem 0;
+  max-width: var(--width-small);
+  margin: 0 auto;
+  text-align: center;
+  font-weight: 600;
+  line-height: var(--font-large-line-height);
+  font-size: var(--font-large-intro-size);
 
   @media (--media-min-medium) {
     padding: 4rem 0;
@@ -10,9 +16,11 @@
 }
 
 .title {
-  text-align: center;
-  font-size: var(--font-title3-size);
-  line-height: var(--font-title3-line-height);
+  composes: thin-header from '../../styles/shared.module.css';
+}
+
+.intro {
+  color: var(--color-green);
 }
 
 .links {
@@ -21,5 +29,12 @@
 }
 
 .link {
-  flex: 1;
+  padding: 0 1em;
+  text-decoration: none;
+  color: var(--color-theme-text);
+  font-weight: 700;
+
+  & + .link {
+    border-left: 2px solid rgba(0,0,0,0.7);
+  }
 }

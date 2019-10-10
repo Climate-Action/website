@@ -6,7 +6,6 @@ import imageUrl from '../imageUrl'
 
 const ToolList = props => {
   const tools = props.tools
-  console.log('party', props)
 
   return (
     <section className={styles.root}>
@@ -20,37 +19,38 @@ ToolList.propTypes = {
 }
 
 const Tool = ({ heading, type, intro, description, image, fileUrl, url, authors, sources }) => {
-  console.log(fileUrl, url)
   return (
     <article className={styles.tool}>
       <img src={imageUrl(image, null, 300)} className={styles.image} />
 
-      <header className={styles.header}>
-        {type && <label className={styles.label}>{type.name}</label>}
-        <h2 className={styles.heading}>{heading}</h2>
-        <div className={styles.authors}>
-          {authors &&
-            authors.map(author => (
-              <span className={styles.author} key={author._key}>
-                {author.name}
-              </span>
-            ))}
-        </div>
-      </header>
+      <div className={styles.content}>
+        <header className={styles.header}>
+          {type && <label className={styles.label}>{type.name}</label>}
+          <h2 className={styles.heading}>{heading}</h2>
+          <div className={styles.authors}>
+            {authors &&
+              authors.map(author => (
+                <span className={styles.author} key={author._key}>
+                  {author.name}
+                </span>
+              ))}
+          </div>
+        </header>
 
-      <section>
-        {intro && <SimpleBlockContent blocks={intro} />}
-        {url && (
-          <a href={url.href} className={styles.button}>
-            View
-          </a>
-        )}
-        {fileUrl && (
-          <a href={fileUrl} className={styles.button}>
-            Download
-          </a>
-        )}
-      </section>
+        <section>
+          {intro && <SimpleBlockContent blocks={intro} />}
+          {url && (
+            <a href={url.href} className={styles.button}>
+              View
+            </a>
+          )}
+          {fileUrl && (
+            <a href={fileUrl} className={styles.button}>
+              Download
+            </a>
+          )}
+        </section>
+      </div>
     </article>
   )
 }
