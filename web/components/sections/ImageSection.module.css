@@ -5,6 +5,15 @@
   padding: 2rem;
   background-color: white;
   border-top: 4px dashed white;
+
+  @media (--media-min-medium) {
+    padding: 4rem;
+  }
+}
+
+.content {
+  max-width: var(--width-medium);
+  margin: 0 auto;
   display: grid;
   grid-gap: 1rem 2rem;
   grid-template-columns: 1fr 1fr;
@@ -12,13 +21,13 @@
 
   @media (--media-min-medium) {
     grid-gap: 2rem 4rem;
-    padding: 4rem;
   }
 }
 
 .title {
   font-size: var(--font-title3-size);
   line-height: var(--font-title3-line-height);
+  color: var(--color-theme-text)
 }
 
 .image {
@@ -34,7 +43,7 @@
   grid-column: 1 / 3;
 }
 
-.content {
+.text {
   max-width: var(--width-medium);
   grid-column: 2;
 }

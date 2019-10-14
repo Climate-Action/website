@@ -11,7 +11,7 @@ export default {
         { title: 'Medium header', value: 'h2' },
         { title: 'Small header', value: 'h3' },
         { title: 'Label', value: 'h4' },
-        { title: 'Ingress', value: 'normal' },
+        { title: 'Ingress', value: 'h5' },
       ],
       lists: [],
       marks: {

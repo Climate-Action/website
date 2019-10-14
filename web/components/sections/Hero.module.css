@@ -5,6 +5,8 @@
   composes: center from '../../styles/shared.module.css';
   position: relative;
   padding-bottom: 2rem;
+  max-width: var(--width-medium);
+  margin: 0 auto;
 
   @media (--media-min-medium) {
     padding-bottom: 4rem;
@@ -13,7 +15,6 @@
 
 .content {
   width: 100%;
-  max-width: var(--width-small);
   padding: 0 1.5em;
   box-sizing: border-box;
   z-index: 1;

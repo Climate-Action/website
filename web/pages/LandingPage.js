@@ -16,9 +16,13 @@ const contentQuery = `
       ctas[] { ..., route-> },
       links[] {..., page->, route->},
       tools[] -> { ..., "fileUrl": file.asset->url },
+      data[] -> { ..., "group": type->name},
       _type == "toolList" => {"tools":  *[_type == "tool"]},
       _type == "participantList" => {"participants":  *[_type == "person"]},
-      _type == "dataList" => {"data":  *[_type == "data"]},
+      _type == "dataList" => {"data":  *[_type == "data"]{
+        ...,
+        "group": type->name
+      }},
     }
 `
 

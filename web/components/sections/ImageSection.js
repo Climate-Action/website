@@ -12,16 +12,18 @@ function ImageSection(props) {
 
   return (
     <div className={styles.root}>
-      <img src={imageUrl(image, 800)} className={styles.image} alt={heading} />
       <div className={styles.content}>
-        <h2 className={styles.title}>{heading}</h2>
-        <div className={styles.text}>{text && <SimpleBlockContent blocks={text} />}</div>
-      </div>
-      {cta && cta.route && (
-        <div className={styles.cta}>
-          <Cta {...cta} />
+        <img src={imageUrl(image, 800)} className={styles.image} alt={heading} />
+        <div className={styles.text}>
+          <h2 className={styles.title}>{heading}</h2>
+          <div className={styles.text}>{text && <SimpleBlockContent blocks={text} />}</div>
         </div>
-      )}
+        {cta && cta.route && (
+          <div className={styles.cta}>
+            <Cta {...cta} />
+          </div>
+        )}
+      </div>
     </div>
   )
 }

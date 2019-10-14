@@ -1,0 +1,52 @@
+@import '../../styles/custom-media.css';
+@import '../../styles/custom-properties.css';
+
+.root {
+  background: white;
+  padding: var(--spacing-nice)
+}
+
+.data {
+  background: var(--color-very-light-gray);
+  padding: var(--spacing-nice);
+  display: flex;
+
+  & + .tool {
+    margin-top: var(--spacing-nice);
+  }
+}
+
+.content {
+
+}
+
+.header {
+
+}
+
+.label {
+  color: green;
+}
+
+.heading {
+  font: var(--font-family-sans);
+  color: var(--color-green);
+  font-size: var(--font-title2-size);
+  font-weight: bold;
+}
+
+.authors {
+
+}
+
+.author {
+
+}
+
+.image {
+  padding: var(--spacing-relaxed)
+}
+
+.button {
+
+}
