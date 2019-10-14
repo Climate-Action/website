@@ -6,14 +6,7 @@ import Cta from '../Cta'
 import imageUrl from '../imageUrl'
 
 function Hero(props) {
-  const {
-    heading,
-    tagline,
-    ctas,
-    backgroundImageSmall,
-    backgroundImageMedium,
-    backgroundImageLarge,
-  } = props
+  const { heading, tagline, ctas, image } = props
 
   return (
     <div className={styles.root}>
@@ -31,11 +24,17 @@ function Hero(props) {
           </div>
         )}
       </div>
-      <div className={styles.images}>
-        <span className={styles.hex} style={backgroundImage(backgroundImageSmall)} />
-        <span className={styles.hex} style={backgroundImage(backgroundImageMedium)} />
-        <span className={styles.hex} style={backgroundImage(backgroundImageLarge)} />
-      </div>
+      <img
+        src={imageUrl(image, 1200)}
+        className={styles.image}
+        // srcSet={`
+        //   ${imageUrl(image, 320)} 320w,
+        //   ${imageUrl(image, 800)} 800w,
+        //   ${imageUrl(image, 1200)} 1200w
+        // `}
+        sizes="(min-width: 60rem) 80vw"
+        alt="People working together"
+      />
     </div>
   )
 }

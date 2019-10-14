@@ -20,6 +20,8 @@
   --color-text-special: #1d3d37;
   --color-text: #073200;
 
+  --color-section-odd: white;
+
   /* Spacing */
   --spacing-base: 1rem;
   --spacing-tight: 0.5rem;

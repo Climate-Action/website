@@ -3,6 +3,7 @@
 
 .root {
   padding: 2rem 0;
+  background-color: var(--color-section-odd);
 
   @media (--media-min-medium) {
     padding: 4rem 0;
@@ -35,26 +36,21 @@
 }
 
 .form {
-  display: grid;
-
-  @media (--media-min-medium) {
-    min-width: 34rem;
-    display: grid;
-    grid-template-columns: 80% 20%;
-  }
 }
 
-.form input {
+.form input,
+.form textarea {
   -webkit-font-smoothing: inherit;
   font: inherit;
   display: block;
-  border: 1px solid var(--color-black, #000);
+  border: 2px solid rgba(0,0,0,0.3);
   flex-grow: 1;
   padding: 1rem;
   width: 100%;
   max-width: 100%;
   border-radius: 0;
   box-sizing: border-box;
+  margin-bottom: 1rem;
 
   @media (--media-min-medium) {
     padding: 1em;
@@ -64,26 +60,10 @@
 .form button {
   -webkit-font-smoothing: inherit;
   font: inherit;
-  background: none;
-  margin-top: 1rem;
+  background: var(--color-green);
+  color: white;
+  border: 0;
+  margin-top: 1.5rem;
   display: block;
-  padding: 1em;
-  border: 1px solid var(--color-black, #000);
-
-  @media (--media-min-medium) {
-    margin-top: 0;
-    border-left: none;
-  }
-
-  @nest &:focus {
-    background: var(--color-black, #000);
-    color: var(--color-white, #fff);
-  }
-
-  @media (hover: hover) {
-    @nest &:hover {
-      background: var(--color-black, #000);
-      color: var(--color-white, #fff);
-    }
-  }
+  padding: 1em 1.5em;
 }

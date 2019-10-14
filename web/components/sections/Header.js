@@ -4,8 +4,8 @@ import SimpleBlockContent from '../SimpleBlockContent'
 import styles from './Header.module.css'
 
 const Header = props => {
-  console.log('props', props.links)
   const { title, intro, links } = props
+
   return !title || !intro || !links ? (
     <div>Ooops! Something went wrong</div>
   ) : (
@@ -14,13 +14,15 @@ const Header = props => {
 
       {intro && <SimpleBlockContent blocks={intro} className={styles.intro} />}
 
-      <div className={styles.links}>
-        {links.map((link, index) => (
-          <a href="#juggalo" className={styles.link} key={index}>
-            Link
-          </a>
-        ))}
-      </div>
+      {!!(links && links.length) && (
+        <div className={styles.links}>
+          {links.map((link, index) => (
+            <a href="#juggalo" className={styles.link} key={index}>
+              Link
+            </a>
+          ))}
+        </div>
+      )}
     </section>
   )
 }

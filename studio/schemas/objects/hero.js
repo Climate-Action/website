@@ -14,21 +14,9 @@ export default {
       title: 'Tagline',
     },
     {
-      name: 'backgroundImageSmall',
+      name: 'image',
       type: 'image',
-      title: 'Small image',
-      options: { hotspot: true },
-    },
-    {
-      name: 'backgroundImageMedium',
-      type: 'image',
-      title: 'Medium image',
-      options: { hotspot: true },
-    },
-    {
-      name: 'backgroundImageLarge',
-      type: 'image',
-      title: 'Large image',
+      title: 'Image',
       options: { hotspot: true },
     },
     {
