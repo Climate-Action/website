@@ -17,6 +17,7 @@ import internalLink from './helpers/internalLink'
 import link from './helpers/link'
 import portableText from './helpers/portableText'
 import simplePortableText from './objects/simplePortableText'
+import headerText from './objects/headerText'
 import header from './objects/header'
 import step from './objects/step'
 import signUpSteps from './objects/signUpSteps'
@@ -73,6 +74,7 @@ export default createSchema({
     portableText,
     route,
     simplePortableText,
+    headerText,
     siteConfig,
     textSection,
     toolList,

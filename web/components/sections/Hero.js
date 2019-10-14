@@ -11,11 +11,9 @@ function Hero(props) {
   return (
     <div className={styles.root}>
       <div className={styles.content}>
-        <h1 className={styles.title}>
-          <div>{heading}</div>
-          <AnimatedTitles />
-        </h1>
-        <div className={styles.tagline}>{tagline && <SimpleBlockContent blocks={tagline} />}</div>
+        <div className={styles.title}>
+          <SimpleBlockContent blocks={heading} />
+        </div>
         {ctas && (
           <div className={styles.ctas}>
             {ctas.map(cta => (
@@ -56,7 +54,7 @@ const backgroundImage = img =>
     : {}
 
 // eslint-disable-next-line react/prop-types
-const AnimatedTitles = ({ titles = ['Engineer', 'Designer', 'Professional'] }) => (
+const AnimatedTitles = ({ titles = ['Workforce', 'Engineer', 'Designer', 'Professional'] }) => (
   <span className={styles.animatedTitles}>{titles[0]}</span>
 )
 

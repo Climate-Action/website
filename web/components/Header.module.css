@@ -31,10 +31,9 @@
   }
 
   @nest & img, & svg {
-    height: calc(var(--font-base-line-height) * 1.5rem);
-    width: auto;
-    color: inherit;
-    vertical-align: top;
+    height: 3.5rem;
+    width: 100%;
+    color: var(--color-text);
   }
 
   @nest & svg path {
@@ -96,6 +95,11 @@
   align-items: stretch;
   line-height: calc(var(--font-base-line-height) * 1.5rem);
 
+  &:last-child a {
+    background-color: var(--color-green);
+    color: white;
+  }
+
   & > a {
     display: block;
     position: relative;
@@ -103,6 +107,7 @@
 
     &[data-is-active="true"] {
       background-color: var(--color-white, #fff);
+      color: var(--color-green);
     }
 
     @media (--media-max-medium) {
@@ -113,10 +118,6 @@
     }
   }
 
-  &:last-child a {
-    background-color: var(--color-green);
-    color: white;
-  }
 
   @nest .root[data-show-nav="true"] & > a[data-is-active="true"]::before {
     display: none;

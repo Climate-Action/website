@@ -20,37 +20,14 @@
 }
 
 .title {
-  position: relative;
-  font-weight: 600;
-  font-size: var(--font-title2-size);
-  line-height: var(--font-title2-line-height);
   margin: 0;
   padding: 12.5rem 0 0;
-  color: var(--color-text-special);
 
   @media (--media-min-medium) {
-    font-size: var(--font-title1-size);
-    line-height: var(--font-title1-line-height);
     padding-top: 15rem;
   }
 }
 
-.tagline {
-  position: relative;
-  padding: 0;
-  margin: 0.5em 0 1rem;
-  font-family: var(--font-family-header);
-  color: var(--color-text-special);
-
-  @media (--media-min-medium) {
-    font-size: var(--font-large-size);
-    line-height: var(--font-large-line-height);
-  }
-}
-
-.tagline > p {
-  margin: 0;
-}
 
 .ctas {
   margin-top: 3rem;
@@ -66,8 +43,9 @@
 }
 
 .image {
-  height: 10vh;
-  width: 10vh;
+  height: 40vh;
+  width: auto;
+  transform: translateY(20%);
 }
 
 .animatedTitles {

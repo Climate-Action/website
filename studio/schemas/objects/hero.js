@@ -5,13 +5,8 @@ export default {
   fields: [
     {
       name: 'heading',
-      type: 'string',
+      type: 'headerText',
       title: 'Heading',
-    },
-    {
-      name: 'tagline',
-      type: 'simplePortableText',
-      title: 'Tagline',
     },
     {
       name: 'image',
@@ -38,7 +33,12 @@ export default {
     },
     prepare({ title, media }) {
       return {
-        title,
+        title: title
+          ? title
+            .filter(child => child.style.startsWith('h'))
+            .map(block => block.children.map(span => span.text))
+            .join(' ')
+          : 'No title',
         subtitle: 'Hero section',
         media,
       }
