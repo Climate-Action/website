@@ -31,6 +31,9 @@ SimpleBlockContent.propTypes = {
 
 const serializers = {
   marks: {
+    undefined: props => {
+      console.warn('undefined serializer', props)
+    },
     internalLink: props => {
       // console.warn('make link', props)
       return (

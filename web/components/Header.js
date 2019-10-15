@@ -5,6 +5,7 @@ import { withRouter } from 'next/router'
 import Svg from 'react-inlinesvg'
 import styles from './Header.module.css'
 import HamburgerIcon from './icons/Hamburger'
+import Logo from './atoms/Logo'
 
 class Header extends Component {
   state = { showNav: false }
@@ -24,7 +25,7 @@ class Header extends Component {
         slug: PropTypes.shape({
           current: PropTypes.string,
         }).isRequired,
-      })
+      }),
     ),
     logo: PropTypes.shape({
       asset: PropTypes.shape({
@@ -55,37 +56,13 @@ class Header extends Component {
     })
   }
 
-  renderLogo = logo => {
-    if (!logo || !logo.asset) {
-      return null
-    }
-
-    if (logo.asset.extension === 'svg') {
-      return <Svg src={logo.asset.url} className={styles.logo} />
-    }
-
-    return <img src={logo.asset.url} alt={logo.title} className={styles.logo} />
-  }
-
   render() {
     const { title = 'Missing title', navItems, router, logo } = this.props
     const { showNav } = this.state
 
     return (
       <div className={styles.root} data-show-nav={showNav}>
-        <h1 className={styles.branding}>
-          <Link
-            href={{
-              pathname: '/LandingPage',
-              query: {
-                slug: '/',
-              },
-            }}
-            as="/"
-          >
-            <a title={title}>{this.renderLogo(logo)}</a>
-          </Link>
-        </h1>
+        <Logo title={title} logo={logo} />
         <nav className={styles.nav}>
           <ul className={styles.navItems}>
             {navItems &&
