@@ -3,6 +3,7 @@
 
 .root {
   composes: center from '../../styles/shared.module.css';
+  composes: zigzag-bottom from '../../styles/shared.module.css';
   position: relative;
   padding-bottom: 2rem;
   max-width: var(--width-medium);
@@ -47,6 +48,7 @@
   height: 40vh;
   width: auto;
   transform: translateY(20%);
+  z-index: 2;
 }
 
 .animatedTitles {

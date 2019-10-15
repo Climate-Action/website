@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
-import SimpleBlockContent from '../SimpleBlockContent'
+import SimpleBlockContent from '../atoms/SimpleBlockContent'
 import styles from './Header.module.css'
 
 const Header = props => {

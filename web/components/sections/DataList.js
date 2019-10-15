@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import SimpleBlockContent from '../SimpleBlockContent'
+import SimpleBlockContent from '../atoms/SimpleBlockContent'
 import styles from './DataList.module.css'
 
 const DataList = props => {

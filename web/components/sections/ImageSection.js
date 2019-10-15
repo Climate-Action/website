@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 import imageUrlBuilder from '@sanity/image-url'
 import styles from './ImageSection.module.css'
 import client from '../../client'
-import SimpleBlockContent from '../SimpleBlockContent'
-import Cta from '../Cta'
-import imageUrl from '../imageUrl'
+import SimpleBlockContent from '../atoms/SimpleBlockContent'
+import Cta from '../atoms/Cta'
+import imageUrl from '../atoms/imageUrl'
 
 function ImageSection(props) {
   const { heading, text, image, cta } = props

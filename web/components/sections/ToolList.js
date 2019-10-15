@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import SimpleBlockContent from '../SimpleBlockContent'
+import SimpleBlockContent from '../atoms/SimpleBlockContent'
 import styles from './Tools.module.css'
-import imageUrl from '../imageUrl'
+import imageUrl from '../atoms/imageUrl'
 
 const ToolList = props => {
   const tools = props.tools

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import BlockContent from '@sanity/block-content-to-react'
-import client from '../client'
+import client from '../../client'
 
 const { projectId, dataset } = client.config()
 

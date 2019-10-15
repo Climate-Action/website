@@ -1,12 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './Hero.module.css'
-import SimpleBlockContent from '../SimpleBlockContent'
-import Cta from '../Cta'
-import imageUrl from '../imageUrl'
+import SimpleBlockContent from '../atoms/SimpleBlockContent'
+import Cta from '../atoms/Cta'
+import imageUrl from '../atoms/imageUrl'
 
 function Hero(props) {
-  const { heading, tagline, ctas, image } = props
+  const { heading, ctas, image } = props
 
   return (
     <div className={styles.root}>
@@ -25,12 +25,7 @@ function Hero(props) {
       <img
         src={imageUrl(image, 1200)}
         className={styles.image}
-        // srcSet={`
-        //   ${imageUrl(image, 320)} 320w,
-        //   ${imageUrl(image, 800)} 800w,
-        //   ${imageUrl(image, 1200)} 1200w
-        // `}
-        sizes="(min-width: 60rem) 80vw"
+        // sizes="(min-width: 60rem) 80vw"
         alt="People working together"
       />
     </div>
@@ -38,24 +33,9 @@ function Hero(props) {
 }
 
 Hero.propTypes = {
-  heading: PropTypes.string,
-  backgroundImageSmall: PropTypes.object,
-  backgroundImageMedium: PropTypes.object,
-  backgroundImageLarge: PropTypes.object,
-  tagline: PropTypes.array,
+  heading: PropTypes.array,
+  image: PropTypes.object,
   ctas: PropTypes.arrayOf(PropTypes.object),
 }
-
-const backgroundImage = img =>
-  img
-    ? {
-        backgroundImage: `url("${imageUrl(img, 2000)}")`,
-      }
-    : {}
-
-// eslint-disable-next-line react/prop-types
-const AnimatedTitles = ({ titles = ['Workforce', 'Engineer', 'Designer', 'Professional'] }) => (
-  <span className={styles.animatedTitles}>{titles[0]}</span>
-)
 
 export default Hero
