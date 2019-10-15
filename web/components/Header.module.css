@@ -14,41 +14,6 @@
   text-decoration: inherit;
 }
 
-.branding {
-  font-size: inherit;
-  font-weight: inherit;
-  text-transform: uppercase;
-  margin: 0;
-  padding: 0;
-
-  @nest & > a {
-    display: block;
-    padding: 1.5em;
-
-    @supports (padding-top: env(safe-area-inset-top)) {
-      padding-left: calc(env(safe-area-inset-left) + 1.5rem);
-    }
-  }
-
-  @nest & img, & svg {
-    height: 3.5rem;
-    width: 100%;
-    color: var(--color-text);
-  }
-
-  @nest & svg path {
-    fill: currentColor;
-  }
-
-  @media (--media-max-medium) {
-    flex: 1;
-  }
-}
-
-.logo {
-  display: block;
-}
-
 .nav {
   display: flex;
   align-items: center;
