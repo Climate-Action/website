@@ -4,14 +4,20 @@
 .root {
   padding: 2rem 0;
   background-color: var(--color-green);
+  background-image: url(/static/images/hex-grid.png);
+  background-repeat: repeat-x;
+  background-size: 6rem;
+  composes: zigzag-bottom from '../../styles/shared.module.css';
+  --border-color: var(--color-green);
 
   @media (--media-min-medium) {
-    padding: 4rem 0;
+    padding: 16rem 0;
   }
 }
 
 .content {
-
+  max-width: var(--width-small);
+  margin: 0 auto;
 }
 
 .heading {

@@ -12,27 +12,34 @@ export default {
       name: 'items',
       title: 'Items',
       type: 'array',
-      of: [{
-        type: 'object',
-        title: 'List item',
-        fields: [
-          {
-            title: 'Title',
-            name: 'title',
-            type: 'string',
-          },
-          {
-            title: 'Text',
-            name: 'text',
-            type: 'portableText',
-          },
-          {
-            title: 'Image',
-            name: 'image',
-            type: 'figure',
-          },
-        ],
-      }],
+      of: [
+        {
+          type: 'object',
+          title: 'List item',
+          fields: [
+            {
+              title: 'Title',
+              name: 'title',
+              type: 'string',
+            },
+            {
+              title: 'Text',
+              name: 'text',
+              type: 'portableText',
+            },
+            {
+              title: 'Image',
+              name: 'image',
+              type: 'figure',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'white',
+      type: 'boolean',
+      title: 'White',
     },
   ],
   preview: {

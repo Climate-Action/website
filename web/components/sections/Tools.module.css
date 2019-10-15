@@ -3,17 +3,20 @@
 
 .root {
   background: white;
-  padding: var(--spacing-nice)
+  padding: var(--spacing-nice);
+  display: grid;
+  grid-gap: var(--spacing-relaxed);
+  grid-template-columns: 1fr;
 }
 
 .tool {
-  background: var(--color-very-light-gray);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: var(--spacing-nice);
   padding: var(--spacing-nice);
-  display: flex;
-
-  & + .tool {
-    margin-top: var(--spacing-nice);
-  }
+  margin: 0 auto;
+  max-width: var(--width-medium);
+  background: rgba(223, 220, 215, 0.33);
 }
 
 .content {
@@ -24,8 +27,18 @@
 
 }
 
+.body {
+
+}
+
+.text {
+
+}
+
 .label {
-  color: green;
+  color: #bbb;
+  display: block;
+  margin-bottom: var(--spacing-tight);
 }
 
 .heading {
@@ -33,20 +46,35 @@
   color: var(--color-green);
   font-size: var(--font-title2-size);
   font-weight: bold;
+  margin-bottom: var(--spacing-tight);
+
 }
 
 .authors {
-
-}
-
-.author {
-
+  color: rgba(37, 78, 71, 0.6);
 }
 
 .image {
-  padding: var(--spacing-relaxed)
+  padding: var(--spacing-tight);
+  align-self: center;
+  justify-self: center;
 }
 
 .button {
+  padding: var(--spacing-tight) var(--spacing-nice);
+  background-color: var(--color-green);
+  transition: background-color .1s;
+  color: white;
+  text-decoration: none;
+  font-size: var(--font-large-size);
+  margin-top: var(--spacing-nice);
+  display: inline-block;
 
+  &:hover {
+    background-color: var(--color-green-light);
+  }
+
+  & + .button {
+    margin-left: 1rem;
+  }
 }

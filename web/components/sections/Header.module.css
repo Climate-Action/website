@@ -6,7 +6,7 @@
   max-width: var(--width-small);
   margin: 0 auto;
   text-align: center;
-  font-weight: 600;
+  font-weight: 500;
   line-height: var(--font-large-line-height);
   font-size: var(--font-large-intro-size);
 
@@ -17,6 +17,7 @@
 
 .title {
   composes: thin-header from '../../styles/shared.module.css';
+  color: var(--color-theme-text);
 }
 
 .intro {
@@ -32,7 +33,7 @@
   padding: 0 1em;
   text-decoration: none;
   color: var(--color-theme-text);
-  font-weight: 700;
+  font-weight: 600;
 
   & + .link {
     border-left: 2px solid rgba(0,0,0,0.7);

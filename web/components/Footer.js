@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './Footer.module.css'
-import SimpleBlockContent from './SimpleBlockContent'
+import SimpleBlockContent from './atoms/SimpleBlockContent'
 import Logo from './atoms/Logo'
 
 function Footer(props) {

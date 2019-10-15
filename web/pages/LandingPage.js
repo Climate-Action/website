@@ -14,10 +14,13 @@ const contentQuery = `
       ...,
       cta { ..., route-> },
       ctas[] { ..., route-> },
-      links[] {..., page->, route->},
-      tools[] -> { ..., "fileUrl": file.asset->url },
-      data[] -> { ..., "group": type->name},
-      _type == "toolList" => {"tools":  *[_type == "tool"]},
+      _type == "toolList" => {"tools":  *[_type == "tool"]{
+        ...,
+        "fileUrl": file.asset->url,
+        authors[] -> { name }, 
+        sources[] -> { name, link }, 
+        "typeName": type->name,
+      }},
       _type == "participantList" => {"participants":  *[_type == "person"]},
       _type == "dataList" => {"data":  *[_type == "data"]{
         ...,

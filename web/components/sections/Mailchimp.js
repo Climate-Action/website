@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import MailChimpForm from '../MailChimpForm'
+import MailChimpForm from '../atoms/MailChimpForm'
 import styles from './Mailchimp.module.css'
 
 export default function Mailchimp(props) {

@@ -21,6 +21,8 @@ function Layout(props) {
     <>
       <Head>
         <meta name="viewport" content="initial-scale=1.0, width=device-width, viewport-fit=cover" />
+        <link rel="preconnect" href="https://cdn.sanity.io" />
+        <link rel="shortcut icon" type="image/png" href="/static/images/favicon.png" />
       </Head>
       <div className="container">
         <Header title={title} navItems={mainNavigation} logo={logo} />

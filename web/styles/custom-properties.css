@@ -11,7 +11,8 @@
   --color-light-gray: #b4bcc7;
   --color-very-light-gray: #e7ebed;
   --color-white: #fff;
-  --color-green: #254e47;
+  --color-green: hsl(170, 36%, 23%);
+  --color-green-light: hsl(170, 36%, 30%);
 
   --color-accent: #156dff;
   --color-theme-bg: #fff3dc;
