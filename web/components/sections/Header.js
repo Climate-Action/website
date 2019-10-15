@@ -5,7 +5,7 @@ import styles from './Header.module.css'
 
 const Header = props => {
   const { title, intro, links } = props
-  console.log('link', links)
+
   return !title || !intro ? (
     <div>Ooops! Something went wrong</div>
   ) : (
