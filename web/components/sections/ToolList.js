@@ -18,30 +18,31 @@ ToolList.propTypes = {
   tools: PropTypes.arrayOf(PropTypes.object),
 }
 
-const Tool = ({ heading, type, intro, description, image, fileUrl, url, authors, sources }) => {
+const Tool = ({ heading, intro, image, fileUrl, url, authors, sources, typeName }) => {
   return (
     <article className={styles.tool}>
-      <img src={imageUrl(image, null, 300)} className={styles.image} />
+      <img
+        src={imageUrl(image, null, 300)}
+        alt={image.alt || 'Tool preview'}
+        className={styles.image}
+      />
 
       <div className={styles.content}>
         <header className={styles.header}>
-          {type && <label className={styles.label}>{type.name}</label>}
+          {typeName && <label className={styles.label}>{typeName}</label>}
+
           <h2 className={styles.heading}>{heading}</h2>
-          <div className={styles.authors}>
-            {authors &&
-              authors.map(author => (
-                <span className={styles.author} key={author._key}>
-                  {author.name}
-                </span>
-              ))}
-          </div>
+
+          {authors && (
+            <div className={styles.authors}>By {authors.map(a => a.name).join(', ')}</div>
+          )}
         </header>
 
-        <section>
-          {intro && <SimpleBlockContent blocks={intro} />}
+        <section className={styles.body}>
+          {intro && <SimpleBlockContent blocks={intro} className={styles.text} />}
           {url && (
-            <a href={url.href} className={styles.button}>
-              View
+            <a href={url.href} target="_blank" rel="noopener" className={styles.button}>
+              Open
             </a>
           )}
           {fileUrl && (
@@ -57,12 +58,11 @@ const Tool = ({ heading, type, intro, description, image, fileUrl, url, authors,
 
 Tool.propTypes = {
   heading: PropTypes.string,
-  type: PropTypes.object,
+  typeName: PropTypes.string,
   image: PropTypes.object,
   fileUrl: PropTypes.string,
   url: PropTypes.object,
   intro: PropTypes.arrayOf(PropTypes.object),
-  description: PropTypes.arrayOf(PropTypes.object),
   authors: PropTypes.arrayOf(PropTypes.object),
   sources: PropTypes.arrayOf(PropTypes.object),
 }

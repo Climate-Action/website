@@ -3,6 +3,7 @@
 
 .root {
   padding: 2rem 0;
+  background-color: var(--color-theme-dark);
 
   @media (--media-min-medium) {
     padding: 4rem 0;

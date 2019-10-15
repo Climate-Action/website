@@ -5,7 +5,7 @@ import styles from './Header.module.css'
 
 const Header = props => {
   const { title, intro, links } = props
-
+  console.log('link', links)
   return !title || !intro ? (
     <div>Ooops! Something went wrong</div>
   ) : (
@@ -17,8 +17,8 @@ const Header = props => {
       {!!(links && links.length) && (
         <div className={styles.links}>
           {links.map((link, index) => (
-            <a href="#juggalo" className={styles.link} key={index}>
-              Link
+            <a href={link.href} className={styles.link} key={index}>
+              {link.text || link.href}
             </a>
           ))}
         </div>

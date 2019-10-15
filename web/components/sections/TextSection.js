@@ -4,10 +4,9 @@ import SimpleBlockContent from '../atoms/SimpleBlockContent'
 import styles from './TextSection.module.css'
 import imageUrl from '../atoms/imageUrl'
 
-function TextSection(props) {
-  const { heading, items } = props
+function TextSection({ heading, items, white }) {
   return (
-    <div className={styles.root}>
+    <div className={styles.root} style={white ? { backgroundColor: 'white' } : {}}>
       <section className={styles.article}>
         <h2 className={styles.heading}>{heading}</h2>
         <div className={styles.items}>
@@ -33,6 +32,7 @@ function TextSection(props) {
 
 TextSection.propTypes = {
   heading: PropTypes.string,
+  white: PropTypes.bool,
   items: PropTypes.arrayOf(PropTypes.object),
 }
 
