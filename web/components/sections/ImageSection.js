@@ -13,7 +13,7 @@ function ImageSection(props) {
   return (
     <div className={styles.root}>
       <div className={styles.content}>
-        <img src={imageUrl(image, 800)} className={styles.image} alt={heading} />
+        <img src={imageUrl(image, 600)} className={styles.image} alt={heading} />
         <div className={styles.text}>
           <h2 className={styles.title}>{heading}</h2>
           <div className={styles.text}>{text && <SimpleBlockContent blocks={text} />}</div>

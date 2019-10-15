@@ -15,9 +15,9 @@ function TextSection(props) {
             <article className={styles.item} key={_key}>
               {image && (
                 <img
-                  src={imageUrl(image, 400)}
+                  src={imageUrl(image, 300)}
                   className={styles.image}
-                  alt={image.alt}
+                  alt={image.alt || 'Illustration'}
                   title={image.caption}
                 />
               )}

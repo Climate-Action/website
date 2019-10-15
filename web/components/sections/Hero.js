@@ -23,7 +23,7 @@ function Hero(props) {
         )}
       </div>
       <img
-        src={imageUrl(image, 1200)}
+        src={imageUrl(image, 600)}
         className={styles.image}
         // sizes="(min-width: 60rem) 80vw"
         alt="People working together"
