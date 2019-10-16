@@ -32,7 +32,6 @@
   }
 }
 
-
 .label {
   font-family: var(--font-family-sans);
   font-weight: 100;
@@ -55,6 +54,7 @@
 :root {
   --border-color: var(--color-theme-bg);
   --border-size: 1rem;
+  --negative-border-size: -1rem;
 }
 
 .zigzag-bottom {
@@ -66,7 +66,7 @@
     left: 50%;
     width: 100vw;
     transform: translateX(-50vw);
-    bottom: calc(var(--border-size) * -1);
+    bottom: var(--negative-border-size);
     height: var(--border-size);
     background-size: calc(var(--border-size) * 3) var(--border-size);
     background-position: 0 var(--border-size);
