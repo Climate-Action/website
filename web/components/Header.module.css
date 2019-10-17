@@ -50,9 +50,8 @@
 }
 
 .navItem {
-  display: flex;
+  display: block;
   white-space: nowrap;
-  align-items: stretch;
   line-height: calc(var(--font-base-line-height) * 1.5rem);
 
   &:last-child a {
