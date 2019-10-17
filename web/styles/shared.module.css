@@ -52,7 +52,7 @@
 }
 
 :root {
-  --border-color: var(--color-theme-bg);
+  --border-image: url(/static/images/zig-tan.svg);
   --border-size: 1rem;
   --negative-border-size: -1rem;
 }
@@ -70,7 +70,7 @@
     height: var(--border-size);
     background-size: calc(var(--border-size) * 3) var(--border-size);
     background-position: 0 var(--border-size);
-    background-image: url(/static/images/zig-tan.png);
+    background-image: var(--border-image);
     z-index: 1;
     color: var(--border-color);
   }
