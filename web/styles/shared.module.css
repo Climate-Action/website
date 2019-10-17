@@ -1,6 +1,4 @@
 @import './custom-media.css';
-@import './custom-properties.css';
-
 .center {
   display: flex;
   justify-content: center;
@@ -73,6 +71,5 @@
     background-position: 0 var(--border-size);
     background-image: var(--border-image);
     z-index: 1;
-    color: var(--border-color);
   }
 }

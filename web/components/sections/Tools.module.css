@@ -1,6 +1,4 @@
 @import '../../styles/custom-media.css';
-@import '../../styles/custom-properties.css';
-
 .root {
   background: white;
   display: grid;
