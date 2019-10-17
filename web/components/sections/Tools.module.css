@@ -3,36 +3,31 @@
 
 .root {
   background: white;
-  padding: var(--spacing-nice);
   display: grid;
-  grid-gap: var(--spacing-relaxed);
+  padding: var(--spacing-base);
+  grid-gap: var(--spacing-nice);
   grid-template-columns: 1fr;
+
+  @media (--media-min-medium) {
+    padding: var(--spacing-nice);
+    grid-gap: var(--spacing-relaxed);
+  }
 }
 
 .tool {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: var(--spacing-nice);
-  padding: var(--spacing-nice);
   margin: 0 auto;
   max-width: var(--width-medium);
   background: rgba(223, 220, 215, 0.33);
-}
+  grid-template-columns: 1fr;
+  grid-gap: var(--spacing-base);
+  padding: var(--spacing-base);
 
-.content {
-
-}
-
-.header {
-
-}
-
-.body {
-
-}
-
-.text {
-
+  @media (--media-min-medium) {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: var(--spacing-nice);
+    padding: var(--spacing-nice);
+  }
 }
 
 .label {
@@ -47,7 +42,6 @@
   font-size: var(--font-title2-size);
   font-weight: bold;
   margin-bottom: var(--spacing-tight);
-
 }
 
 .authors {
@@ -58,6 +52,12 @@
   padding: var(--spacing-tight);
   align-self: center;
   justify-self: center;
+
+  @media (--media-max-medium) {
+    max-height: 10rem;
+    width: 100%;
+    object-fit: cover;
+  }
 }
 
 .button {
@@ -77,4 +77,22 @@
   & + .button {
     margin-left: 1rem;
   }
+
+  @media (--media-min-medium) {  }
+}
+
+.content {
+
+}
+
+.header {
+
+}
+
+.body {
+
+}
+
+.text {
+
 }

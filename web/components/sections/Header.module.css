@@ -2,13 +2,17 @@
 @import '../../styles/custom-properties.css';
 
 .root {
-  padding: 2rem 0;
+  padding: 2rem 1rem;
   max-width: var(--width-small);
   margin: 0 auto;
   text-align: center;
   font-weight: 500;
   line-height: var(--font-large-line-height);
   font-size: var(--font-large-intro-size);
+
+  &:not(:first-child) {
+    padding: 5rem 0 3rem;
+  }
 
   @media (--media-min-medium) {
     padding: 4rem 0;

@@ -2,7 +2,7 @@
 @import '../../styles/custom-properties.css';
 
 .root {
-  padding: 2rem 0;
+  padding: 12rem 0 4rem;
   background-color: var(--color-green);
   background-image: url(/static/images/hex-grid.png);
   background-repeat: repeat-x;
@@ -11,13 +11,17 @@
   composes: zigzag-bottom from '../../styles/shared.module.css';
 
   @media (--media-min-medium) {
-    padding: 16rem 0;
+    padding: 14rem 0;
   }
 }
 
 .content {
-  max-width: var(--width-small);
   margin: 0 auto;
+  max-width: var(--width-x-small);
+
+  @media (--media-min-medium) {
+    max-width: var(--width-small);
+  }
 }
 
 .heading {
@@ -25,10 +29,25 @@
   font-weight: 100;
   color: white;
   text-align: center;
-  font-size: 2rem;
-
-  /*strong {
-    color: var(--color-theme-text);
-    font-family: var(--font-family-header);
-  }*/
+  font-size: 2.5rem;
+  line-height: 1.1;
 }
+
+.heading strong {
+  color: var(--color-theme-text);
+  font-family: var(--font-family-header);
+
+  &:hover:after {
+    //transform: scale(50) translateY(-50%);
+  }
+
+  &:after {
+    content: ".";
+    color: white;
+    font-size: 1em;
+    line-height: 0;
+    //display: inline-block;
+    //transition: transform 5s ease-in-out;
+  }
+}
+

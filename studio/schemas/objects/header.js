@@ -17,7 +17,12 @@ export default {
       name: 'links',
       title: 'Links',
       type: 'array',
-      of: [ { type: 'link' } ],
+      of: [{ type: 'link' }],
+    },
+    {
+      name: 'isLabelHeader',
+      title: 'Label-style header',
+      type: 'boolean',
     },
   ],
 }

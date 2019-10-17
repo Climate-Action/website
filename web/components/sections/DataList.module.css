@@ -11,7 +11,9 @@
   margin: 0 auto;
 
   & + .section {
-    margin-top: var(--spacing-zen);
+    margin-top: var(--spacing-nice);
+
+    @media (--media-min-medium) {     margin-top: var(--spacing-zen) }
   }
 }
 
