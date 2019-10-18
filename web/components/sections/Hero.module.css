@@ -1,6 +1,4 @@
 @import '../../styles/custom-media.css';
-@import '../../styles/custom-properties.css';
-
 .root {
   composes: center from '../../styles/shared.module.css';
   composes: zigzag-bottom from '../../styles/shared.module.css';
@@ -9,8 +7,15 @@
   max-width: var(--width-medium);
   margin: 0 auto;
 
+  @media (--media-max-medium) {
+    & + * {
+      padding-top: 11rem !important;
+    }
+  }
+
   @media (--media-min-medium) {
     padding-bottom: 4rem;
+    flex-wrap: nowrap;
   }
 }
 
@@ -23,13 +28,17 @@
 
 .title {
   margin: 0;
-  padding: 12.5rem 0 0;
+  padding: 2rem 0 0;
 
   @media (--media-min-medium) {
-    padding-top: 15rem;
+    padding-top: 10rem;
+    max-width: var(--width-x-small);
+    margin: 0 auto;
   }
 }
 
+.title h1 { margin-bottom: 0.75rem }
+.title h5 { margin-top: 0.25rem }
 
 .ctas {
   margin-top: 3rem;
@@ -45,10 +54,22 @@
 }
 
 .image {
-  height: 40vh;
-  width: auto;
-  transform: translateY(20%);
   z-index: 2;
+
+  @media (--media-max-medium) {
+    width: auto;
+    height: 13rem;
+    margin-top: -11rem;
+    transform: translateY(11rem);
+  }
+
+  @media (--media-min-medium) {
+    width: auto;
+    height: 40vh;
+    max-width: 40vw;
+    transform: translateY(20%);
+    object-fit: contain;
+  }
 }
 
 .animatedTitles {

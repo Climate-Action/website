@@ -29,6 +29,12 @@ export default {
                   name: 'climate-action',
                   apiId: 'c179ad39-647c-4172-9604-d696bb0ed21e',
                 },
+                {
+                  buildHookId: '5da9b5795a66f20e3f500d37',
+                  title: 'Development Website',
+                  name: 'climate-action',
+                  apiId: 'c179ad39-647c-4172-9604-d696bb0ed21e',
+                },
               ],
             },
           },

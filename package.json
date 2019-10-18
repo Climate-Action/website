@@ -8,8 +8,8 @@
   ],
   "scripts": {
     "build": "lerna run build --parallel",
-    "build-web": "(cd web && npm run build)",
-    "build-studio": "(cd studio && npm run build)",
+    "build-web": "(cd web && yarn run build)",
+    "build-studio": "(cd studio && yarn run build)",
     "dev": "lerna run dev --parallel",
     "format": "lerna run format",
     "graphql-deploy": "lerna run graphql-deploy",

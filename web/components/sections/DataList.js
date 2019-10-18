@@ -16,8 +16,8 @@ const DataList = props => {
     <section className={styles.root}>
       {Object.entries(groups).map(([name, group], index) => (
         <div className={styles.section} key={index}>
-          <h2 className={styles.header}>{name}</h2>
-          <ol>
+          <h2 className={styles.groupTitle}>{name}</h2>
+          <ol className={styles.list}>
             {group.map((data, index) => (
               <li key={index}>
                 <Data {...data} />
@@ -34,32 +34,18 @@ DataList.propTypes = {
   data: PropTypes.arrayOf(PropTypes.object),
 }
 
-const Data = ({ title, type, description, url, source, author }) => {
+const Data = ({ title, description, url, source }) => {
   return (
-    <article className={styles.tool}>
+    <article className={styles.item}>
       <div className={styles.content}>
         <header className={styles.header}>
-          {type && <h2 className={styles.label}>{type.name}</h2>}
-
-          <a href={source.url} className={styles.heading}>
-            {title}
+          <a href={url.href} className={styles.title} title={url.text}>
+            <span>{title}</span>
+            {source && <label className={styles.label}>{source}</label>}
           </a>
-
-          {author && (
-            <span className={styles.author} key={author._key}>
-              {author.name}
-            </span>
-          )}
         </header>
 
-        <section>
-          {description && <div className={styles.description}>{description}</div>}
-          {url && (
-            <a href={url.href} className={styles.button}>
-              View
-            </a>
-          )}
-        </section>
+        <section>{description && <div className={styles.description}>{description}</div>}</section>
       </div>
     </article>
   )
@@ -67,11 +53,9 @@ const Data = ({ title, type, description, url, source, author }) => {
 
 Data.propTypes = {
   title: PropTypes.string,
-  type: PropTypes.object,
-  source: PropTypes.object,
-  author: PropTypes.object,
+  source: PropTypes.string,
   url: PropTypes.object,
-  description: PropTypes.arrayOf(PropTypes.object),
+  description: PropTypes.string,
 }
 
 export default DataList

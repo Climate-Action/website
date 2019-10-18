@@ -85,9 +85,6 @@ class Header extends Component {
                 )
               })}
           </ul>
-          <button className={styles.showNavButton} onClick={this.handleMenuToggle}>
-            <HamburgerIcon className={styles.hamburgerIcon} />
-          </button>
         </nav>
       </div>
     )
