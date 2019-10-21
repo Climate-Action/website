@@ -22,7 +22,7 @@
   padding: var(--spacing-base);
 
   @media (--media-min-medium) {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 22rem auto;
     grid-gap: var(--spacing-nice);
     padding: var(--spacing-nice);
   }
@@ -32,24 +32,27 @@
   color: #bbb;
   display: block;
   margin-bottom: var(--spacing-tight);
+  font-size: 0.8em;
 }
 
 .heading {
   font: var(--font-family-sans);
   color: var(--color-green);
-  font-size: var(--font-title2-size);
+  font-size: var(--font-title3-size);
   font-weight: bold;
   margin-bottom: var(--spacing-tight);
 }
 
 .authors {
   color: rgba(37, 78, 71, 0.6);
+  font-size: 0.8em;
 }
 
 .image {
   padding: var(--spacing-tight);
   align-self: center;
   justify-self: center;
+  max-width: 100%;
 
   @media (--media-max-medium) {
     max-height: 10rem;
@@ -61,7 +64,7 @@
 .button {
   padding: var(--spacing-tight) var(--spacing-nice);
   background-color: var(--color-green);
-  transition: background-color .1s;
+  transition: background-color .15s;
   color: white;
   text-decoration: none;
   font-size: var(--font-large-size);
@@ -69,7 +72,9 @@
   display: inline-block;
 
   &:hover {
-    background-color: var(--color-green-light);
+    background-color: var(--color-green-dark);
+    border-color: transparent;
+    color: white;
   }
 
   & + .button {
@@ -88,9 +93,6 @@
 }
 
 .body {
-
-}
-
-.text {
-
+  color: var(--color-green);
+  line-height: 1.75;
 }

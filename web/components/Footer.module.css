@@ -24,6 +24,7 @@
     display: block;
     margin-top: 3rem;
     font-style: normal;
+    font-size: 0.7em;
   }
 
   @nest & strong {

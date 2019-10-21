@@ -14,7 +14,7 @@
   }
 
   @media (--media-min-medium) {
-    padding-bottom: 4rem;
+    padding-bottom: 0rem;
     flex-wrap: nowrap;
   }
 }
@@ -31,14 +31,15 @@
   padding: 2rem 0 0;
 
   @media (--media-min-medium) {
-    padding-top: 10rem;
+    padding-top: 4rem;
     max-width: var(--width-x-small);
     margin: 0 auto;
   }
 }
 
 .title h1 { margin-bottom: 0.75rem }
-.title h5 { margin-top: 0.25rem }
+.title h5 { margin-top: 1rem }
+.title h3 { font-size: calc(40 / var(--unit) * 1rem); }
 
 .ctas {
   margin-top: 3rem;
@@ -64,14 +65,31 @@
   }
 
   @media (--media-min-medium) {
-    width: auto;
-    height: 40vh;
-    max-width: 40vw;
-    transform: translateY(20%);
+    width: 30vw;
+    transform: translateY(4%);
+    margin-bottom: -1rem;
     object-fit: contain;
   }
 }
 
 .animatedTitles {
   composes: label from '../../styles/shared.module.css';
+}
+
+
+.switched {
+  img {
+    height: 20rem;
+    margin-bottom: -9rem;
+    margin-right: 0rem;
+    margin-top: 0rem;
+    margin-left: -6rem;
+  }
+  h4 {
+    font-size: 2.8em;
+    margin-top: 0.5em;
+  }
+  h1 {
+    font-size: 4em;
+  }
 }

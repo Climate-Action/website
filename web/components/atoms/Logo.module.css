@@ -10,6 +10,12 @@
   @nest & > a {
     display: block;
     padding: 1.5em;
+    border-bottom: 0 !important;
+    transition: filter .2s;
+
+    &:hover {
+      filter: brightness(0.5);
+    }
 
     @supports (padding-top: env(safe-area-inset-top)) {
       padding-left: calc(env(safe-area-inset-left) + 1.5rem);
@@ -17,7 +23,7 @@
   }
 
   @nest & img, & svg {
-    height: 3.5rem;
+    height: 3rem;
     width: 100%;
     color: var(--color-text);
   }

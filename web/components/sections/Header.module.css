@@ -1,6 +1,6 @@
 @import '../../styles/custom-media.css';
 .root {
-  padding: 2rem 1rem;
+  padding: 1rem;
   max-width: var(--width-small);
   margin: 0 auto;
   text-align: center;
@@ -10,16 +10,22 @@
 
   &:not(:first-child) {
     padding: 5rem 0 3rem;
+
+    .title {
+      font-size: 2rem;
+    }
   }
 
   @media (--media-min-medium) {
-    padding: 4rem 0;
+    padding: 1rem 0 3rem;
   }
 }
 
 .title {
   composes: thin-header from '../../styles/shared.module.css';
   color: var(--color-theme-text);
+  margin-bottom: 0;
+  line-height: 1;
 }
 
 .intro {
@@ -38,6 +44,8 @@
   font-weight: 600;
 
   & + .link {
-    border-left: 2px solid rgba(0,0,0,0.7);
+    &:before {
+      //TODO: dot
+    }
   }
 }

@@ -41,9 +41,10 @@ export default {
       },
     },
     {
-      name: 'linkedinId',
-      type: 'string',
-      title: 'LinkedIn Username',
+      name: 'link',
+      type: 'url',
+      title: 'Link',
+      description: 'Links to profile or company page',
     },
     {
       name: 'email',

@@ -57,6 +57,12 @@
   &:last-child a {
     background-color: var(--color-green);
     color: white;
+    border-bottom: 0 !important;
+    transition: background-color .15s;
+
+    &:hover {
+      background-color: var(--color-green-dark);
+    }
   }
 
   & > a {
