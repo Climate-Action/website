@@ -6,12 +6,12 @@ import Cta from '../atoms/Cta'
 import imageUrl from '../atoms/imageUrl'
 
 function Hero(props) {
-  const { heading, ctas, image } = props
+  const { heading, ctas, image, swap } = props
 
   return (
-    <div className={styles.root}>
+    <div className={swap ? styles.alternative : styles.root}>
       <div className={styles.content}>
-        <div className={styles.title}>
+        <div className={swap ? styles.altTitle : styles.title}>
           <SimpleBlockContent blocks={heading} />
         </div>
         {ctas && (
@@ -24,7 +24,7 @@ function Hero(props) {
       </div>
       <img
         src={imageUrl(image, 600)}
-        className={styles.image}
+        className={swap ? styles.altImage : styles.image}
         // sizes="(min-width: 60rem) 80vw"
         alt="People working together"
       />
@@ -35,6 +35,7 @@ function Hero(props) {
 Hero.propTypes = {
   heading: PropTypes.array,
   image: PropTypes.object,
+  swap: PropTypes.bool,
   ctas: PropTypes.arrayOf(PropTypes.object),
 }
 

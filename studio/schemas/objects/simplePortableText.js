@@ -6,7 +6,12 @@ export default {
     {
       title: 'Block',
       type: 'block',
-      styles: [],
+      styles: [
+        { title: 'Normal', value: 'normal' },
+        { title: 'Header', value: 'h2' },
+        { title: 'Label', value: 'h3' },
+        { title: 'Quote', value: 'blockquote' },
+      ],
       lists: [],
       marks: {
         decorators: [
@@ -16,6 +21,10 @@ export default {
         ],
         annotations: [{ type: 'link' }, { type: 'internalLink' }],
       },
+    },
+    {
+      type: 'image',
+      options: { hotspot: true },
     },
     {
       type: 'embedHTML',

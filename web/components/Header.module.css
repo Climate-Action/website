@@ -1,5 +1,4 @@
 @import "../styles/custom-media.css";
-@import "../styles/custom-properties.css";
 
 .root {
   position: relative;
@@ -22,47 +21,48 @@
   @media (--media-min-medium) {
     flex: 1;
   }
+
+  /*
+    position: fixed;
+    bottom: 0;
+    background: #fdf3dc;
+    width: 100%;
+    box-shadow: 0 0 2rem 0rem rgba(60, 60, 60, 0.3);
+   */
 }
 
 .navItems {
-  padding: 0;
   margin: 0;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 1rem;
 
   @media (--media-min-medium) {
-    display: flex;
-    justify-content: flex-end;
-    padding: 0 1rem;
-  }
-
-  @supports (padding-top: env(safe-area-inset-top)) {
-    padding-right: calc(env(safe-area-inset-right) + 1rem);
   }
 
   @media (--media-max-medium) {
-    z-index: 10;
-    display: none;
-    position: absolute;
-    left: 0;
-    top: 100%;
-    width: 100%;
-    background-color: var(--color-black, #000);
-    color: var(--color-white, #fff);
-
-    @nest .root[data-show-nav="true"] & {
-      display: block;
-    }
+    /*
+      flex: 1;
+      justify-content: space-around;
+      padding: 0;
+     */
   }
 }
 
 .navItem {
-  display: flex;
+  display: block;
   white-space: nowrap;
-  align-items: stretch;
   line-height: calc(var(--font-base-line-height) * 1.5rem);
 
   &:last-child a {
     background-color: var(--color-green);
     color: white;
+    border-bottom: 0 !important;
+    transition: background-color .15s;
+
+    &:hover {
+      background-color: var(--color-green-dark);
+    }
   }
 
   & > a {
@@ -76,10 +76,6 @@
     }
 
     @media (--media-max-medium) {
-      padding: 1rem 1.5rem;
-      width: 100%;
-      box-sizing: border-box;
-      text-align: right;
     }
   }
 
@@ -90,29 +86,5 @@
 
   @media (--media-min-medium) {
     margin-left: 0.5rem;
-  }
-}
-
-.showNavButton {
-  appearance: none;
-  border: none;
-  font: inherit;
-  background: none;
-  color: inherit;
-  margin: 0;
-  padding: 1.5rem;
-  outline: none;
-
-  @media (--media-min-medium) {
-    display: none;
-  }
-}
-
-.hamburgerIcon {
-  font-size: calc(var(--font-base-line-height) * 1.5rem);
-  display: block;
-
-  @media (--media-min-medium) {
-    display: none;
   }
 }

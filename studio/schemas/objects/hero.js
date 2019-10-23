@@ -15,6 +15,11 @@ export default {
       options: { hotspot: true },
     },
     {
+      name: 'swap',
+      type: 'boolean',
+      title: 'Swap image position',
+    },
+    {
       name: 'ctas',
       type: 'array',
       title: 'Call to actions',

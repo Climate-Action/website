@@ -4,14 +4,9 @@ export default {
   title: 'Mailchimp newsletter signup',
   fields: [
     {
-      name: 'heading',
-      type: 'string',
-      title: 'Heading',
-    },
-    {
-      name: 'subtitle',
-      type: 'string',
-      title: 'Subheading',
+      name: 'text',
+      type: 'simplePortableText',
+      title: 'Text',
     },
     {
       name: 'actionUrl',

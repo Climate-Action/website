@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import BlockContent from '@sanity/block-content-to-react'
 import client from '../../client'
+import Link from 'next/link'
 
 const { projectId, dataset } = client.config()
 
@@ -34,14 +35,14 @@ const serializers = {
     undefined: props => {
       console.warn('undefined serializer', props)
     },
-    internalLink: props => {
-      // console.warn('make link', props)
-      return (
-        <a href={props.mark._ref} id={props.mark._key}>
-          {props.mark.children}
-        </a>
-      )
-    },
+    // eslint-disable-next-line react/prop-types
+    internalLink: ({ children, mark }) => (
+      // eslint-disable-next-line react/prop-types
+      <Link href={mark.path} key={mark._key}>
+        {/* eslint-disable-next-line react/prop-types */}
+        {children.join(' ')}
+      </Link>
+    ),
   },
 }
 

@@ -2,15 +2,15 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import MailChimpForm from '../atoms/MailChimpForm'
 import styles from './Mailchimp.module.css'
+import SimpleBlockContent from '../atoms/SimpleBlockContent'
 
 export default function Mailchimp(props) {
-  const { heading, subtitle, actionUrl } = props
+  const { text, actionUrl } = props
 
   return (
     <section className={styles.root}>
       <div className={styles.container}>
-        <h2 className={styles.heading}>{heading}</h2>
-        <p className={styles.subtitle}>{subtitle}</p>
+        <SimpleBlockContent blocks={text} />
         {actionUrl && (
           <MailChimpForm
             action={actionUrl}
@@ -70,7 +70,6 @@ export default function Mailchimp(props) {
 }
 
 Mailchimp.propTypes = {
-  heading: PropTypes.string,
-  subtitle: PropTypes.string,
+  text: PropTypes.array,
   actionUrl: PropTypes.string,
 }

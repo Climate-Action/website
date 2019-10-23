@@ -1,6 +1,4 @@
 @import "../../styles/custom-media.css";
-@import '../../styles/custom-properties.css';
-
 .root {
   padding: 2rem 0;
   background-color: var(--color-section-odd);
@@ -33,6 +31,7 @@
 .subtitle {
   text-align: center;
   margin: 0.5rem 0 1.5rem;
+  color: var(--color-green);
 }
 
 .form {

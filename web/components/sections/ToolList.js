@@ -31,10 +31,17 @@ const Tool = ({ heading, intro, image, fileUrl, url, authors, sources, typeName 
         <header className={styles.header}>
           {typeName && <label className={styles.label}>{typeName}</label>}
 
-          <h2 className={styles.heading}>{heading}</h2>
+          <h3 className={styles.heading}>{heading}</h3>
 
           {authors && (
-            <div className={styles.authors}>By {authors.map(a => a.name).join(', ')}</div>
+            <div className={styles.authors}>
+              By{' '}
+              {authors.map((author, i) => (
+                <a key={i} href={author.link}>
+                  {author.name}
+                </a>
+              ))}
+            </div>
           )}
         </header>
 
@@ -42,7 +49,7 @@ const Tool = ({ heading, intro, image, fileUrl, url, authors, sources, typeName 
           {intro && <SimpleBlockContent blocks={intro} className={styles.text} />}
           {url && (
             <a href={url.href} target="_blank" rel="noopener" className={styles.button}>
-              Open
+              Visit
             </a>
           )}
           {fileUrl && (

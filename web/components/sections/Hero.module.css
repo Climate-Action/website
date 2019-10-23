@@ -1,6 +1,4 @@
 @import '../../styles/custom-media.css';
-@import '../../styles/custom-properties.css';
-
 .root {
   composes: center from '../../styles/shared.module.css';
   composes: zigzag-bottom from '../../styles/shared.module.css';
@@ -9,8 +7,15 @@
   max-width: var(--width-medium);
   margin: 0 auto;
 
+  @media (--media-max-medium) {
+    & + * {
+      padding-top: 11rem !important;
+    }
+  }
+
   @media (--media-min-medium) {
-    padding-bottom: 4rem;
+    padding-bottom: 0rem;
+    flex-wrap: nowrap;
   }
 }
 
@@ -23,13 +28,18 @@
 
 .title {
   margin: 0;
-  padding: 12.5rem 0 0;
+  padding: 2rem 0 0;
 
   @media (--media-min-medium) {
-    padding-top: 15rem;
+    padding-top: 4rem;
+    max-width: var(--width-x-small);
+    margin: 0 auto;
   }
-}
 
+  @nest & h1 { margin-bottom: 0.75rem }
+  @nest & h5 { margin-top: 1rem }
+  @nest & h3 { font-size: calc(40 / var(--unit) * 1rem); }
+}
 
 .ctas {
   margin-top: 3rem;
@@ -45,12 +55,83 @@
 }
 
 .image {
-  height: 40vh;
-  width: auto;
-  transform: translateY(20%);
   z-index: 2;
+
+  @media (--media-max-medium) {
+    width: auto;
+    height: 13rem;
+    margin-top: -11rem;
+    transform: translateY(11rem);
+  }
+
+  @media (--media-min-medium) {
+    width: 30vw;
+    transform: translateY(4%);
+    margin-bottom: -1rem;
+    object-fit: contain;
+  }
 }
 
 .animatedTitles {
   composes: label from '../../styles/shared.module.css';
+}
+
+
+.switched {
+  img {
+    height: 20rem;
+    margin-bottom: -9rem;
+    margin-right: 0rem;
+    margin-top: 0rem;
+    margin-left: -6rem;
+  }
+  h4 {
+    font-size: 2.8em;
+    margin-top: 0.5em;
+  }
+  h1 {
+    font-size: 4em;
+  }
+}
+
+
+.alternative {
+  composes: root;
+  flex-direction: row-reverse;
+}
+
+.altTitle {
+  composes: title;
+  padding-bottom: 2rem;
+
+  @nest & h4 {
+    font-size: 2em;
+    margin-top: 0.5em;
+
+    @media (--media-min-medium) {
+      font-size: 2.8em;
+    }
+  }
+
+  @nest & h1 {
+    font-size: 3em;
+
+    @media (--media-min-medium) {
+      font-size: 4em;
+    }
+  }
+
+  @media (--media-min-medium) {
+    max-width: var(--width-small);
+  }
+}
+
+.altImage {
+  composes: image;
+  @media (--media-min-medium) {
+    height: 20rem;
+    margin: 0 0 -9rem -4vw;
+    width: 18vw;
+    max-width: 20rem;
+  }
 }
