@@ -58,6 +58,11 @@
   line-height: 1.75;
 }
 
+.item a {
+  color: var(--color-theme-text);
+  text-decoration: none;
+}
+
 .image {
   object-fit: contain;
   object-position: bottom;
