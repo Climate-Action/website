@@ -36,8 +36,10 @@ const Tool = ({ heading, intro, image, fileUrl, url, authors, sources, typeName 
           {authors && (
             <div className={styles.authors}>
               By{' '}
-              {authors.map(author => (
-                <a href={author.link}>{author.name}</a>
+              {authors.map((author, i) => (
+                <a key={i} href={author.link}>
+                  {author.name}
+                </a>
               ))}
             </div>
           )}

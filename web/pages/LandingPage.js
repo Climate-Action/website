@@ -14,7 +14,6 @@ const contentQuery = `
       ...,
       cta { ..., route-> },
       ctas[] { ..., route-> },
-      simplePortableText {..., internalLink { ..., "href": route->slug }},
       _type == "toolList" => {"tools":  *[_type == "tool"]{
         ...,
         "fileUrl": file.asset->url,

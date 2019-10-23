@@ -39,14 +39,26 @@
   }
 }
 
+.smallImageContent {
+  composes: content;
+
+  @media(--media-min-medium) {
+    grid-template-columns: 2fr 6fr;
+    transform: translateX(-7vw);
+  }
+}
+
 .text {
   color: var(--color-green);
   align-self: center;
   line-height: 2;
-}
 
-.text p {
-  margin-top: 2rem;
+  @nest & img {
+    max-width: 30rem;
+    max-height: 13rem;
+  }
+
+  @nest & p { margin-top: 2rem }
 }
 
 .cta {

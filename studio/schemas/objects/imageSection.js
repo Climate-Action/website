@@ -19,6 +19,11 @@ export default {
       title: 'Image',
     },
     {
+      name: 'smallImage',
+      type: 'boolean',
+      title: 'Small image',
+    },
+    {
       name: 'cta',
       type: 'cta',
       title: 'Call to action',

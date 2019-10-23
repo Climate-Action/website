@@ -38,7 +38,7 @@ const serializers = {
     // eslint-disable-next-line react/prop-types
     internalLink: ({ children, mark }) => (
       // eslint-disable-next-line react/prop-types
-      <Link href={mark.path} key={mark._key} className="text-link">
+      <Link href={mark.path} key={mark._key}>
         {/* eslint-disable-next-line react/prop-types */}
         {children.join(' ')}
       </Link>
