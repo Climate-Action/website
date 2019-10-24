@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import BlockContent from '@sanity/block-content-to-react'
 import client from '../../client'
 import Link from 'next/link'
+import imageUrl from './imageUrl'
 
 const { projectId, dataset } = client.config()
 
@@ -47,6 +48,24 @@ const serializers = {
       if (node && node.html) return <span dangerouslySetInnerHTML={{ __html: node.html }} />
       return null
     },
+    image: ({ node }) => {
+      console.log('image', node)
+      const url = imageUrl(node.asset)
+      return (
+        <>
+          <img src={url} alt="image" />
+          {node.downloadable && (
+            <div>
+              <small>
+                <a href={url} download target="_blank">
+                  Download
+                </a>
+              </small>
+            </div>
+          )}
+        </>
+      )
+    },
   },
 }
 
@@ -58,5 +77,6 @@ const serializerPropType = {
 
 serializers.marks.internalLink.propTypes = serializerPropType
 serializers.types.embedHTML.propTypes = serializerPropType
+serializers.types.image.propTypes = serializerPropType
 
 export default SimpleBlockContent

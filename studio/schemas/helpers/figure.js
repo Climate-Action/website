@@ -7,6 +7,11 @@ export default {
   },
   fields: [
     {
+      name: 'downloadable',
+      type: 'boolean',
+      title: 'Downloadable',
+    },
+    {
       title: 'Caption',
       name: 'caption',
       type: 'string',

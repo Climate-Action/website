@@ -25,6 +25,13 @@ export default {
     {
       type: 'image',
       options: { hotspot: true },
+      fields: [
+        {
+          name: 'downloadable',
+          type: 'boolean',
+          title: 'Downloadable',
+        },
+      ],
     },
     {
       type: 'embedHTML',
