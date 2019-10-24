@@ -30,6 +30,10 @@
 
 .intro {
   color: var(--color-green);
+
+  @nest & img {
+    max-width: calc(100vw - 2rem);
+  }
 }
 
 .links {
