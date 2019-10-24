@@ -14,7 +14,7 @@ const contentQuery = `
       ...,
       cta { ..., route-> },
       ctas[] { ..., route-> },
-      _type == "toolList" => {"tools":  *[_type == "tool"]{
+      _type == "toolList" => {"tools":  *[_type == "tool"] | order(priority desc, _updatedAt desc) {
         ...,
         "fileUrl": file.asset->url,
         authors[] -> { name }, 

@@ -14,6 +14,7 @@
 
 .tool {
   display: grid;
+  width: 100%;
   margin: 0 auto;
   max-width: var(--width-medium);
   background: rgba(223, 220, 215, 0.33);

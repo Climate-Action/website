@@ -50,6 +50,12 @@ export default {
       description: 'If the tool is not a downloadable file, link to it instead',
     },
     {
+      name: 'priority',
+      type: 'number',
+      title: 'List priority',
+      description: 'Higher number makes the tool come higher up in the list',
+    },
+    {
       name: 'authors',
       type: 'array',
       of: [{ type: 'reference', to: { type: 'person' } }],
