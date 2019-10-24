@@ -19,6 +19,8 @@ ToolList.propTypes = {
 }
 
 const Tool = ({ heading, intro, image, fileUrl, url, authors, sources, typeName }) => {
+  const link = url ? url.href : false
+
   return (
     <article className={styles.tool}>
       <img
@@ -47,8 +49,8 @@ const Tool = ({ heading, intro, image, fileUrl, url, authors, sources, typeName 
 
         <section className={styles.body}>
           {intro && <SimpleBlockContent blocks={intro} className={styles.text} />}
-          {url && (
-            <a href={url.href} target="_blank" rel="noopener" className={styles.button}>
+          {link && (
+            <a href={link} target="_blank" rel="noopener" className={styles.button}>
               Visit
             </a>
           )}

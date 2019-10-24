@@ -59,6 +59,10 @@
   }
 
   @nest & p { margin-top: 2rem }
+  @nest & a {
+    color: var(--color-theme-text);
+    text-decoration: none;
+  }
 }
 
 .cta {

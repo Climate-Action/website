@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unused-prop-types */
 import React from 'react'
 import PropTypes from 'prop-types'
 import BlockContent from '@sanity/block-content-to-react'
@@ -35,15 +36,27 @@ const serializers = {
     undefined: props => {
       console.warn('undefined serializer', props)
     },
-    // eslint-disable-next-line react/prop-types
     internalLink: ({ children, mark }) => (
-      // eslint-disable-next-line react/prop-types
       <Link href={mark.path} key={mark._key}>
-        {/* eslint-disable-next-line react/prop-types */}
         {children.join(' ')}
       </Link>
     ),
   },
+  types: {
+    embedHTML: ({ node }) => {
+      if (node && node.html) return <span dangerouslySetInnerHTML={{ __html: node.html }} />
+      return null
+    },
+  },
 }
+
+const serializerPropType = {
+  children: PropTypes.array,
+  mark: PropTypes.object,
+  node: PropTypes.object,
+}
+
+serializers.marks.internalLink.propTypes = serializerPropType
+serializers.types.embedHTML.propTypes = serializerPropType
 
 export default SimpleBlockContent
