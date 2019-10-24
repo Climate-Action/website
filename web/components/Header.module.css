@@ -69,6 +69,7 @@
     display: block;
     position: relative;
     padding: 0.25rem 1.25rem;
+    height: 2rem;
 
     &[data-is-active="true"] {
       background-color: var(--color-white, #fff);
