@@ -49,7 +49,6 @@ const serializers = {
       return null
     },
     image: ({ node }) => {
-      console.log('image', node)
       const url = imageUrl(node.asset)
       return (
         <>

@@ -20,7 +20,7 @@ ToolList.propTypes = {
 
 const Tool = ({ heading, intro, image, fileUrl, url, authors, sources, typeName }) => {
   const link = url ? url.href : false
-  console.log('auth', authors)
+  // console.log('auth', authors)
 
   return (
     <article className={styles.tool}>
