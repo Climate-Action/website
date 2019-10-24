@@ -31,10 +31,10 @@ export default function Mailchimp(props) {
               },
               {
                 name: 'ABOUT',
-                placeholder: 'Write something about yourself, and your aspirations',
+                placeholder: 'Tell us more about you: your country and profession.',
                 type: 'textarea',
                 className: styles.textarea,
-                required: true,
+                required: false,
               },
             ]}
             buttonClassName={styles.button}
