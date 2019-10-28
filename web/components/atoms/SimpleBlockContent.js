@@ -49,14 +49,14 @@ const serializers = {
       return null
     },
     image: ({ node }) => {
-      const url = imageUrl(node.asset)
+      const url = imageUrl(node.asset, null, null, 'hiveInitiative.png')
       return (
         <>
           <img src={url} alt="image" />
           {node.downloadable && (
             <div>
               <small>
-                <a href={url} download target="_blank">
+                <a href={url} target="_blank">
                   Download
                 </a>
               </small>
