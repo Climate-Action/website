@@ -72,16 +72,9 @@ class Header extends Component {
                   router.pathname === '/LandingPage' && router.query.slug === slug.current
                 return (
                   <li key={_id} className={styles.navItem}>
-                    <Link
-                      href={{
-                        pathname: '/LandingPage',
-                        query: { slug: slug.current },
-                      }}
-                      as={`/${slug.current}`}
-                      prefetch
-                    >
-                      <a data-is-active={isActive ? 'true' : 'false'}>{title}</a>
-                    </Link>
+                    <a href={`/${slug.current}`} data-is-active={isActive ? 'true' : 'false'}>
+                      {title}
+                    </a>
                   </li>
                 )
               })}
