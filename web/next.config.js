@@ -1,4 +1,6 @@
 const withCSS = require('@zeit/next-css')
+const withSourceMaps = require('@zeit/next-source-maps')
+
 const client = require('./client')
 
 const isProduction = process.env.NODE_ENV === 'production'
@@ -34,21 +36,23 @@ const reduceRoutes = (obj, route) => {
   return obj
 }
 
-module.exports = withCSS({
-  cssModules: true,
-  cssLoaderOptions: {
-    importLoaders: 1,
-    localIdentName: isProduction ? '[hash:base64:5]' : '[name]__[local]___[hash:base64:5]',
-  },
-  exportPathMap: function() {
-    return client.fetch(query).then(res => {
-      const { routes = [] } = res
-      const nextRoutes = {
-        // Routes imported from sanity
-        ...routes.filter(({ slug }) => slug.current).reduce(reduceRoutes, {}),
-        '/custom-page': { page: '/CustomPage' },
-      }
-      return nextRoutes
-    })
-  },
-})
+module.exports = withSourceMaps(
+  withCSS({
+    cssModules: true,
+    cssLoaderOptions: {
+      importLoaders: 1,
+      localIdentName: isProduction ? '[hash:base64:5]' : '[name]__[local]___[hash:base64:5]',
+    },
+    exportPathMap: function() {
+      return client.fetch(query).then(res => {
+        const { routes = [] } = res
+        const nextRoutes = {
+          // Routes imported from sanity
+          ...routes.filter(({ slug }) => slug.current).reduce(reduceRoutes, {}),
+          '/custom-page': { page: '/CustomPage' },
+        }
+        return nextRoutes
+      })
+    },
+  }),
+)

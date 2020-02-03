@@ -34,6 +34,7 @@
 
   @media (--media-max-medium) {
     flex: 1;
+    min-width: 7rem;
   }
 }
 

@@ -1,14 +1,16 @@
 import React from 'react'
 import Document, { Html, Head, Main, NextScript } from 'next/document'
-// import { ServerStyleSheet, injectGlobal } from 'styled-components'
+import * as Sentry from '@sentry/browser'
 
 import client from '../client'
 
-// injectGlobal`
-//   body {
-//     font-size: 1.6em;
-//   }
-// `
+process.on('unhandledRejection', err => {
+  Sentry.captureException(err)
+})
+
+process.on('uncaughtException', err => {
+  Sentry.captureException(err)
+})
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {

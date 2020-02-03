@@ -1,5 +1,7 @@
 import React from 'react'
 import BaseApp from 'next/app'
+import * as Sentry from '@sentry/browser'
+
 import client from '../client'
 // import 'normalize.css'
 import '../styles/shared.module.css'
@@ -20,6 +22,10 @@ const siteConfigQuery = `
   }[0]
   `
 
+Sentry.init({
+  dsn: 'https://4eb2ea14535448ef8f57c0bb353fdf6b@sentry.io/2205690',
+})
+
 class App extends BaseApp {
   static async getInitialProps({ Component, ctx }) {
     let pageProps = {}
@@ -39,6 +45,18 @@ class App extends BaseApp {
 
       return { pageProps }
     })
+  }
+
+  componentDidCatch(error, errorInfo) {
+    Sentry.withScope(scope => {
+      Object.keys(errorInfo).forEach(key => {
+        scope.setExtra(key, errorInfo[key])
+      })
+
+      Sentry.captureException(error)
+    })
+
+    super.componentDidCatch(error, errorInfo)
   }
 
   render() {
