@@ -39,7 +39,7 @@ const serializers = {
     },
     internalLink: ({ children, mark }) => (
       <Link href={mark.path} key={mark._key}>
-        {children.join(' ')}
+        <a>{children.join(' ')}</a>
       </Link>
     ),
   },
