@@ -27,6 +27,10 @@
 
 }
 
+.image {
+  filter: grayscale(1)
+}
+
 .title {
   font: var(--font-family-sans);
   color: var(--color-theme-text);
