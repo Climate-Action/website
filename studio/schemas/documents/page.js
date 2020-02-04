@@ -25,6 +25,7 @@ export default {
         { type: 'textSection' },
         { type: 'toolList' },
         { type: 'dataList' },
+        { type: 'memberList' },
         { type: 'participantList' },
         { type: 'largeTextSection' },
         { type: 'hero' },
