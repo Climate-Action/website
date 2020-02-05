@@ -6,6 +6,10 @@
   max-width: 80vw;
   margin: 0 auto;
 
+  & svg {
+    margin: 0 auto;
+  }
+
   @media (--media-min-medium) {
     max-width: var(--width-medium);
   }

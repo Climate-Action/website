@@ -24,7 +24,6 @@
 
   @nest & img, & svg {
     height: 3rem;
-    width: 100%;
     color: var(--color-text);
   }
 

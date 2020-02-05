@@ -20,21 +20,12 @@ MemberList.propTypes = {
   data: PropTypes.arrayOf(PropTypes.object),
 }
 
-/*
-country: "norway"
-image: {_type: "image", asset: {…}}
-link: "https://www.linkedin.com/in/paulina-buvinic-996960117/"
-name: "Paulina Buvinic"
-title: "Designer"
-*/
-
-const Member = ({member}) => {
-  const imageSrc = member.image ? imageUrl(member.image, 100, 100) : ""
-  console.log(member)
+const Member = ({ member }) => {
+  const imageSrc = member.image ? imageUrl(member.image, 100, 100) : ''
 
   return (
     <article className={styles.item}>
-      <img src={imageSrc} className={styles.image} alt={"hive member photo"} />
+      <img src={imageSrc} className={styles.image} alt="hive member photo" />
       <div className={styles.content}>
         <header className={styles.header}>
           <a href={member.link} className={styles.title}>
@@ -42,16 +33,20 @@ const Member = ({member}) => {
           </a>
         </header>
         {member.title && <div className={styles.label}>{member.title}</div>}
+        {member.country && <div className={styles.label}>{member.country}</div>}
       </div>
     </article>
   )
 }
 
 Member.propTypes = {
-  title: PropTypes.string,
-  source: PropTypes.string,
-  url: PropTypes.object,
-  description: PropTypes.string,
+  member: PropTypes.shape({
+    title: PropTypes.string,
+    name: PropTypes.string,
+    link: PropTypes.string,
+    image: PropTypes.object,
+    country: PropTypes.string,
+  }),
 }
 
 export default MemberList

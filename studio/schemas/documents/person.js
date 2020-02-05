@@ -29,6 +29,11 @@ export default {
       type: 'string',
     },
     {
+      name: 'ambassador',
+      title: 'Ambassador',
+      type: 'boolean',
+    },
+    {
       name: 'anonymous',
       title: 'Is Anonymous',
       type: 'boolean',

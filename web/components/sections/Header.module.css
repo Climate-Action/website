@@ -8,6 +8,11 @@
   line-height: var(--font-large-line-height);
   font-size: var(--font-large-intro-size);
 
+  & a {
+    text-decoration: none;
+    color: var(--color-theme-text)
+  }
+
   &:not(:first-child) {
     padding: 5rem 0 3rem;
 
