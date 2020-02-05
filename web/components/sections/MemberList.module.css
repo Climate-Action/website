@@ -13,6 +13,10 @@
   max-width: var(--width-large);
   margin: 0 auto;
   padding: 0 1.5rem;
+
+  @media (--media-max-medium) {
+    grid-gap: var(--spacing-nice);
+  }
 }
 
 .item {

@@ -6,6 +6,7 @@
   text-transform: uppercase;
   margin: 0;
   padding: 0;
+  flex-grow: 1;
 
   @nest & > a {
     display: block;
@@ -32,8 +33,7 @@
   }
 
   @media (--media-max-medium) {
-    flex: 1;
-    min-width: 7rem;
+    flex: 1 0 7rem;
   }
 }
 
