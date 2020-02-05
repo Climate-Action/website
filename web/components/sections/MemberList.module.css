@@ -1,0 +1,50 @@
+@import '../../styles/custom-media.css';
+.root {
+  background: white;
+  padding: var(--spacing-nice);
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  grid-gap: var(--spacing-nice);
+  color: var(--color-text-special);
+  max-width: var(--width-medium);
+  margin: 0 auto;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+}
+
+.content {
+  margin-left: 2rem;
+}
+
+
+.header {
+
+}
+
+.image {
+  filter: grayscale(1)
+}
+
+.title {
+  font: var(--font-family-sans);
+  color: var(--color-theme-text);
+  font-size: var(--font-large-size);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.label {
+  color: var(--color-light-gray);
+  font-size: 0.75em;
+  margin-top: 0.25rem;
+}
+

@@ -21,7 +21,7 @@ const contentQuery = `
         sources[] -> { name, link }, 
         "typeName": type->name,
       }},
-      _type == "participantList" => {"participants":  *[_type == "person"]},
+      _type == "participantList" => {"participants":  *[_type == "person" && anonymous != true]},
       _type == "dataList" => {"data":  *[_type == "data"]{
         ...,
         "group": type->name
