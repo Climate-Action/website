@@ -1,7 +1,10 @@
+import Icon from 'react-icons/lib/md/format-shapes'
+
 export default {
   type: 'object',
   name: 'textSection',
   title: 'Text-block list with image',
+  icon: Icon,
   fields: [
     {
       name: 'heading',

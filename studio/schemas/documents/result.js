@@ -1,6 +1,9 @@
+import Icon from 'react-icons/lib/md/check'
+
 export default {
   type: 'document',
   name: 'result',
+  icon: Icon,
   title: 'Result',
   fields: [
     {

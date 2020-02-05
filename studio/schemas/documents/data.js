@@ -1,5 +1,8 @@
+import Icon from 'react-icons/lib/md/local-library'
+
 export default {
   name: 'data',
+  icon: Icon,
   title: 'Data Source',
   type: 'document',
   fields: [
@@ -26,7 +29,7 @@ export default {
     {
       name: 'type',
       type: 'reference',
-      to: [ { type: 'dataType' } ],
+      to: [{ type: 'dataType' }],
       title: 'Grouped under',
     },
   ],

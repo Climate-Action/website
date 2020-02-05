@@ -1,6 +1,9 @@
+import Icon from 'react-icons/lib/md/grade'
+
 export default {
   type: 'object',
   name: 'hero',
+  icon: Icon,
   title: 'Hero',
   fields: [
     {

@@ -1,6 +1,9 @@
+import Icon from 'react-icons/lib/md/format-list-numbered'
+
 export default {
   name: 'signUpSteps',
   title: 'SignUp Steps',
+  icon: Icon,
   type: 'document',
   fields: [
     {
@@ -13,7 +16,7 @@ export default {
       name: 'steps',
       title: 'Steps',
       type: 'array',
-      of: [ { type: 'step' } ],
+      of: [{ type: 'step' }],
     },
   ],
 }

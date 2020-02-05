@@ -20,18 +20,18 @@ import simplePortableText from './objects/simplePortableText'
 import headerText from './objects/headerText'
 import header from './objects/header'
 import step from './objects/step'
-import signUpSteps from './objects/signUpSteps'
+import signUpSteps from './documents/signUpSteps'
 import sortBy from './helpers/sortBy'
 
 // Hive specific
-import tool from './objects/tool'
+import tool from './documents/tool'
 import countryPicker from './helpers/countryPicker'
-import person from './objects/person'
+import person from './documents/person'
 import personType from './helpers/personType'
 import toolType from './helpers/toolType'
 import dataType from './helpers/dataType'
-import data from './objects/data'
-import result from './objects/result'
+import data from './documents/data'
+import result from './documents/result'
 
 // Page sections
 import hero from './objects/hero'
@@ -55,6 +55,8 @@ export default createSchema({
     data,
     result,
     page,
+    signUpSteps,
+
     // config
     person,
     personType,
@@ -83,7 +85,6 @@ export default createSchema({
     dataList,
     signUp,
     step,
-    signUpSteps,
     sortBy,
   ]),
 })

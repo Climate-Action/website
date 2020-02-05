@@ -1,9 +1,10 @@
-// import {FiUser} from "react-icons/fi";
+import Icon from 'react-icons/lib/md/face'
 
 export default {
   name: 'person',
   title: 'Person',
   type: 'document',
+  icon: Icon,
   // icon: FiUser,
   fields: [
     {

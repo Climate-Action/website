@@ -1,6 +1,9 @@
+import Icon from 'react-icons/lib/md/spellcheck'
+
 export default {
   name: 'largeTextSection',
   title: 'Large Text Section',
+  icon: Icon,
   type: 'object',
   fields: [
     {

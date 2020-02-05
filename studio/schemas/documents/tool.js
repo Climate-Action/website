@@ -1,6 +1,9 @@
+import Icon from 'react-icons/lib/md/build'
+
 export default {
   type: 'document',
   name: 'tool',
+  icon: Icon,
   title: 'Tool',
   fields: [
     {
