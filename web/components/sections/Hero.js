@@ -7,6 +7,7 @@ import imageUrl from '../atoms/imageUrl'
 
 function Hero(props) {
   const { heading, ctas, image, swap } = props
+  const showCta = ctas && ctas.length !== 0
 
   return (
     <div className={swap ? styles.alternative : styles.root}>
@@ -14,7 +15,7 @@ function Hero(props) {
         <div className={swap ? styles.altTitle : styles.title}>
           <SimpleBlockContent blocks={heading} />
         </div>
-        {ctas && (
+        {showCta && (
           <div className={styles.ctas}>
             {ctas.map(cta => (
               <Cta {...cta} key={cta._key} />

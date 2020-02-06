@@ -8,7 +8,10 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  padding-right: 1.5rem;
+
+  @media (--media-min-medium) {
+    padding-right: 1.5rem;
+  }
 }
 
 .root a {
@@ -22,7 +25,9 @@
 
   @media (--media-max-medium) {
     order: 1;
-    margin-left: auto;
+    flex: 1 0 100%;
+    background-color: #fff;
+    justify-content: center;
   }
 }
 
@@ -43,6 +48,7 @@
     color: white;
     border-bottom: 0 !important;
     transition: background-color .15s;
+    margin-right: 1rem;
 
     &:hover {
       background-color: var(--color-green-dark);

@@ -8,7 +8,7 @@
   padding: 0;
   flex-grow: 1;
 
-  @nest & > a {
+  & > a {
     display: block;
     padding: 1.5em;
     border-bottom: 0 !important;
@@ -23,12 +23,16 @@
     }
   }
 
-  @nest & img, & svg {
+  & img, & svg {
     height: 3rem;
     color: var(--color-text);
+
+    @media (--media-max-medium) {
+      height: 2.5rem;
+    }
   }
 
-  @nest & svg path {
+  & svg path {
     fill: currentColor;
   }
 

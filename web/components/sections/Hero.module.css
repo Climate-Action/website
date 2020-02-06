@@ -7,12 +7,6 @@
   max-width: var(--width-medium);
   margin: 0 auto;
 
-  @media (--media-max-medium) {
-    & + * {
-      padding-top: 11rem !important;
-    }
-  }
-
   @media (--media-min-medium) {
     padding-bottom: 0rem;
     flex-wrap: nowrap;
@@ -21,24 +15,35 @@
 
 .content {
   width: 100%;
-  padding: 0 1.5em;
+  padding: 0 2.5em;
   box-sizing: border-box;
   z-index: 1;
+
+  @media (--media-min-medium) {
+    padding: 0 1.5em;
+  }
 }
 
 .title {
   margin: 0;
   padding: 2rem 0 0;
 
+  & h1 { margin-bottom: 0.75rem }
+  & h3 { font-size: calc(40 / var(--unit) * 1rem); }
+  & h5 {
+    margin-top: 1rem;
+    display: none;
+  }
+
   @media (--media-min-medium) {
     padding-top: 4rem;
     max-width: var(--width-x-small);
     margin: 0 auto;
-  }
 
-  @nest & h1 { margin-bottom: 0.75rem }
-  @nest & h5 { margin-top: 1rem }
-  @nest & h3 { font-size: calc(40 / var(--unit) * 1rem); }
+    & h5 {
+      display: block;
+    }
+  }
 }
 
 .ctas {
@@ -58,10 +63,7 @@
   z-index: 2;
 
   @media (--media-max-medium) {
-    width: auto;
-    height: 13rem;
-    margin-top: -11rem;
-    transform: translateY(11rem);
+    display: none;
   }
 
   @media (--media-min-medium) {
@@ -104,7 +106,7 @@
   composes: title;
   padding-bottom: 2rem;
 
-  @nest & h4 {
+  & h4 {
     font-size: 2em;
     margin-top: 0.5em;
 
@@ -113,7 +115,7 @@
     }
   }
 
-  @nest & h1 {
+  & h1 {
     font-size: 3em;
 
     @media (--media-min-medium) {
