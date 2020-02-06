@@ -17,8 +17,8 @@ const contentQuery = `
       _type == "toolList" => {"tools":  *[_type == "tool"] | order(priority desc, _updatedAt desc) {
         ...,
         "fileUrl": file.asset->url,
-        authors[] -> { name }, 
-        sources[] -> { name, link }, 
+        authors[] -> { name, link },
+        sources[] -> { name, link },
         "typeName": type->name,
       }},
       _type == "participantList" => {"participants":  *[_type == "person" && ambassador != false] | order(_createdAt desc)},
