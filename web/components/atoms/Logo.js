@@ -7,15 +7,7 @@ import Svg from 'react-inlinesvg'
 
 const Logo = ({ logo, title }) => (
   <h1 className={styles.root}>
-    <Link
-      href={{
-        pathname: '/LandingPage',
-        query: { slug: '/' },
-      }}
-      as="/"
-    >
-      <a title={title}>{renderLogo(logo)}</a>
-    </Link>
+    <a href="/" title={title}>{renderLogo(logo)}</a>
   </h1>
 )
 
