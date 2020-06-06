@@ -39,3 +39,6 @@ jspm_packages
 
 # Static
 out
+
+# Local Netlify folder
+.netlify

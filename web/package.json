@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "next",
     "build": "next build && next export && node exportSitemap.js",
+    "postbuild": "next-on-netlify",
     "format": "prettier-eslint --write $PWD/'**/*.js' $PWD/'!.next/**' $PWD/'!node_modules/**' $PWD/'!out/**'",
     "lint": "eslint .",
     "start": "next start"
@@ -23,6 +24,7 @@
     "lerna": "^3.16.4",
     "lodash": "^4.17.15",
     "next": "^9.2.1",
+    "next-on-netlify": "^2.0.0",
     "next-seo": "^4.0.0",
     "prettier-eslint": "^9.0.0",
     "react": "^16.12.0",
