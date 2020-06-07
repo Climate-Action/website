@@ -9,3 +9,8 @@
   # detects NextJS and redirects do not work.
   # Read more: https://github.com/netlify/cli/blob/master/docs/netlify-dev.md#project-detection
   framework = "#static"
+[[redirects]]
+  from = "/participate-submit"
+  to = "/.netlify/functions/handleParticipate"
+  status = 200
+  force = true
