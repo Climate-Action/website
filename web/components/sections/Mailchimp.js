@@ -13,7 +13,7 @@ export default function Mailchimp(props) {
         <SimpleBlockContent blocks={text} />
         {actionUrl && (
           <MailChimpForm
-            action={`${process.env.NEXT_PUBLIC_MAILCHIMP_URL}`}
+            action={process.env.NEXT_PUBLIC_MAILCHIMP_URL}
             fields={[
               {
                 name: 'NAME',
