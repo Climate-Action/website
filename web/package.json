@@ -5,7 +5,8 @@
   "author": "Sanity <hello@sanity.io>",
   "scripts": {
     "dev": "next",
-    "build": "netlify-lambda build ./functions && next build && next export && node exportSitemap.js",
+    "build": "next build && next export && node exportSitemap.js && npm run build-functions",
+    "build-functions": "netlify-lambda build ./functions",
     "format": "prettier-eslint --write $PWD/'**/*.js' $PWD/'!.next/**' $PWD/'!node_modules/**' $PWD/'!out/**'",
     "lint": "eslint .",
     "start": "next start"

@@ -10,6 +10,7 @@
     "build": "lerna run build --parallel",
     "build-web": "(cd web && yarn run build)",
     "build-studio": "(cd studio && yarn run build)",
+    "build-functions": "(cd web && npm run build-functions)",
     "dev": "lerna run dev --parallel",
     "functions": "(cd web && netlify dev)",
     "format": "lerna run format",
