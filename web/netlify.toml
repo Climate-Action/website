@@ -1,10 +1,10 @@
 [build]
   command = "#"
-  functions = "out_functions"
+  functions = "functions"
   publish = "out_publish"
 [dev]
   functions = "functions"
-  publish   = "build"
+  publish   = "out_publish"
   # We manually set the framework to static, otherwise Netlify automatically
   # detects NextJS and redirects do not work.
   # Read more: https://github.com/netlify/cli/blob/master/docs/netlify-dev.md#project-detection
