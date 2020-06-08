@@ -6,7 +6,18 @@ const MAILCHIMP_AUDIENCE_ID = process.env.MAILCHIMP_AUDIENCE_ID
 const SLACK_TOKEN = process.env.SLACK_TOKEN
 const SLACK_SIGNUP_NOTIFICATION_CHANNEL = process.env.SLACK_SIGNUP_NOTIFICATION_CHANNEL
 
+const acceptableOrigins = [
+  'http://localhost:3000',
+  'https://develop--climate-action.netlify.app/',
+  'https://climate-action.netlify.app/',
+  'https://hiveinitiative.org/',
+]
+
 exports.handler = function(event, context, callback) {
+  const headers = {}
+  if (acceptableOrigins.includes(event.headers.origin)) {
+    headers['Access-Control-Allow-Origin'] = event.headers.origin
+  }
   console.info(event.queryStringParameters)
   let userData
   try {
@@ -14,9 +25,7 @@ exports.handler = function(event, context, callback) {
   } catch (e) {
     return callback(e, {
       statusCode: 400,
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-      },
+      headers: headers,
       body: e.message,
     })
   }
@@ -28,9 +37,7 @@ exports.handler = function(event, context, callback) {
     .then(data => {
       callback(null, {
         statusCode: 200,
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-        },
+        headers: headers,
         body: JSON.stringify(data),
       })
     })
@@ -39,12 +46,10 @@ exports.handler = function(event, context, callback) {
 
 async function run(userData, runConfig) {
   try {
-    let returnJson = {
-      msg: 'Success',
-    }
+    let returnValue = 'Success'
     if (!runConfig.disableMailchimp) {
       const mailchimpResponse = await addToMailchimp(userData)
-      returnJson = JSON.parse(mailchimpResponse).status
+      returnValue = JSON.parse(mailchimpResponse).status
     }
     if (!runConfig.disableSlack) {
       await sendSlackMessage(
@@ -52,7 +57,7 @@ async function run(userData, runConfig) {
       )
     }
     return Promise.resolve({
-      msg: returnJson,
+      msg: returnValue,
     })
   } catch (e) {
     return Promise.reject(e)
