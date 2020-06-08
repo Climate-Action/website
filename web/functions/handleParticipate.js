@@ -4,7 +4,7 @@ const crypto = require('crypto')
 const MAILCHIMP_API_KEY = process.env.MAILCHIMP_API_KEY
 const MAILCHIMP_AUDIENCE_ID = process.env.MAILCHIMP_AUDIENCE_ID
 const SLACK_TOKEN = process.env.SLACK_TOKEN
-const SLACK_TESTING_CHANNEL = process.env.SLACK_TESTING_CHANNEL
+const SLACK_SIGNUP_NOTIFICATION_CHANNEL = process.env.SLACK_SIGNUP_NOTIFICATION_CHANNEL
 
 exports.handler = function(event, context, callback) {
   console.info(event.queryStringParameters)
@@ -62,7 +62,7 @@ async function run(userData, runConfig) {
 async function sendSlackMessage(message) {
   return new Promise((resolve, reject) => {
     const slackMessage = {
-      channel: SLACK_TESTING_CHANNEL,
+      channel: SLACK_SIGNUP_NOTIFICATION_CHANNEL,
       text: message,
     }
     // console.log('sendSlackMessage', slackMessage)
