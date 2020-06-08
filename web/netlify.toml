@@ -2,7 +2,7 @@
   command = "npm run build"
   functions = "out_functions"
 [dev]
-  functions = "functions"
+  functions = "./functions"
   framework = "#static"
 [[redirects]]
   from = "/participate-submit"
