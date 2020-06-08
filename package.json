@@ -11,7 +11,7 @@
     "build-web": "(cd web && yarn run build)",
     "build-studio": "(cd studio && yarn run build)",
     "dev": "lerna run dev --parallel",
-    "functions": "cd web && netlify dev",
+    "functions": "(cd web && netlify dev)",
     "format": "lerna run format",
     "graphql-deploy": "lerna run graphql-deploy",
     "lint": "lerna run lint",
