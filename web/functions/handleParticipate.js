@@ -18,7 +18,6 @@ exports.handler = function(event, context, callback) {
   if (acceptableOrigins.includes(event.headers.origin)) {
     headers['Access-Control-Allow-Origin'] = event.headers.origin
   }
-  console.info(event.queryStringParameters)
   let userData
   try {
     userData = JSON.parse(event.body)
