@@ -13,3 +13,4 @@ studio/dist/
 
 # Local Netlify folder
 .netlify
+.env.local
