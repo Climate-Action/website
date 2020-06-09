@@ -22,7 +22,6 @@ class MailChimp extends React.Component {
   }
 
   sendData(url, values) {
-    console.log('sendData', url)
     this.setState({ status: 'sending' })
     window
       .fetch(url, {
