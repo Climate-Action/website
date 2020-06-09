@@ -18,6 +18,8 @@ exports.handler = function(event, context, callback) {
   const headers = {}
   if (acceptableOrigins.includes(event.headers.origin)) {
     headers['Access-Control-Allow-Origin'] = event.headers.origin
+  } else {
+    console.info('Origin is not acceptable.')
   }
   let userData
   try {
