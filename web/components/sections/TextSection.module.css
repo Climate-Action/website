@@ -30,7 +30,11 @@
   text-align: center;
   font-size: var(--font-title2-size);
   display: inline-block;
-  margin-bottom: 3rem;
+  margin-bottom: 1.5rem;
+
+  @media (--media-min-medium) {
+    margin-bottom: 3rem;
+  }
 }
 
 .items {

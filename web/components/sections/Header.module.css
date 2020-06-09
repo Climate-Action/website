@@ -31,12 +31,19 @@
   color: var(--color-theme-text);
   margin-bottom: 0;
   line-height: 1;
-}
 
+  @media (--media-max-medium) {
+    margin-top: var(--spacing-nice);
+  }
+}
 .intro {
   color: var(--color-green);
 
-  @nest & img {
+  & p {
+    padding: 0 1.5rem;
+  }
+
+  & img {
     max-width: calc(100vw - 2rem);
   }
 }

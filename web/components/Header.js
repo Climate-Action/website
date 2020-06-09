@@ -59,30 +59,45 @@ class Header extends Component {
   render() {
     const { title = 'Missing title', navItems, router, logo } = this.props
     const { showNav } = this.state
+    const [allButLast, last] = getLastItemAlone(navItems)
 
     return (
-      <div className={styles.root} data-show-nav={showNav}>
+      <nav className={styles.root} data-show-nav={showNav}>
         <Logo title={title} logo={logo} />
-        <nav className={styles.nav}>
-          <ul className={styles.navItems}>
-            {navItems &&
-              navItems.map(item => {
-                const { slug, title, _id } = item
-                const isActive =
-                  router.pathname === '/LandingPage' && router.query.slug === slug.current
-                return (
-                  <li key={_id} className={styles.navItem}>
-                    <a href={`/${slug.current}`} data-is-active={isActive ? 'true' : 'false'}>
-                      {title}
-                    </a>
-                  </li>
-                )
-              })}
-          </ul>
-        </nav>
-      </div>
+        <span className={styles.list}>
+          <NavItems items={allButLast} router={router} />
+        </span>
+        <NavItem item={last} router={router} last />
+      </nav>
     )
   }
+}
+
+const NavItems = ({ items, router }) => {
+  if (!items) return null
+  return items.map(item => <NavItem item={item} key={item._id} router={router} />)
+}
+
+const NavItem = ({ item, router, last }) => {
+  if (!item) return null
+  const isActive = router.pathname === '/LandingPage' && router.query.slug === item.slug.current
+  return (
+    <a
+      className={styles.item}
+      href={`/${item.slug.current}`}
+      data-is-active={isActive ? 'true' : 'false'}
+      data-is-last={last ? 'true' : 'false'}
+    >
+      {item.title}
+    </a>
+  )
+}
+
+const getLastItemAlone = items => {
+  // console.log(items)
+  if (!items) return [[], []]
+
+  return [items.slice(0, -1), items.slice(-1)[0]]
 }
 
 export default withRouter(Header)

@@ -56,3 +56,7 @@ module.exports = withSourceMaps(
     },
   }),
 )
+
+// this line based on instructions for
+// https://www.npmjs.com/package/next-on-netlify
+module.exports.target = 'serverless'

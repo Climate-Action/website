@@ -25,6 +25,7 @@
   grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   grid-gap: var(--spacing-nice);
   color: var(--color-text-special);
+  padding-left: 0;
 }
 
 .content {

@@ -1,3 +1,5 @@
+@import './custom-media.css';
+
 :root {
   --wide-container: 60rem;
   --narrow-container: 40rem;
@@ -44,20 +46,27 @@
   --font-large-line-height: calc(30 / 18); /* 27px */
   --font-large-intro-size: calc(17 / var(--unit) * 1rem); /* 21px */
 
-  --font-title3-size: calc(24 / var(--unit) * 1rem); /* 21px */
+  --font-title3-size: calc(21 / var(--unit) * 1rem); /* 21px */
   --font-title3-line-height: calc(30 / 21); /* 30px */
 
   --font-title25-size: calc(30 / var(--unit) * 1rem); /* 21px */
   --font-title25-line-height: calc(30 / 21); /* 30px */
 
-  --font-title2-size: calc(42 / var(--unit) * 1rem); /* 24px */
-  --font-title2-line-height: calc(48 / 28); /* 33px */
-  --font-title1-size: calc(80 / var(--unit) * 1rem);
-  --font-title1-line-height: calc(49 / 53);
+  --font-title2-size: calc(32 / var(--unit) * 1rem); /* 24px */
+  --font-title2-line-height: calc(48 / 32); /* 33px */
 
-  @media (--media-min-medium) {
-    --font-title1-size: calc(49 / var(--unit) * 1rem); /* 49px */
-    --font-title1-line-height: calc(57 / 49); /* 57px */
+  --font-title1-size: calc(71 / var(--unit) * 1rem); /* 49px */
+  --font-title1-line-height: calc(67 / 71); /* 57px */
+
+  @media (--media-min-small) {
+    --font-title3-size: calc(24 / var(--unit) * 1rem); /* 21px */
+    --font-title3-line-height: calc(30 / 21); /* 30px */
+
+    --font-title2-size: calc(42 / var(--unit) * 1rem); /* 24px */
+    --font-title2-line-height: calc(48 / 28); /* 33px */
+
+    --font-title1-size: calc(80 / var(--unit) * 1rem);
+    --font-title1-line-height: calc(49 / 53);
   }
 
   /* Widths */
@@ -139,10 +148,14 @@ h4 {
   text-transform: uppercase;
   background-color: white;
   text-align: center;
-  font-size: 3rem;
+  font-size: 2.5rem;
   display: inline;
   padding: 0.35em 0.25em 0.1em;
   color: var(--color-theme-text);
+
+  @media (--media-min-medium) {
+    font-size: 3rem;
+  }
 }
 
 @font-face {

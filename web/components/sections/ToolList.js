@@ -20,7 +20,6 @@ ToolList.propTypes = {
 
 const Tool = ({ heading, intro, image, fileUrl, url, authors, sources, typeName }) => {
   const link = url ? url.href : false
-  // console.log('auth', authors)
 
   return (
     <article className={styles.tool}>
@@ -40,9 +39,10 @@ const Tool = ({ heading, intro, image, fileUrl, url, authors, sources, typeName 
             <div className={styles.authors}>
               By{' '}
               {authors.map((author, i) => (
-                <a key={i} href={author.link}>
-                  {author.name}
-                </a>
+                <React.Fragment key={i}>
+                  {author.link ? <a href={author.link}>{author.name}</a> : author.name}
+                  {listSpacer(i, authors.length)}
+                </React.Fragment>
               ))}
             </div>
           )}
@@ -64,6 +64,18 @@ const Tool = ({ heading, intro, image, fileUrl, url, authors, sources, typeName 
       </div>
     </article>
   )
+}
+
+const listSpacer = (i, len) => {
+  const itemsLeft = len - i - 1
+  switch (itemsLeft) {
+    case 0:
+      return '.'
+    case 1:
+      return ' and '
+    default:
+      return ', '
+  }
 }
 
 Tool.propTypes = {
