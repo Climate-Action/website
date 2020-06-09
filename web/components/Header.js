@@ -94,9 +94,7 @@ const NavItem = ({ item, router, last }) => {
 }
 
 const getLastItemAlone = items => {
-  // console.log(items)
   if (!items) return [[], []]
-
   return [items.slice(0, -1), items.slice(-1)[0]]
 }
 
