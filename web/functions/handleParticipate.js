@@ -1,6 +1,7 @@
 const https = require('https')
 const crypto = require('crypto')
 
+const MAILCHIMP_MEMBER_URL = 'https://us20.admin.mailchimp.com/lists/members/view'
 const MAILCHIMP_API_KEY = process.env.MAILCHIMP_API_KEY
 const MAILCHIMP_AUDIENCE_ID = process.env.MAILCHIMP_AUDIENCE_ID
 const SLACK_TOKEN = process.env.SLACK_TOKEN
@@ -8,9 +9,9 @@ const SLACK_SIGNUP_NOTIFICATION_CHANNEL = process.env.SLACK_SIGNUP_NOTIFICATION_
 
 const acceptableOrigins = [
   'http://localhost:3000',
-  'https://develop--climate-action.netlify.app/',
-  'https://climate-action.netlify.app/',
-  'https://hiveinitiative.org/',
+  'https://develop--climate-action.netlify.app',
+  'https://climate-action.netlify.app',
+  'https://hiveinitiative.org',
 ]
 
 exports.handler = function(event, context, callback) {
@@ -30,7 +31,7 @@ exports.handler = function(event, context, callback) {
   }
   const runConfig = {
     disableSlack: event.queryStringParameters.disableSlack === 'true',
-    disableMailchimp: event.queryStringParameters.disableMailchimp === 'true'
+    disableMailchimp: event.queryStringParameters.disableMailchimp === 'true',
   }
   run(userData, runConfig)
     .then(data => {
@@ -46,13 +47,16 @@ exports.handler = function(event, context, callback) {
 async function run(userData, runConfig) {
   try {
     let returnValue = 'Success'
+    let webId = ''
     if (!runConfig.disableMailchimp) {
       const mailchimpResponse = await addToMailchimp(userData)
-      returnValue = JSON.parse(mailchimpResponse).status
+      const mailchimpJson = JSON.parse(mailchimpResponse)
+      returnValue = mailchimpJson.status
+      webId = mailchimpJson.web_id
     }
-    if (!runConfig.disableSlack) {
+    if (!runConfig.disableSlack && webId) {
       await sendSlackMessage(
-        `${userData.NAME} <${userData.EMAIL}> wants to participate in the Hive Initiative!\n> ${userData.ABOUT}`,
+        `A new person has joined the Hive Initiative!\nDetails in Mailchimp here:\n${MAILCHIMP_MEMBER_URL}?id=${webId}`,
       )
     }
     return Promise.resolve({
