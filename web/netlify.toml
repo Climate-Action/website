@@ -1,0 +1,11 @@
+[build]
+  command = "npm run build"
+  functions = "out_functions"
+[dev]
+  functions = "./functions"
+  framework = "#static"
+[[redirects]]
+  from = "/participate-submit"
+  to = "/.netlify/functions/handleParticipate"
+  status = 200
+  force = true

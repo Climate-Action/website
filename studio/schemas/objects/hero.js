@@ -18,6 +18,11 @@ export default {
       options: { hotspot: true },
     },
     {
+      name: 'imageAltText',
+      type: 'string',
+      title: 'Image Alt Text',
+    },
+    {
       name: 'swap',
       type: 'boolean',
       title: 'Swap image position',

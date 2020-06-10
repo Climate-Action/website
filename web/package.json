@@ -5,14 +5,15 @@
   "author": "Sanity <hello@sanity.io>",
   "scripts": {
     "dev": "next",
-    "build": "next build && next export && node exportSitemap.js",
+    "build": "next build && next export && node exportSitemap.js && npm run build-functions",
+    "build-functions": "netlify-lambda build ./functions",
     "format": "prettier-eslint --write $PWD/'**/*.js' $PWD/'!.next/**' $PWD/'!node_modules/**' $PWD/'!out/**'",
     "lint": "eslint .",
     "start": "next start"
   },
   "dependencies": {
     "@sanity/block-content-to-react": "^2.0.7",
-    "@sanity/client": "^0.147.3",
+    "@sanity/client": "^1.149.13",
     "@sanity/image-url": "^0.140.17",
     "@sentry/browser": "^5.11.2",
     "@zeit/next-css": "^1.0.1",
@@ -22,7 +23,9 @@
     "groq": "^0.147.8",
     "lerna": "^3.16.4",
     "lodash": "^4.17.15",
+    "netlify-lambda": "^1.6.3",
     "next": "^9.2.1",
+    "next-on-netlify": "^2.0.0",
     "next-seo": "^4.0.0",
     "prettier-eslint": "^9.0.0",
     "react": "^16.12.0",

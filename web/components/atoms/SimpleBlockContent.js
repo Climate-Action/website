@@ -56,7 +56,7 @@ const serializers = {
           {node.downloadable && (
             <div>
               <small>
-                <a href={url} target="_blank">
+                <a href={url} target="_blank" rel="noopener">
                   Download
                 </a>
               </small>
