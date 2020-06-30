@@ -5,6 +5,8 @@
   "author": "Sanity <hello@sanity.io>",
   "scripts": {
     "dev": "next",
+    "dev-functions": "netlify dev",
+    "prebuild": "cd functions && npm install",
     "build": "next build && next export && node exportSitemap.js && npm run build-functions",
     "build-functions": "netlify-lambda build ./functions",
     "format": "prettier-eslint --write $PWD/'**/*.js' $PWD/'!.next/**' $PWD/'!node_modules/**' $PWD/'!out/**'",
@@ -16,6 +18,7 @@
     "@sanity/client": "^1.149.13",
     "@sanity/image-url": "^0.140.17",
     "@sentry/browser": "^5.11.2",
+    "@sentry/node": "^5.18.1",
     "@zeit/next-css": "^1.0.1",
     "@zeit/next-source-maps": "^0.0.3",
     "eslint-config-prettier": "^6.3.0",
