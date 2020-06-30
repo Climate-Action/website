@@ -1,3 +1,6 @@
+'use strict'
+
+const Sentry = require('@sentry/node')
 const https = require('https')
 const crypto = require('crypto')
 
@@ -14,7 +17,23 @@ const acceptableOrigins = [
   'https://hiveinitiative.org',
 ]
 
-exports.handler = function(event, context, callback) {
+Sentry.init({
+  dsn: 'https://4eb2ea14535448ef8f57c0bb353fdf6b@o348233.ingest.sentry.io/2205690',
+})
+
+function sentryHandler(lambdaHandler) {
+  return (event, context, callback) => {
+    try {
+      return lambdaHandler(event, context, callback)
+    } catch (error) {
+      Sentry.captureException(error)
+      Sentry.flush(2000)
+      throw error
+    }
+  }
+}
+
+exports.handler = sentryHandler((event, context, callback) => {
   const headers = {}
   if (acceptableOrigins.includes(event.headers.origin)) {
     headers['Access-Control-Allow-Origin'] = event.headers.origin
@@ -44,7 +63,7 @@ exports.handler = function(event, context, callback) {
       })
     })
     .catch(callback)
-}
+})
 
 async function run(userData, runConfig) {
   try {
