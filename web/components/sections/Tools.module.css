@@ -72,26 +72,7 @@
 }
 
 .button {
-  padding: var(--spacing-tight) var(--spacing-nice);
-  background-color: var(--color-green);
-  transition: background-color .15s;
-  color: white;
-  text-decoration: none;
-  font-size: var(--font-large-size);
-  margin-top: var(--spacing-nice);
-  display: inline-block;
-
-  &:hover {
-    background-color: var(--color-green-dark);
-    border-color: transparent;
-    color: white;
-  }
-
-  & + .button {
-    margin-left: 1rem;
-  }
-
-  @media (--media-min-medium) {  }
+  composes: button-subtle from '../../styles/shared.module.css';
 }
 
 .content {

@@ -4,11 +4,24 @@ import SimpleBlockContent from '../atoms/SimpleBlockContent'
 import styles from './TextSection.module.css'
 import imageUrl from '../atoms/imageUrl'
 
-function TextSection({ heading, items, white }) {
+function TextSection({ heading, items, white, color, headingStyle }) {
+  let styleHeading = styles.heading;
+  if (headingStyle === 'serif') {
+    styleHeading = styles.groupTitle;
+  }
+
+  const backgroundColor = (color && `var(${color})`) || (white ? 'white' : '')
+  const headerBackgroundColor = backgroundColor === '' ? 'white' : ''
   return (
-    <div className={styles.root} style={white ? { backgroundColor: 'white' } : {}}>
+    <div 
+      className={styles.root} 
+      style={{backgroundColor: backgroundColor}}
+    >
       <section className={styles.article}>
-        <h2 className={styles.heading}>{heading}</h2>
+        <h2 
+          className={styleHeading} 
+          style={{backgroundColor: headerBackgroundColor}}
+        >{heading}</h2>
         <div className={styles.items}>
           {items.map(({ title, image, text, _key }) => (
             <article className={styles.item} key={_key}>
@@ -32,7 +45,9 @@ function TextSection({ heading, items, white }) {
 
 TextSection.propTypes = {
   heading: PropTypes.string,
+  headingStyle: PropTypes.string,
   white: PropTypes.bool,
+  color: PropTypes.string,
   items: PropTypes.arrayOf(PropTypes.object),
 }
 

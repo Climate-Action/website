@@ -12,6 +12,21 @@ export default {
       title: 'Heading',
     },
     {
+      name: 'headingStyle',
+      type: 'string',
+      validation: Rule => Rule.required(),
+      options: {
+        list: [{
+          value: 'default',
+          title: 'Default'
+        }, {
+          value: 'serif',
+          title: 'Serif'
+        }],
+        layout: 'radio',
+      },
+    },
+    {
       name: 'items',
       title: 'Items',
       type: 'array',
@@ -40,10 +55,23 @@ export default {
       ],
     },
     {
-      name: 'white',
-      type: 'boolean',
-      title: 'White',
-    },
+      name: 'color',
+      type: 'string',
+      validation: Rule => Rule.required(),
+      options: {
+        list: [{
+          value: 'white',
+          title: 'White'
+        }, {
+          value: '--color-theme-dark',
+          title: 'Theme Dark'
+        }, {
+          value: '--color-theme-bg',
+          title: 'Theme Light'
+        }],
+        layout: 'radio',
+      },
+    }
   ],
   preview: {
     select: {

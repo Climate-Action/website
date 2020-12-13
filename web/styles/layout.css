@@ -28,8 +28,8 @@
   --color-section-odd: white;
 
   /* Spacing */
-  --spacing-base: 1rem;
   --spacing-tight: 0.5rem;
+  --spacing-base: 1rem;
   --spacing-nice: 2rem;
   --spacing-relaxed: 4rem;
   --spacing-zen: 6rem;

@@ -2,7 +2,7 @@
 .root {
   padding: 2rem;
   background-color: white;
-  border-top: 4px dashed white;
+  /* border-top: 4px dashed white; */
   align-self: center;
 
   @media (--media-min-medium) {
@@ -13,12 +13,24 @@
 .content {
   max-width: var(--width-medium);
   margin: 0 auto;
+}
 
+.contentWithImage {
+  margin: 0 auto;
   @media (--media-min-medium) {
     display: grid;
+    grid-auto-flow: column;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;
     grid-gap: 2rem 4rem;
+  }
+}
+
+.smallImageContent {
+  composes: content;
+  @media(--media-min-medium) {
+    grid-template-columns: 2fr 6fr;
+    transform: translateX(-7vw);
   }
 }
 
@@ -36,15 +48,6 @@
 
   @media (--media-max-medium) {
     display: none;
-  }
-}
-
-.smallImageContent {
-  composes: content;
-
-  @media(--media-min-medium) {
-    grid-template-columns: 2fr 6fr;
-    transform: translateX(-7vw);
   }
 }
 
@@ -68,8 +71,34 @@
 .cta {
   grid-column: 1 / 3;
 }
+.ctaCenter {
+  text-align: center;
+}
+.ctaRight {
+  text-align: right;
+}
+
+.button {
+  composes: button-subtle from '../../styles/shared.module.css';
+  color: var(--color-white) !important;
+  padding: var(--spacing-base) var(--spacing-nice);
+}
+.buttonSmall {
+  composes: button-subtle from '../../styles/shared.module.css';
+  color: var(--color-white) !important;
+  padding: var(--spacing-tight);
+}
 
 .text {
   max-width: var(--width-medium);
   grid-column: 2;
+}
+
+@media (--media-min-medium) {
+  .imageOnRight .image {
+    grid-column: 2;
+  }
+  .imageOnRight .text {
+    grid-column: 1;
+  }
 }
