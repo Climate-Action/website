@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './ImageSection.module.css'
-import themes from '../../styles/themes.css'
+import ModulePadding from '../atoms/ModulePadding'
+import ThemeStyle from '../atoms/Theme'
 import SimpleBlockContent from '../atoms/SimpleBlockContent'
 import CallToAction from './CallToAction'
 import imageUrl from '../atoms/imageUrl'
@@ -18,15 +19,6 @@ function ImageSection(props) {
     modulePadding,
   } = props
 
-  let themeStyle = '';
-  if (theme && theme.style === 'dark') {
-    themeStyle = themes.themeDark;
-  } else if (theme && theme.style === 'light') {
-    themeStyle = themes.themeLight;
-  } else if (theme && theme.style === 'white') {
-    themeStyle = themes.themeWhite;
-  }
-
   let contentStyle = styles.content;
   if (image) {
     contentStyle = styles.contentWithImage;
@@ -35,17 +27,10 @@ function ImageSection(props) {
     }
   }
 
-  let _styles = {}
-  if (modulePadding) {
-    _styles = {
-      padding: `var(--spacing-${modulePadding.verticalPadding}) var(--spacing-${modulePadding.horizontalPadding})`
-    }
-  }
-
   return (
     <div 
-      className={`${styles.root} ${imageOnRight ? styles.imageOnRight : ''} ${themeStyle}`}
-      style={_styles}
+      className={`${styles.root} ${imageOnRight ? styles.imageOnRight : ''} ${ThemeStyle(theme)}`}
+      style={ModulePadding(modulePadding)}
     >
       <div className={contentStyle}>
         {image && (

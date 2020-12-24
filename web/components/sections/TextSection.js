@@ -1,8 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import SimpleBlockContent from '../atoms/SimpleBlockContent'
+import ModulePadding from '../atoms/ModulePadding'
+import ThemeStyle from '../atoms/Theme'
 import styles from './TextSection.module.css'
-import themes from '../../styles/themes.css'
 import imageUrl from '../atoms/imageUrl'
 
 function TextSection({ heading, items, theme, headingStyle, modulePadding }) {
@@ -11,33 +12,14 @@ function TextSection({ heading, items, theme, headingStyle, modulePadding }) {
     styleHeading = styles.groupTitle;
   }
 
-  let _styles = {}
-  if (modulePadding) {
-    _styles = {
-      padding: `var(--spacing-${modulePadding.verticalPadding}) var(--spacing-${modulePadding.horizontalPadding})`
-    }
-  }
-
-  let themeStyle = ''
-  let headerBackgroundColor = ''
-  if (theme && theme.style === 'dark') {
-    themeStyle = themes.themeDark
-  } else if (theme && theme.style === 'light') {
-    themeStyle = themes.themeLight
-    headerBackgroundColor = themes.themeLight
-  } else if (theme && theme.style === 'white') {
-    themeStyle = themes.themeWhite;
-    headerBackgroundColor = theme.themeWhite
-  }
-
   return (
     <div 
-      className={`${styles.root} ${themeStyle}`}
-      style={_styles}
+      className={`${styles.root} ${ThemeStyle(theme)}`}
+      style={ModulePadding(modulePadding)}
     >
       <section className={styles.article}>
         <h2 
-          className={`${styleHeading} ${headerBackgroundColor}`} 
+          className={`${styleHeading}`} 
         >{heading}</h2>
         <div className={styles.items}>
           {items.map(({ title, image, text, _key }) => (

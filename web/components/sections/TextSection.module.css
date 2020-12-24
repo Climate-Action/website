@@ -32,10 +32,6 @@
   display: inline-block;
   margin-bottom: 1.5rem;
   background-color: transparent;
-
-  @media (--media-min-medium) {
-    margin-bottom: 3rem;
-  }
 }
 
 .groupTitle {

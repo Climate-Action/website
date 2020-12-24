@@ -1,26 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import ModulePadding from '../atoms/ModulePadding'
+import ThemeStyle from '../atoms/Theme'
 import styles from './SplitView.module.css'
 import ImageTextCta from './ImageTextCta'
 
 function SplitView(props) {
   const { itc, theme, modulePadding } = props
 
-  let themeStyle = styles.theme
-  if (theme && theme.style === 'white') {
-    themeStyle = styles.themeWhite
-  }
-
-  let _styles = {}
-  if (modulePadding) {
-    _styles = {
-      gridGap: `var(--spacing-${modulePadding.verticalPadding}) var(--spacing-${modulePadding.horizontalPadding})`
-    }
-  }
-  
   return <div 
-    className={`${styles.root} ${themeStyle}`}
-    style={_styles}
+    className={`${styles.root} ${ThemeStyle(theme)}`}
+    style={ModulePadding(modulePadding, 'gridGap')}
   >
     {itc.map(_itc => (
       <ImageTextCta itc={_itc} key={_itc._key} />
