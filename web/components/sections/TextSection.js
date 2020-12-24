@@ -5,10 +5,17 @@ import styles from './TextSection.module.css'
 import themes from '../../styles/themes.css'
 import imageUrl from '../atoms/imageUrl'
 
-function TextSection({ heading, items, white, theme, headingStyle, modulePadding }) {
+function TextSection({ heading, items, theme, headingStyle, modulePadding }) {
   let styleHeading = styles.heading;
   if (headingStyle === 'serif') {
     styleHeading = styles.groupTitle;
+  }
+
+  let _styles = {}
+  if (modulePadding) {
+    _styles = {
+      padding: `var(--spacing-${modulePadding.verticalPadding}) var(--spacing-${modulePadding.horizontalPadding})`
+    }
   }
 
   let themeStyle = ''
@@ -26,9 +33,7 @@ function TextSection({ heading, items, white, theme, headingStyle, modulePadding
   return (
     <div 
       className={`${styles.root} ${themeStyle}`}
-      style={{
-        padding: modulePadding,
-      }}
+      style={_styles}
     >
       <section className={styles.article}>
         <h2 
@@ -58,8 +63,7 @@ function TextSection({ heading, items, white, theme, headingStyle, modulePadding
 TextSection.propTypes = {
   heading: PropTypes.string,
   headingStyle: PropTypes.string,
-  modulePadding: PropTypes.string,
-  white: PropTypes.bool,
+  modulePadding: PropTypes.object,
   theme: PropTypes.object,
   items: PropTypes.arrayOf(PropTypes.object),
 }

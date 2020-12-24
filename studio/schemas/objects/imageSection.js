@@ -15,9 +15,8 @@ export default {
     },
     {
       name: 'modulePadding',
-      type: 'string',
-      default: '1rem 0 3rem',
-      title: 'Padding',
+      type: 'modulePadding',
+      title: 'Module Padding',
     },
     {
       name: 'text',

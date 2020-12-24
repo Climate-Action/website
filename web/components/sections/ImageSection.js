@@ -23,6 +23,8 @@ function ImageSection(props) {
     themeStyle = themes.themeDark;
   } else if (theme && theme.style === 'light') {
     themeStyle = themes.themeLight;
+  } else if (theme && theme.style === 'white') {
+    themeStyle = themes.themeWhite;
   }
 
   let contentStyle = styles.content;
@@ -33,12 +35,17 @@ function ImageSection(props) {
     }
   }
 
+  let _styles = {}
+  if (modulePadding) {
+    _styles = {
+      padding: `var(--spacing-${modulePadding.verticalPadding}) var(--spacing-${modulePadding.horizontalPadding})`
+    }
+  }
+
   return (
     <div 
       className={`${styles.root} ${imageOnRight ? styles.imageOnRight : ''} ${themeStyle}`}
-      style={{
-        padding: modulePadding,
-      }}
+      style={_styles}
     >
       <div className={contentStyle}>
         {image && (
@@ -57,7 +64,7 @@ function ImageSection(props) {
 ImageSection.propTypes = {
   heading: PropTypes.string,
   theme: PropTypes.object,
-  modulePadding: PropTypes.string,
+  modulePadding: PropTypes.object,
   text: PropTypes.array,
   image: PropTypes.shape({
     asset: PropTypes.shape({
