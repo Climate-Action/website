@@ -4,3 +4,6 @@
 .themeDark {
     background-color: var(--color-theme-dark);
 }
+.themeWhite {
+    background-color: white;
+}

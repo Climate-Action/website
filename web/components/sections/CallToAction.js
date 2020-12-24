@@ -4,7 +4,7 @@ import styles from './CallToAction.module.css'
 import Link from 'next/link'
 
 function CallToAction(props) {
-  const { cta } = props
+  const { cta, modulePadding } = props
 
   const route = cta.route
   const link = cta.link
@@ -22,9 +22,16 @@ function CallToAction(props) {
     buttonStyle = styles.buttonSmall;
   }
 
+  let _styles = {}
+  if (modulePadding) {
+    _styles = {
+      padding: `var(--spacing-${modulePadding.verticalPadding}) var(--spacing-${modulePadding.horizontalPadding})`
+    }
+  }
+
   if (route && route.slug && route.slug.current) {
     return (
-      <div className={rootStyle}>
+      <div className={rootStyle} style={_styles}>
         <Link
           href={{
             pathname: '/LandingPage',
@@ -51,6 +58,7 @@ function CallToAction(props) {
 
 CallToAction.propTypes = {
   cta: PropTypes.object,
+  modulePadding: PropTypes.object,
 }
 
 export default CallToAction

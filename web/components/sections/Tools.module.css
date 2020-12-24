@@ -7,8 +7,8 @@
   grid-template-columns: 1fr;
 
   @media (--media-min-medium) {
-    padding: var(--spacing-nice);
-    grid-gap: var(--spacing-relaxed);
+    padding: var(--spacing-base);
+    grid-gap: var(--spacing-nice);
   }
 }
 
@@ -20,7 +20,6 @@
   background: rgba(223, 220, 215, 0.33);
   grid-template-columns: 1fr;
   grid-gap: var(--spacing-base);
-  padding: var(--spacing-base);
 
   @media (--media-min-medium) {
     grid-template-columns: 22rem auto;

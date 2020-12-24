@@ -2,28 +2,37 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import SimpleBlockContent from '../atoms/SimpleBlockContent'
 import styles from './TextSection.module.css'
+import themes from '../../styles/themes.css'
 import imageUrl from '../atoms/imageUrl'
 
-function TextSection({ heading, items, white, color, headingStyle, modulePadding }) {
+function TextSection({ heading, items, white, theme, headingStyle, modulePadding }) {
   let styleHeading = styles.heading;
   if (headingStyle === 'serif') {
     styleHeading = styles.groupTitle;
   }
 
-  const backgroundColor = (color && `var(${color})`) || (white ? 'white' : '')
-  const headerBackgroundColor = backgroundColor === '' ? 'white' : ''
+  let themeStyle = ''
+  let headerBackgroundColor = ''
+  if (theme && theme.style === 'dark') {
+    themeStyle = themes.themeDark
+  } else if (theme && theme.style === 'light') {
+    themeStyle = themes.themeLight
+    headerBackgroundColor = themes.themeLight
+  } else if (theme && theme.style === 'white') {
+    themeStyle = themes.themeWhite;
+    headerBackgroundColor = theme.themeWhite
+  }
+
   return (
     <div 
-      className={styles.root} 
+      className={`${styles.root} ${themeStyle}`}
       style={{
-        backgroundColor: backgroundColor,
         padding: modulePadding,
       }}
     >
       <section className={styles.article}>
         <h2 
-          className={styleHeading} 
-          style={{backgroundColor: headerBackgroundColor}}
+          className={`${styleHeading} ${headerBackgroundColor}`} 
         >{heading}</h2>
         <div className={styles.items}>
           {items.map(({ title, image, text, _key }) => (
@@ -51,7 +60,7 @@ TextSection.propTypes = {
   headingStyle: PropTypes.string,
   modulePadding: PropTypes.string,
   white: PropTypes.bool,
-  color: PropTypes.string,
+  theme: PropTypes.object,
   items: PropTypes.arrayOf(PropTypes.object),
 }
 

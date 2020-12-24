@@ -61,23 +61,10 @@ export default {
       ],
     },
     {
-      name: 'color',
-      type: 'string',
-      validation: Rule => Rule.required(),
-      options: {
-        list: [{
-          value: 'white',
-          title: 'White'
-        }, {
-          value: '--color-theme-dark',
-          title: 'Theme Dark'
-        }, {
-          value: '--color-theme-bg',
-          title: 'Theme Light'
-        }],
-        layout: 'radio',
-      },
-    }
+      name: 'theme',
+      type: 'theme',
+      title: 'Theme',
+    },
   ],
   preview: {
     select: {

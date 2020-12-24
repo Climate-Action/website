@@ -28,6 +28,7 @@
   --color-section-odd: white;
 
   /* Spacing */
+  --spacing-none: 0;
   --spacing-tight: 0.5rem;
   --spacing-base: 1rem;
   --spacing-nice: 2rem;
@@ -76,8 +77,6 @@
   --width-large: 80em;
   --width-x-large: 100em;
 }
-
-
 
 html {
   font-family: var(--font-family-sans);

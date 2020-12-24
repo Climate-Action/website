@@ -30,6 +30,8 @@ export default {
         { type: 'largeTextSection' },
         { type: 'hero' },
         { type: 'signUp' },
+        { type: 'imageTextCta' },
+        { type: 'splitView' },
       ],
     },
     {

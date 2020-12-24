@@ -19,9 +19,9 @@ function ImageSection(props) {
   } = props
 
   let themeStyle = '';
-  if (theme === 'dark') {
+  if (theme && theme.style === 'dark') {
     themeStyle = themes.themeDark;
-  } else if (theme === 'light') {
+  } else if (theme && theme.style === 'light') {
     themeStyle = themes.themeLight;
   }
 
@@ -56,7 +56,7 @@ function ImageSection(props) {
 
 ImageSection.propTypes = {
   heading: PropTypes.string,
-  theme: PropTypes.string,
+  theme: PropTypes.object,
   modulePadding: PropTypes.string,
   text: PropTypes.array,
   image: PropTypes.shape({

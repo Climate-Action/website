@@ -5,8 +5,7 @@ export default {
     fields: [
       {
         name: 'modulePadding',
-        type: 'string',
-        default: '1rem 0 3rem',
+        type: 'modulePadding',
         title: 'Padding',
       },
       {
