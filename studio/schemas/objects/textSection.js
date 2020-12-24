@@ -27,6 +27,12 @@ export default {
       },
     },
     {
+      name: 'modulePadding',
+      type: 'string',
+      default: '4rem 0',
+      title: 'Padding',
+    },
+    {
       name: 'items',
       title: 'Items',
       type: 'array',

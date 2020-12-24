@@ -20,6 +20,7 @@ export default {
       title: 'Page sections',
       of: [
         { type: 'header' },
+        { type: 'callToAction' },
         { type: 'imageSection' },
         { type: 'mailchimp' },
         { type: 'textSection' },

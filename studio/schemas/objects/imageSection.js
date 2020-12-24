@@ -27,6 +27,12 @@ export default {
       },
     },
     {
+      name: 'modulePadding',
+      type: 'string',
+      default: '1rem 0 3rem',
+      title: 'Padding',
+    },
+    {
       name: 'text',
       type: 'simplePortableText',
       title: 'Text',
@@ -53,43 +59,6 @@ export default {
       type: 'cta',
       title: 'Call to action',
     },
-    {
-      name: 'ctaSize',
-      type: 'string',
-      validation: Rule => Rule.required(),
-      default: 'small',
-      options: {
-        list: [{
-          value: 'small',
-          title: 'Small'
-        }, {
-          value: 'large',
-          title: 'Large'
-        }],
-        layout: 'radio',
-      },
-    },
-    {
-      name: 'ctaPosition',
-      type: 'string',
-      validation: Rule => Rule.required(),
-      options: {
-        list: [{
-          value: 'default',
-          title: 'Default'
-        }, {
-          value: 'left',
-          title: 'Left'
-        }, {
-          value: 'center',
-          title: 'Center'
-        }, {
-          value: 'right',
-          title: 'Right'
-        }],
-        layout: 'radio',
-      },
-    }
   ],
   preview: {
     select: {

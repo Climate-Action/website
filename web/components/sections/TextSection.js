@@ -4,7 +4,7 @@ import SimpleBlockContent from '../atoms/SimpleBlockContent'
 import styles from './TextSection.module.css'
 import imageUrl from '../atoms/imageUrl'
 
-function TextSection({ heading, items, white, color, headingStyle }) {
+function TextSection({ heading, items, white, color, headingStyle, modulePadding }) {
   let styleHeading = styles.heading;
   if (headingStyle === 'serif') {
     styleHeading = styles.groupTitle;
@@ -15,7 +15,10 @@ function TextSection({ heading, items, white, color, headingStyle }) {
   return (
     <div 
       className={styles.root} 
-      style={{backgroundColor: backgroundColor}}
+      style={{
+        backgroundColor: backgroundColor,
+        padding: modulePadding,
+      }}
     >
       <section className={styles.article}>
         <h2 
@@ -46,6 +49,7 @@ function TextSection({ heading, items, white, color, headingStyle }) {
 TextSection.propTypes = {
   heading: PropTypes.string,
   headingStyle: PropTypes.string,
+  modulePadding: PropTypes.string,
   white: PropTypes.bool,
   color: PropTypes.string,
   items: PropTypes.arrayOf(PropTypes.object),

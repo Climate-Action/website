@@ -35,6 +35,7 @@ import result from './documents/result'
 
 // Page sections
 import hero from './objects/hero'
+import callToAction from './objects/callToAction'
 import imageSection from './objects/imageSection'
 import mailchimp from './objects/mailchimp'
 import textSection from './objects/textSection'
@@ -65,6 +66,7 @@ export default createSchema({
     // object
     countryPicker,
     cta,
+    callToAction,
     hero,
     embedHTML,
     figure,

@@ -30,6 +30,43 @@ export default {
       type: 'url',
       fieldset: 'link',
     },
+    {
+      name: 'size',
+      type: 'string',
+      validation: Rule => Rule.required(),
+      default: 'small',
+      options: {
+        list: [{
+          value: 'small',
+          title: 'Small'
+        }, {
+          value: 'large',
+          title: 'Large'
+        }],
+        layout: 'radio',
+      },
+    },
+    {
+      name: 'position',
+      type: 'string',
+      validation: Rule => Rule.required(),
+      options: {
+        list: [{
+          value: 'default',
+          title: 'Default'
+        }, {
+          value: 'left',
+          title: 'Left'
+        }, {
+          value: 'center',
+          title: 'Center'
+        }, {
+          value: 'right',
+          title: 'Right'
+        }],
+        layout: 'radio',
+      },
+    }
   ],
   preview: {
     select: {

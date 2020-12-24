@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import SimpleBlockContent from '../atoms/SimpleBlockContent'
 import imageUrl from '../atoms/imageUrl'
 import styles from './MemberList.module.css'
 
