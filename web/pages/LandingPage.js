@@ -22,6 +22,7 @@ const contentQuery = `
         "typeName": type->name,
       }},
       _type == "participantList" => {"participants":  *[_type == "person" && ambassador != false] | order(_createdAt desc)},
+      _type == "companyList" => {"companies":  *[_type == "company"] | order(_createdAt desc)},
       _type == "dataList" => {"data":  *[_type == "data"]{
         ...,
         "group": type->name

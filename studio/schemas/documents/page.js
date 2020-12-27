@@ -27,6 +27,7 @@ export default {
         { type: 'toolList' },
         { type: 'dataList' },
         { type: 'participantList' },
+        { type: 'companyList' },
         { type: 'largeTextSection' },
         { type: 'hero' },
         { type: 'signUp' },
