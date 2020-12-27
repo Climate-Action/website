@@ -9,6 +9,11 @@ export default {
       title: 'Text',
     },
     {
+      name: 'theme',
+      type: 'theme',
+      title: 'Theme',
+    },
+    {
       name: 'actionUrl',
       type: 'url',
       title: 'URL to Mailchimp signup',

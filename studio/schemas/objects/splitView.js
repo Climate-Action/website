@@ -14,6 +14,11 @@ export default {
         title: 'Theme',
       },
       {
+        name: 'moduleWidth',
+        type: 'moduleWidth',
+        title: 'Module Width',
+      },
+      {
         name: 'modulePadding',
         type: 'modulePadding',
         title: 'Module Padding',

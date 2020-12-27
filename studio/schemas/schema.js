@@ -23,6 +23,7 @@ import step from './objects/step'
 import signUpSteps from './documents/signUpSteps'
 import sortBy from './helpers/sortBy'
 import modulePadding from './helpers/modulePadding'
+import moduleWidth from './helpers/moduleWidth'
 import theme from './helpers/theme'
 
 // Hive specific
@@ -72,6 +73,7 @@ export default createSchema({
     cta,
     callToAction,
     modulePadding,
+    moduleWidth,
     theme,
     splitView,
     imageTextCta,

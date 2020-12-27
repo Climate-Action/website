@@ -1,15 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import SimpleBlockContent from '../atoms/SimpleBlockContent'
 import CallToAction from './CallToAction'
 
 function ImageTextCta(props) {
-  const { itc } = props
+  const { text, callToAction } = props
 
-  if (itc.callToAction) {
+  if (text) {
+    return <SimpleBlockContent blocks={text} />
+  }
+
+  if (callToAction) {
     return <CallToAction 
-      cta={itc.callToAction.cta} 
-      verticalPadding={itc.callToAction.verticalPadding}
-      horizontalPadding={itc.callToAction.horizontalPadding}
+      cta={callToAction.cta} 
+      verticalPadding={callToAction.verticalPadding}
+      horizontalPadding={callToAction.horizontalPadding}
     />
   }
 
@@ -17,8 +22,8 @@ function ImageTextCta(props) {
 }
 
 ImageTextCta.propTypes = {
-  itc: PropTypes.object,
-  theme: PropTypes.string,
+  callToAction: PropTypes.object,
+  text: PropTypes.array,
 }
 
 export default ImageTextCta

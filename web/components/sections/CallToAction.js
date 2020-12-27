@@ -21,6 +21,8 @@ function CallToAction(props) {
   let buttonStyle = styles.button;
   if (cta.size === 'small') {
     buttonStyle = styles.buttonSmall;
+  } else if (cta.size === 'text') {
+    buttonStyle = styles.buttonText;
   }
 
   if (route && route.slug && route.slug.current) {

@@ -1,28 +1,32 @@
 @import '../../styles/custom-media.css';
 .root {
-    padding: 2rem 0;
-    text-align: center;
+  padding: 2rem 0;
+  text-align: center;
 }
 
 .rootLeft {
-    composes: root;
-    text-align: left;
+  composes: root;
+  text-align: left;
 }
 
 .rootRight {
-    composes: root;
-    text-align: right;
+  composes: root;
+  text-align: right;
 }
 
 .button {
-    composes: button-subtle from '../../styles/shared.module.css';
-    color: var(--color-white) !important;
-    padding: var(--spacing-base) var(--spacing-nice);
-    margin: 0;
+  composes: button-subtle from '../../styles/shared.module.css';
+  color: var(--color-white) !important;
+  padding: var(--spacing-base) var(--spacing-nice);
+  margin: 0;
 }
 .buttonSmall {
-    composes: button-subtle from '../../styles/shared.module.css';
-    color: var(--color-white) !important;
-    padding: var(--spacing-base);
-    margin: 0;
+  composes: button-subtle from '../../styles/shared.module.css';
+  color: var(--color-white) !important;
+  padding: var(--spacing-base);
+  margin: 0;
+}
+.buttonText {
+  text-decoration: none;
+  color: var(--color-theme-text)
 }

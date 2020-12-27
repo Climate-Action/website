@@ -37,6 +37,9 @@ export default {
       default: 'small',
       options: {
         list: [{
+          value: 'text',
+          title: 'Text'
+        }, {
           value: 'small',
           title: 'Small'
         }, {

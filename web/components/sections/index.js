@@ -1,7 +1,7 @@
 export { default as Hero } from './Hero'
 export { default as CallToAction } from './CallToAction'
 export { default as SplitView } from './SplitView'
-export { default as imageTextCta } from './ImageTextCta'
+export { default as ImageTextCta } from './ImageTextCta'
 export { default as Mailchimp } from './Mailchimp'
 export { default as TextSection } from './TextSection'
 export { default as ImageSection } from './ImageSection'
