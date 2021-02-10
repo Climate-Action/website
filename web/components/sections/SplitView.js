@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import ModulePadding from '../atoms/ModulePadding'
-import ModuleWidth from '../atoms/ModuleWidth'
 import ThemeStyle from '../atoms/Theme'
 import styles from './SplitView.module.css'
 import ImageTextCta from './ImageTextCta'
@@ -16,7 +15,7 @@ function SplitView(props) {
     style={ModulePadding(modulePadding, paddingType)}
   >
     <div className={styles.content} style={{
-      maxWidth: ModuleWidth(moduleWidth),
+      maxWidth: `var(--width-${moduleWidth.max})`,
     }}>
       {itc.map(_itc => (
         <ImageTextCta {..._itc} key={_itc._key} />

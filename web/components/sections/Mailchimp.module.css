@@ -1,19 +1,22 @@
 @import "../../styles/custom-media.css";
 .root {
-  padding: 2rem 0;
+  padding: var(--spacing-nice) 0;
   background-color: var(--color-section-odd);
 
   @media (--media-min-medium) {
-    padding: 4rem 0;
+    padding: var(--spacing-relaxed) 0;
   }
 }
 
-.container {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: 1fr;
-  grid-gap: 2rem 4rem;
+.introText {
+  margin: 0 auto;
   max-width: var(--width-medium);
+  padding: var(--spacing-nice) var(--spacing-nice) 0;
+}
+
+.container {
+  max-width: var(--width-medium);
+  padding: var(--spacing-nice);
   margin: 0 auto;
 
   & h2, & h3 + h3 {
@@ -35,6 +38,13 @@
   & h3 + h3 {
     font-size: var(--font-title4-size);
     line-height: var(--font-title4-line-height);
+  }
+
+  @media (--media-min-medium) {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    grid-gap: 2rem 4rem;
   }
 }
 
