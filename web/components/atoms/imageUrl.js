@@ -3,7 +3,7 @@ import client from '../../client'
 
 const builder = imageUrlBuilder(client)
 
-export default (image, width, height, download) => {
+const imageUrl = (image, width, height, download) => {
   let img = builder
     .image(image)
     .auto('format')
@@ -14,3 +14,5 @@ export default (image, width, height, download) => {
 
   return img.url()
 }
+
+export default imageUrl
