@@ -9,18 +9,16 @@ export default {
       description: 'Just used to identify it in the studio',
       type: 'string',
     },
-    /* {
-      name: 'type',
-      title: 'Filter on single type',
-      description: 'Empty for all types',
-      type: 'reference',
-      to: [ { type: 'toolType' } ],
-    },
-    {
-      name: 'sort',
-      title: 'Sort by',
-      description: 'NOTE: not implemented yet',
-      type: 'sortBy',
-    }, */
   ],
+  preview: {
+    select: {
+      heading: 'name',
+    },
+    prepare({ heading }) {
+      return {
+        title: `${heading}`,
+        subtitle: 'Tool section',
+      }
+    },
+  },
 }

@@ -22,12 +22,17 @@ import header from './objects/header'
 import step from './objects/step'
 import signUpSteps from './documents/signUpSteps'
 import sortBy from './helpers/sortBy'
+import modulePadding from './helpers/modulePadding'
+import moduleWidth from './helpers/moduleWidth'
+import theme from './helpers/theme'
 
 // Hive specific
 import tool from './documents/tool'
 import countryPicker from './helpers/countryPicker'
 import person from './documents/person'
 import personType from './helpers/personType'
+import company from './documents/company'
+import companyType from './helpers/companyType'
 import toolType from './helpers/toolType'
 import dataType from './helpers/dataType'
 import data from './documents/data'
@@ -35,11 +40,15 @@ import result from './documents/result'
 
 // Page sections
 import hero from './objects/hero'
+import callToAction from './objects/callToAction'
+import splitView from './objects/splitView'
+import imageTextCta from './objects/imageTextCta'
 import imageSection from './objects/imageSection'
 import mailchimp from './objects/mailchimp'
 import textSection from './objects/textSection'
 import toolList from './objects/toolList'
 import participantList from './objects/participantList'
+import companyList from './objects/companyList'
 import dataList from './objects/dataList'
 import largeTextSection from './objects/largeTextSection'
 import signUp from './objects/signUp'
@@ -60,11 +69,19 @@ export default createSchema({
     // config
     person,
     personType,
+    company,
+    companyType,
     dataType,
     toolType,
     // object
     countryPicker,
     cta,
+    callToAction,
+    modulePadding,
+    moduleWidth,
+    theme,
+    splitView,
+    imageTextCta,
     hero,
     embedHTML,
     figure,
@@ -81,6 +98,7 @@ export default createSchema({
     textSection,
     toolList,
     participantList,
+    companyList,
     largeTextSection,
     dataList,
     signUp,

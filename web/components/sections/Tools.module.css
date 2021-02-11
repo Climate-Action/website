@@ -7,8 +7,8 @@
   grid-template-columns: 1fr;
 
   @media (--media-min-medium) {
-    padding: var(--spacing-nice);
-    grid-gap: var(--spacing-relaxed);
+    padding: var(--spacing-base);
+    grid-gap: var(--spacing-nice);
   }
 }
 
@@ -20,7 +20,6 @@
   background: rgba(223, 220, 215, 0.33);
   grid-template-columns: 1fr;
   grid-gap: var(--spacing-base);
-  padding: var(--spacing-base);
 
   @media (--media-min-medium) {
     grid-template-columns: 22rem auto;
@@ -72,26 +71,7 @@
 }
 
 .button {
-  padding: var(--spacing-tight) var(--spacing-nice);
-  background-color: var(--color-green);
-  transition: background-color .15s;
-  color: white;
-  text-decoration: none;
-  font-size: var(--font-large-size);
-  margin-top: var(--spacing-nice);
-  display: inline-block;
-
-  &:hover {
-    background-color: var(--color-green-dark);
-    border-color: transparent;
-    color: white;
-  }
-
-  & + .button {
-    margin-left: 1rem;
-  }
-
-  @media (--media-min-medium) {  }
+  composes: button-subtle from '../../styles/shared.module.css';
 }
 
 .content {

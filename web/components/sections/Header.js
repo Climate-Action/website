@@ -4,12 +4,15 @@ import SimpleBlockContent from '../atoms/SimpleBlockContent'
 import styles from './Header.module.css'
 
 const Header = props => {
-  const { title, intro, links } = props
+  const { title, intro, links, modulePadding } = props
 
   return !title || !intro ? (
     <div>Ooops! Something went wrong</div>
   ) : (
-    <section className={styles.root}>
+    <section 
+      className={styles.root}
+      style={{ padding: modulePadding }}
+    >
       <h1 className={styles.title}>{title}</h1>
 
       {intro && <SimpleBlockContent blocks={intro} className={styles.intro} />}
@@ -28,6 +31,7 @@ const Header = props => {
 }
 Header.propTypes = {
   title: PropTypes.string,
+  modulePadding: PropTypes.string,
   intro: PropTypes.arrayOf(PropTypes.object),
   links: PropTypes.arrayOf(PropTypes.object),
 }

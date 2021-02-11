@@ -9,6 +9,16 @@ export default {
       title: 'Heading',
     },
     {
+      name: 'theme',
+      type: 'theme',
+      title: 'Theme',
+    },
+    {
+      name: 'modulePadding',
+      type: 'modulePadding',
+      title: 'Module Padding',
+    },
+    {
       name: 'text',
       type: 'simplePortableText',
       title: 'Text',
@@ -19,9 +29,16 @@ export default {
       title: 'Image',
     },
     {
+      name: 'imageOnRight',
+      type: 'boolean',
+      title: 'Image on the right',
+      default: false,
+    },
+    {
       name: 'smallImage',
       type: 'boolean',
       title: 'Small image',
+      default: false,
     },
     {
       name: 'cta',

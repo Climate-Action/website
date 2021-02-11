@@ -16,4 +16,15 @@ export default {
       type: 'sortBy',
     },
   ],
+  preview: {
+    select: {
+      heading: 'name',
+    },
+    prepare({ heading }) {
+      return {
+        title: `${heading}`,
+        subtitle: 'Participant section',
+      }
+    },
+  },
 }

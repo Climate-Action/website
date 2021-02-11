@@ -2167,8 +2167,9 @@
     promise-props-recursive "^1.0.0"
 
 "@sanity/cli@^1.149.19":
-  version "1.149.19"
-  resolved "https://registry.yarnpkg.com/@sanity/cli/-/cli-1.149.19.tgz#2cd3df4d83c4e10f86266d9e694b76b3fbc273cd"
+  version "1.150.7"
+  resolved "https://registry.yarnpkg.com/@sanity/cli/-/cli-1.150.7.tgz#93d943b8ffa0bcf16bf255c926a25a2503143b33"
+  integrity sha512-wJhRLzyy2RfkuxiIcrUL8zYe4+xWCWib8bJJ5q8H9NkgaENX3GZLcUnQ/1sD9PYCNZDouRI5rw6fSeEsyRe6Hw==
 
 "@sanity/cli@^1.150.1":
   version "1.150.1"
@@ -11678,19 +11679,10 @@ react-datepicker@^1.8.0:
     react-onclickoutside "^6.7.1"
     react-popper "^1.0.2"
 
-react-dom@^16.13.1:
+react-dom@^16.13.1, react-dom@^16.9.0:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.13.1.tgz#c1bd37331a0486c078ee54c4740720993b2e0e7f"
   integrity sha512-81PIMmVLnCNLO/fFOQxdQkvEq/+Hfpv24XNJfpyZhTRfO0QcmQIF/PgCa1zCOj2w1hrn12MFLyaJ/G0+Mxtfag==
-  dependencies:
-    loose-envify "^1.1.0"
-    object-assign "^4.1.1"
-    prop-types "^15.6.2"
-    scheduler "^0.19.1"
-
-react-dom@^16.9.0:
-  version "16.13.1"
-  resolved "https://registry.npmjs.org/react-dom/-/react-dom-16.13.1.tgz#c1bd37331a0486c078ee54c4740720993b2e0e7f"
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
@@ -11886,18 +11878,10 @@ react-tippy@1.4.0, react-tippy@^1.2.3:
   dependencies:
     popper.js "^1.11.1"
 
-react@^16.13.1:
+react@^16.13.1, react@^16.9.0:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react/-/react-16.13.1.tgz#2e818822f1a9743122c063d6410d85c1e3afe48e"
   integrity sha512-YMZQQq32xHLX0bz5Mnibv1/LHb3Sqzngu7xstSM+vrkE5Kzr9xE0yMByK5kMoTK30YVJE61WfbxIFFvfeDKT1w==
-  dependencies:
-    loose-envify "^1.1.0"
-    object-assign "^4.1.1"
-    prop-types "^15.6.2"
-
-react@^16.9.0:
-  version "16.13.1"
-  resolved "https://registry.npmjs.org/react/-/react-16.13.1.tgz#2e818822f1a9743122c063d6410d85c1e3afe48e"
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"

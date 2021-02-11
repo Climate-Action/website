@@ -1,0 +1,9 @@
+.themeLight {
+    background-color: var(--color-theme-bg) !important;
+}
+.themeDark {
+    background-color: var(--color-theme-dark) !important;
+}
+.themeWhite {
+    background-color: white !important;
+}

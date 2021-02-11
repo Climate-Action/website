@@ -1,14 +1,26 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import SimpleBlockContent from '../atoms/SimpleBlockContent'
+import ModulePadding from '../atoms/ModulePadding'
+import ThemeStyle from '../atoms/Theme'
 import styles from './TextSection.module.css'
 import imageUrl from '../atoms/imageUrl'
 
-function TextSection({ heading, items, white }) {
+function TextSection({ heading, items, theme, headingStyle, modulePadding }) {
+  let styleHeading = styles.heading;
+  if (headingStyle === 'serif') {
+    styleHeading = styles.groupTitle;
+  }
+
   return (
-    <div className={styles.root} style={white ? { backgroundColor: 'white' } : {}}>
+    <div 
+      className={`${styles.root} ${ThemeStyle(theme)}`}
+      style={ModulePadding(modulePadding)}
+    >
       <section className={styles.article}>
-        <h2 className={styles.heading}>{heading}</h2>
+        <h2 
+          className={`${styleHeading}`} 
+        >{heading}</h2>
         <div className={styles.items}>
           {items.map(({ title, image, text, _key }) => (
             <article className={styles.item} key={_key}>
@@ -32,7 +44,9 @@ function TextSection({ heading, items, white }) {
 
 TextSection.propTypes = {
   heading: PropTypes.string,
-  white: PropTypes.bool,
+  headingStyle: PropTypes.string,
+  modulePadding: PropTypes.object,
+  theme: PropTypes.object,
   items: PropTypes.arrayOf(PropTypes.object),
 }
 
