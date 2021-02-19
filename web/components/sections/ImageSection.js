@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './ImageSection.module.css'
 import ModulePadding from '../atoms/ModulePadding'
+import ModulePlacement from '../atoms/ModulePlacement'
+import FigureStyle from '../atoms/FigureStyle'
 import ThemeStyle from '../atoms/Theme'
 import SimpleBlockContent from '../atoms/SimpleBlockContent'
 import CallToAction from './CallToAction'
@@ -17,6 +19,7 @@ function ImageSection(props) {
     imageOnRight,
     smallImage,
     modulePadding,
+    textPlacement,
   } = props
 
   let contentStyle = styles.content;
@@ -27,6 +30,8 @@ function ImageSection(props) {
     }
   }
 
+  console.log(heading, cta)
+
   return (
     <div 
       className={`${styles.root} ${imageOnRight ? styles.imageOnRight : ''} ${ThemeStyle(theme)}`}
@@ -34,12 +39,17 @@ function ImageSection(props) {
     >
       <div className={contentStyle}>
         {image && (
-          <img src={imageUrl(image, 600)} className={styles.image} alt={heading} />
+          <img 
+            src={imageUrl(image, 600)} 
+            className={styles.image} 
+            alt={heading} 
+            style={FigureStyle(image)}
+          />
         )}
-        <div className={styles.text}>
+        <div className={styles.text} style={ModulePlacement(textPlacement)}>
           <h2 className={styles.title}>{heading}</h2>
           <div className={styles.text}>{text && <SimpleBlockContent blocks={text} />}</div>
-          {cta && (<CallToAction cta={cta} />)}
+          {cta?.title && (<CallToAction cta={cta} />)}
         </div>
       </div>
     </div>
@@ -50,8 +60,13 @@ ImageSection.propTypes = {
   heading: PropTypes.string,
   theme: PropTypes.object,
   modulePadding: PropTypes.object,
+  textPlacement: PropTypes.object,
   text: PropTypes.array,
   image: PropTypes.shape({
+    maxWidth: PropTypes.string,
+    maxHeight: PropTypes.string,
+    caption: PropTypes.string,
+    alt: PropTypes.string,
     asset: PropTypes.shape({
       _ref: PropTypes.string,
     }),

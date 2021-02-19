@@ -24,6 +24,11 @@ export default {
       title: 'Text',
     },
     {
+      name: 'textPlacement',
+      type: 'modulePlacement',
+      title: 'Text Alignment'
+    },
+    {
       name: 'image',
       type: 'figure',
       title: 'Image',

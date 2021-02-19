@@ -23,6 +23,7 @@ import step from './objects/step'
 import signUpSteps from './documents/signUpSteps'
 import sortBy from './helpers/sortBy'
 import modulePadding from './helpers/modulePadding'
+import modulePlacement from './helpers/modulePlacement'
 import moduleWidth from './helpers/moduleWidth'
 import theme from './helpers/theme'
 
@@ -78,6 +79,7 @@ export default createSchema({
     cta,
     callToAction,
     modulePadding,
+    modulePlacement,
     moduleWidth,
     theme,
     splitView,

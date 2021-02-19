@@ -10,7 +10,7 @@ function ImageTextCta(props) {
     return <SimpleBlockContent blocks={text} />
   }
 
-  if (callToAction) {
+  if (callToAction?.title) {
     return <CallToAction 
       cta={callToAction.cta} 
       verticalPadding={callToAction.verticalPadding}
