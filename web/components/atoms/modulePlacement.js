@@ -1,9 +1,9 @@
 function ModulePlacement(modulePlacement) {
-    let _styles = {}
-    if (modulePlacement) {
-      _styles['align-self'] = modulePlacement.value
-    }
-    return _styles
+  let _styles = {}
+  if (modulePlacement) {
+    _styles.alignSelf = modulePlacement.value
   }
-  
-  export default ModulePlacement
+  return _styles
+}
+
+export default ModulePlacement

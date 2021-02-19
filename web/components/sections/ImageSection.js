@@ -30,8 +30,6 @@ function ImageSection(props) {
     }
   }
 
-  console.log(heading, cta)
-
   return (
     <div 
       className={`${styles.root} ${imageOnRight ? styles.imageOnRight : ''} ${ThemeStyle(theme)}`}
