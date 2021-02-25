@@ -35,8 +35,16 @@
   display: block;
   white-space: nowrap;
   line-height: calc(var(--font-base-line-height) * 1.5rem);
-  padding: 0.25rem 1.25rem;
+  padding: 0.25rem 0.5rem;
   height: 2rem;
+
+  @media (--media-min-medium) {
+    padding: 0.25rem 1.25rem;
+  }
+
+  &:last-child {
+    padding: 0.25rem 1.25rem;
+  }
 
   &[data-is-active="true"] {
     background-color: var(--color-white, #fff);
