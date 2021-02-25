@@ -23,7 +23,7 @@
     font-size: var(--font-title3-size);
     line-height: var(--font-title3-line-height);
     font-family: var(--font-family-sans);
-    font-weight: 200;
+    font-weight: 500;
     text-transform: uppercase;
     margin: 0 0 0.25em;
     color: var(--color-theme-text);
