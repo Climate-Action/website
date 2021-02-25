@@ -4,6 +4,7 @@
   line-height: var(--font-small-line-height);
   padding: 2rem 0;
   max-width: 80vw;
+  text-align: center;
   margin: 0 auto;
 
   & svg {

@@ -12,6 +12,16 @@ export default {
       title: 'Downloadable',
     },
     {
+      name: 'maxWidth',
+      type: 'string',
+      title: 'Max Width',
+    },
+    {
+      name: 'maxHeight',
+      type: 'string',
+      title: 'Max Height',
+    },
+    {
       title: 'Caption',
       name: 'caption',
       type: 'string',
@@ -22,7 +32,7 @@ export default {
     {
       name: 'alt',
       type: 'string',
-      title: 'Alternative text',
+      title: 'Alternative Text',
       description: 'Important for SEO and accessiblity.',
       options: {
         isHighlighted: true,

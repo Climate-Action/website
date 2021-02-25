@@ -12,6 +12,26 @@ export default {
       title: 'Heading',
     },
     {
+      name: 'headingStyle',
+      type: 'string',
+      validation: Rule => Rule.required(),
+      options: {
+        list: [{
+          value: 'default',
+          title: 'Default'
+        }, {
+          value: 'serif',
+          title: 'Serif'
+        }],
+        layout: 'radio',
+      },
+    },
+    {
+      name: 'modulePadding',
+      type: 'modulePadding',
+      title: 'Module Padding',
+    },
+    {
       name: 'items',
       title: 'Items',
       type: 'array',
@@ -40,9 +60,9 @@ export default {
       ],
     },
     {
-      name: 'white',
-      type: 'boolean',
-      title: 'White',
+      name: 'theme',
+      type: 'theme',
+      title: 'Theme',
     },
   ],
   preview: {

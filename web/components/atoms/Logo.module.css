@@ -9,10 +9,16 @@
   flex-grow: 1;
 
   & > a {
-    display: block;
+    display: inline-block;
     padding: 1.5em;
     border-bottom: 0 !important;
     transition: filter .2s;
+
+    min-height: 42px;
+
+    @media (--media-min-medium) {
+      min-height: 51px;
+    }
 
     &:hover {
       filter: brightness(0.5);

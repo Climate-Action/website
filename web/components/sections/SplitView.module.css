@@ -1,0 +1,15 @@
+.content {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  grid-gap: 2rem 4rem;
+  margin: 0 auto;
+}
+
+.theme {
+  background-color: inherit;
+}
+
+.themeWhite {
+  background-color: white;
+}

@@ -9,6 +9,12 @@ export default {
       type: 'string',
     },
     {
+      name: 'modulePadding',
+      type: 'string',
+      default: '1rem 0 3rem',
+      title: 'Padding',
+    },
+    {
       name: 'intro',
       title: 'Intro',
       type: 'simplePortableText',
@@ -25,4 +31,15 @@ export default {
       type: 'boolean',
     },
   ],
+  preview: {
+    select: {
+      heading: 'title',
+    },
+    prepare({ heading }) {
+      return {
+        title: `${heading}`,
+        subtitle: 'Header section',
+      }
+    },
+  },
 }

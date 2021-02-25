@@ -107,8 +107,9 @@
   padding-bottom: 2rem;
 
   & h4 {
+    clear: left;
+    display: inline-block;
     font-size: 2em;
-    margin-top: 0.5em;
 
     @media (--media-min-medium) {
       font-size: 2.8em;
@@ -116,10 +117,19 @@
   }
 
   & h1 {
+    display: inline-block;
     font-size: 3em;
-
     @media (--media-min-medium) {
       font-size: 4em;
+    }
+  }
+
+  & h3 {
+    display: inline-block;
+    font-size: 1rem;
+    margin-left: .5rem;
+    @media (--media-min-medium) {
+      font-size: 2em;
     }
   }
 
