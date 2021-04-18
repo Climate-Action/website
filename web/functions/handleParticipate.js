@@ -4,9 +4,15 @@ const Sentry = require('@sentry/node')
 const https = require('https')
 const crypto = require('crypto')
 
-const MAILCHIMP_MEMBER_URL = 'https://us20.admin.mailchimp.com/lists/members/view'
-const MAILCHIMP_API_KEY = process.env.MAILCHIMP_API_KEY
 const MAILCHIMP_AUDIENCE_ID = process.env.MAILCHIMP_AUDIENCE_ID
+const MAILCHIMP_API_KEY = process.env.MAILCHIMP_API_KEY
+const MAILCHIMP_API_DOMAIN = 'us20.api.mailchimp.com'
+const MAILCHIMP_API_MEMBER_PATH = `/3.0/lists/${MAILCHIMP_AUDIENCE_ID}/members`
+const MAILCHIMP_API_HEADERS = {
+  'Content-type': 'application/json',
+  Authorization: `apikey ${MAILCHIMP_API_KEY}`,
+}
+const MAILCHIMP_MEMBER_URL = 'https://us20.admin.mailchimp.com/lists/members/view'
 const SLACK_TOKEN = process.env.SLACK_TOKEN
 const SLACK_SIGNUP_NOTIFICATION_CHANNEL = process.env.SLACK_SIGNUP_NOTIFICATION_CHANNEL
 
@@ -72,9 +78,12 @@ async function run(userData, runConfig) {
     let webId = ''
     if (!runConfig.disableMailchimp) {
       const mailchimpResponse = await addToMailchimp(userData)
+      // console.log('mailchimpResponse', mailchimpResponse)
       const mailchimpJson = JSON.parse(mailchimpResponse)
       returnValue = mailchimpJson.status
       webId = mailchimpJson.web_id
+      const mailchimpTagResponse = await tagSubscriber(userData)
+      // console.log('mailchimpTagResponse', mailchimpTagResponse)
     }
     if (!runConfig.disableSlack && webId) {
       await sendSlackMessage(
@@ -96,7 +105,7 @@ async function sendSlackMessage(message) {
       text: message,
     }
     // console.log('sendSlackMessage', slackMessage)
-    const req = getHttpRequest(
+    const req = doHttpRequest(
       {
         host: 'slack.com',
         path: '/api/chat.postMessage',
@@ -116,21 +125,13 @@ async function sendSlackMessage(message) {
 
 async function addToMailchimp(userData) {
   return new Promise((resolve, reject) => {
-    const emailHash = crypto
-      .createHash('md5')
-      .update(userData.EMAIL)
-      .digest('hex')
+    const emailHash = getEmailHash(userData.EMAIL)
     const jsonData = {
       email_address: userData.EMAIL,
       status: 'subscribed',
       merge_fields: {
         MOTIVATION: userData.ABOUT || undefined,
       },
-      // https://mailchimp.com/developer/marketing/guides/organize-contacts-with-tags/#label-a-contact-with-a-tag
-      tags: [{
-        name: 'Ambassador',
-        status: 'active'
-      }]
     }
     if (userData.NAME) {
       const names = userData.NAME.split(' ')
@@ -141,15 +142,12 @@ async function addToMailchimp(userData) {
     }
     // console.log('addToMailchimp', jsonData)
     // https://mailchimp.com/developer/marketing/api/list-members/add-or-update-list-member/
-    const req = getHttpRequest(
+    const req = doHttpRequest(
       {
-        host: 'us20.api.mailchimp.com',
-        path: `/3.0/lists/${MAILCHIMP_AUDIENCE_ID}/members/${emailHash}`,
+        host: MAILCHIMP_API_DOMAIN,
+        path: `${MAILCHIMP_API_MEMBER_PATH}/${emailHash}`,
         method: 'PUT',
-        headers: {
-          'Content-type': 'application/json',
-          Authorization: `apikey ${MAILCHIMP_API_KEY}`,
-        },
+        headers: MAILCHIMP_API_HEADERS,
       },
       resolve,
       reject,
@@ -159,7 +157,41 @@ async function addToMailchimp(userData) {
   })
 }
 
-function getHttpRequest(options, resolve, reject) {
+async function tagSubscriber(userData) {
+  return new Promise((resolve, reject) => {
+    const emailHash = getEmailHash(userData.EMAIL)
+    const jsonData = {
+      tags: [{
+        name: 'Ambassador',
+        status: 'active'
+      }]
+    }
+    // console.log('updateListMemberTags', jsonData)
+    // https://mailchimp.com/developer/marketing/guides/organize-contacts-with-tags/#label-a-contact-with-a-tag
+    const req = doHttpRequest(
+      {
+        host: MAILCHIMP_API_DOMAIN,
+        path: `${MAILCHIMP_API_MEMBER_PATH}/${emailHash}/tags`,
+        method: 'POST',
+        headers: MAILCHIMP_API_HEADERS,
+      },
+      resolve,
+      reject,
+    )
+    req.write(JSON.stringify(jsonData))
+    req.end()
+  })
+}
+
+function getEmailHash(email) {
+  return crypto
+    .createHash('md5')
+    .update(email)
+    .digest('hex')
+}
+
+function doHttpRequest(options, resolve, reject) {
+  // console.log('doHttpRequest', options)
   return https
     .request(options, resp => {
       let data = ''
