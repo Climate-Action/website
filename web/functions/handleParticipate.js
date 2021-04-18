@@ -54,6 +54,7 @@ exports.handler = sentryHandler((event, context, callback) => {
     disableSlack: event.queryStringParameters.disableSlack === 'true',
     disableMailchimp: event.queryStringParameters.disableMailchimp === 'true',
   }
+  // console.log('runConfig', runConfig)
   run(userData, runConfig)
     .then(data => {
       callback(null, {
@@ -125,6 +126,11 @@ async function addToMailchimp(userData) {
       merge_fields: {
         MOTIVATION: userData.ABOUT || undefined,
       },
+      // https://mailchimp.com/developer/marketing/guides/organize-contacts-with-tags/#label-a-contact-with-a-tag
+      tags: [{
+        name: 'Ambassador',
+        status: 'active'
+      }]
     }
     if (userData.NAME) {
       const names = userData.NAME.split(' ')
@@ -134,6 +140,7 @@ async function addToMailchimp(userData) {
       jsonData.merge_fields.LNAME = lastName
     }
     // console.log('addToMailchimp', jsonData)
+    // https://mailchimp.com/developer/marketing/api/list-members/add-or-update-list-member/
     const req = getHttpRequest(
       {
         host: 'us20.api.mailchimp.com',
